@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Second Session PHP: Type Juggling, Operators & Strings — Yousef Tamer</title>
+  <meta name="description" content="تاني سيشن PHP — type juggling, type casting, الـ operators بأنواعها، Strings functions، و Functions في PHP." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, PHP, type juggling, type casting, operators, strings, functions" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/second-session-php" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/second-session-php" />
+  <meta property="og:title" content="Second Session PHP: Type Juggling, Operators & Strings — Yousef Tamer" />
+  <meta property="og:description" content="تاني سيشن PHP — type juggling, type casting, الـ operators بأنواعها، Strings functions، و Functions في PHP." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/second-session-php" />
+  <meta name="twitter:title" content="Second Session PHP: Type Juggling, Operators & Strings — Yousef Tamer" />
+  <meta name="twitter:description" content="تاني سيشن PHP — type juggling, type casting, الـ operators بأنواعها، Strings functions، و Functions في PHP." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://jooexploit.dev/blog/second-session-php/#post",
+      "headline": "Second Session PHP — Type Juggling, Operators & Strings",
+      "description": "تاني سيشن PHP — type juggling, type casting, الـ operators بأنواعها، Strings functions، و Functions في PHP.",
+      "url": "https://jooexploit.dev/blog/second-session-php",
+      "datePublished": "2025-03-27",
+      "dateModified": "2025-03-27",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jooexploit.dev/blog/second-session-php/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/blog/second-session-php/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://jooexploit.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Second Session PHP — Type Juggling, Operators & Strings",
+          "item": "https://jooexploit.dev/blog/second-session-php"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" class="is-active" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <article class="section" aria-labelledby="post-title">
+      <div class="container" style="max-width: 860px;">
+
+        <header style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="tag mono">
+              PHP &middot; Backend &middot; Functions
+            </span>
+          </div>
+          <h1 id="post-title" class="section__title"
+            style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text);">
+            Second Session PHP — Type Juggling, Operators &amp; Strings
+          </h1>
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Published</span><span>March 28, 2025</span></div>
+            <div class="meta-item"><span>Read Time</span><span>8 Min</span></div>
+            <div class="meta-item"><span>Author</span><span>Yousef Tamer</span></div>
+          </div>
+        </header>
+
+        
+        
+          <section class="post-content prose" dir="auto">
+            <h1 id="second-session-php">Second Session PHP</h1><p>بسـم اللـه الرحمـن الرحيـم الحمد لله رب العالمين، والصلاة والسلام على سيدنا محمد الصادق الوعد الأمين، اللهم لا علم لنا إلا ما علمتنا، إنك أنت العليم الحكيم، اللهم علمنا ما ينفعنا، وانفعنا بما علمتنا وزدنا علماً</p>
+<p>موعدنا انهارده باذن الله مع تاني سيشن من كورس php</p>
+<p>ف تعالي قبل اما نبدأ نقسم زي م البشمندس <a href="https://www.linkedin.com/in/islam-kabbary-2b35a814b/">Islam kabbary</a> قسم</p>
+<div class="md-code-wrap"><pre><code>php and html
+type Juggling 
+type Casting 
+Operators 
+String 
+Function
+</code></pre></div>
+<p>ودي العناوين الي هنتكلم فيها باذن الله ف تعالا نبدأ مع اول نقطه</p>
+<p>htmlاحنا المره الي فاتت عرفنا ازاي نعمل متغيرات بس المره دي بقي عايزين نطبع ونشكل ب</p>
+<div class="md-code-wrap"><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;?php
+    $userName = &quot;jooexploit&quot;;
+    $userName2 = &quot;yousef&quot;;
+    ?&gt;
+    &lt;h2&gt;Welcome back, &lt;?php echo $userName; ?&gt;&lt;/h2&gt;
+    &lt;h2&gt;Welcome back, &lt;?= $userName2; ?&gt;&lt;/h2&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></div>
+<p>عادي جد html بص يسيدي ف الكود دا ف البدايه خالص هنكتب بدايه اي كود</p>
+<p>php بعد كد عشان بقي لما نيجي نكتب اي</p>
+<div class="md-code-wrap"><pre><code>&lt;?php
+    $userName = &quot;jooexploit&quot;;
+    $userName2 = &quot;yousef&quot;;
+?&gt;
+</code></pre></div>
+<p>بنعمل كد عشان نكتب اي حاجه مش شرط متغيرات بس لا عادي</p>
+<p>وبرضه لو حابين نطبع او نكتب حاجه تبقي متغيره مع شويه تشكيل زي اننا نكتبها بخط اكبر مثلا</p>
+<div class="md-code-wrap"><pre><code>&lt;h2&gt;Welcome back, &lt;?php echo $userName; ?&gt;&lt;/h2&gt;
+&lt;h2&gt;Welcome back, &lt;?= $userName2; ?&gt;&lt;/h2&gt;
+</code></pre></div>
+<p>echo هنا انا طبعت بطريقتين طريقه عاديه والطريقه التانيه عشان نختصر منقعدش نكتب كل مره</p>
+<hr>
+<p>نخش بقي على الجزئية التانية وهي:</p>
+<h3 id="type-juggling">type juggling</h3><p>بص يسيدي، احنا في PHP عندنا حاجه اسمها <em>type juggling</em> ودي معناها إن اللغة نفسها بتحاول تفهم نوع البيانات من غير ما انت تحدده بنفسك، يعني مثلاً لو كتبت:</p>
+<div class="md-code-wrap"><pre><code>$number = &quot;5&quot; + 10;
+echo $number;
+</code></pre></div>
+<p>هيطبعلك 15 مع إن المفروض &quot;5&quot; دي سترينج، بس عشان فيه جمع مع رقم، فـ PHP قالت خلاص هنحول السترينج دا لرقم ونجمعهم على بعض.</p>
+<p>طيب يعني ايه دا؟ يعني الـ PHP بتجتهد لوحدها وتقول &quot;اه دا شكله رقم.. طب نحوله لرقم&quot; ودا بنسميه <em>automatic type conversion</em> أو <em>type juggling</em>.</p>
+<p>مثال تاني:</p>
+<div class="md-code-wrap"><pre><code>$var = &quot;10 little pigs&quot;;
+$var2 = $var + 5;
+echo $var2; 
+</code></pre></div>
+<p>عارف دا هيطبع ايه؟ هيطبع 15 ليه؟ عشان PHP لقت أول رقم في السترينج وقالت &quot;هنتعامل مع أول رقم موجود بس&quot; والباقي طنشته.</p>
+<hr>
+<h3 id="type-casting">type casting</h3><p>نيجي بقي للجزء التاني وهو <em>type casting</em></p>
+<p>بص دي بقى انت الي بتقول فيها للـ PHP &quot;يا PHP من فضلك اعتبري المتغير دا نوع كذا&quot; ودا بيكون بشكل صريح، زي كدا:</p>
+<div class="md-code-wrap"><pre><code>$number = (int) &quot;123abc&quot;;
+echo $number;
+</code></pre></div>
+<p>هيطبعلك 123 ليه؟ عشان انت قولتله (int) يعني حول السترينج دا لرقم صحيح.</p>
+<p>في حاجات تاني ممكن تعمللها كاست زي:</p>
+<ul>
+<li>(int)</li>
+<li>(bool)</li>
+<li>(float)</li>
+<li>(string)</li>
+</ul>
+<p>مثال تاني:</p>
+<div class="md-code-wrap"><pre><code>$price = 99.99;
+$price = (int) $price;
+echo $price; 
+</code></pre></div>
+<p>هيطبعلك 99 لأنه حذف الجزء العشري.</p>
+<hr>
+<h3 id="الفرق-بين-type-juggling-و-type-casting">الفرق بين type juggling و type casting</h3><ul>
+<li><em>type juggling</em> → PHP بتتصرف من دماغها</li>
+<li><em>type casting</em> → انت اللي بتقولها تتصرف ازاي</li>
+</ul>
+<hr>
+<p>الجزء الي بعده وهو</p>
+<h2 id="operators">Operators</h2><p>بص يا سيدي، الـ Operators أو &quot;العوامل&quot; دي أدوات بنستخدمها عشان نعمل عمليات على المتغيرات والقيم، سواء عمليات حسابية، منطقية، مقارنة... وهكذا.</p>
+<p>فنقسمهم كدا زي ما عملنا فوق:</p>
+<hr>
+<h3 id="1-arithmetic-operators-العمليات-الحسابية">1. Arithmetic Operators (العمليات الحسابية)</h3><p>ودي العوامل اللي بنستخدمها في الحساب:</p>
+<div class="md-code-wrap"><pre><code>$x = 11;
+$y = 2;
+
+// echo $x + $y , &quot;&lt;br&gt;&quot;;  // 13
+// echo $x * $y , &quot;&lt;br&gt;&quot;;  // 22
+// echo $x - $y , &quot;&lt;br&gt;&quot;;  // 9
+// echo $x / $y , &quot;&lt;br&gt;&quot;;  // 5.5
+// echo $x % $y , &quot;&lt;br&gt;&quot;;  // 1 
+</code></pre></div>
+<ul>
+<li><ul>
+<li>للجمع</li>
+</ul>
+</li>
+<li><ul>
+<li>للطرح</li>
+</ul>
+</li>
+<li><ul>
+<li>للضرب</li>
+</ul>
+</li>
+<li>/ للقسمة</li>
+<li>% باقي القسمة</li>
+</ul>
+<hr>
+<h3 id="2-logical-operators-العمليات-المنطقية">2. Logical Operators (العمليات المنطقية)</h3><p>دي لما يكون عندك شرطين أو أكتر وعايز تتأكد إنهم صح أو واحد منهم صح.</p>
+<div class="md-code-wrap"><pre><code>$age = 20;
+$hasID = true;
+
+// var_dump($age &gt;= 18 &amp;&amp; $hasID); // true
+// var_dump($age &gt;= 18 || $hasID); // true 
+</code></pre></div>
+<ul>
+<li>&amp;&amp; (AND): لازم الشرطين يكونوا صح</li>
+<li>|| (OR): يكفي واحد بس يكون صح</li>
+</ul>
+<hr>
+<h3 id="3-string-operators-العمليات-على-النصوص">3. String Operators (العمليات على النصوص)</h3><p>دي لما تحب تجمع بين كذا string:</p>
+<div class="md-code-wrap"><pre><code>$name = &quot;islam&quot;;
+echo &quot;Hello &quot; . $name; // Hello islam
+
+$msg = &quot;Hi &quot;;
+$msg .= &quot;there!&quot;;
+echo $msg; // Hi there! 
+</code></pre></div>
+<ul>
+<li>. للجمع بين النصوص</li>
+<li>.= معناها ضيف على المتغير الحالي</li>
+</ul>
+<hr>
+<h3 id="4-ternary-operator-عامل-الشرط-المختصر">4. Ternary Operator (عامل الشرط المختصر)</h3><p>دا اختصار للـ if statement لما تكون بسيطة:</p>
+<div class="md-code-wrap"><pre><code>$isLogin = false;
+echo $isLogin ? &quot;welcome&quot; : &quot;Please Login&quot;; 
+</code></pre></div>
+<p>معناها:</p>
+<ul>
+<li>لو الشرط صح → اطبع &quot;welcome&quot;</li>
+<li>لو الشرط غلط → اطبع &quot;Please Login&quot;</li>
+</ul>
+<p>مثال كمان:</p>
+<div class="md-code-wrap"><pre><code>$age = 10;
+$hasID = true;
+
+echo ($age &gt;= 18 &amp;&amp; $hasID) ? &quot;User Has ID&quot; : &quot;User Hasnt ID&quot;;
+</code></pre></div>
+<hr>
+<h3 id="5-comparison-operators-عوامل-المقارنة">5. Comparison Operators (عوامل المقارنة)</h3><p>بتستخدمهم لما تحب تقارن بين قيمتين:</p>
+<div class="md-code-wrap"><pre><code>var_dump(&quot;5&quot; == 5);   // true - القيمة بس متساوية
+var_dump(&quot;5&quot; === 5);  // false - القيمة والنوع مختلفين
+
+var_dump(10 &gt; 5);     // true
+var_dump(10 &lt; 5);     // false
+
+var_dump(&quot;3&quot; &lt; 4);    // true
+
+var_dump(&quot;3&quot; != 3);   // false - لأنهم متساويين في القيمة
+var_dump(&quot;3&quot; !== 3);  // true - لأن النوع مختلف 
+</code></pre></div>
+<p>الفرق بين <mark> و </mark>=:</p>
+<ul>
+<li>== بتقارن القيم بس</li>
+<li>=== بتقارن القيم <strong>والنوع</strong></li>
+</ul>
+<hr>
+<p>الجزء الي اتكلمنا فيه بعد كد وهو</p>
+<h3 id="strings-in-php">Strings in PHP</h3><p>احنا شفنا إن التعامل مع النصوص (Strings) في PHP مش بس موضوع طباعة متغيرات جوه كلام، لا دا فيه تفاصيل كتير ممكن تفرق معانا في الشغل.</p>
+<p>نبدأ بأبسط حاجة:</p>
+<hr>
+<h3 id="طباعة-المتغيرات-جوه-string">طباعة المتغيرات جوه String</h3><div class="md-code-wrap"><pre><code>$age = 30;
+echo &quot;My age is $age&quot; , &quot;&lt;br&gt;&quot;;  // My age is 30
+echo &#39;My age is $age&#39;;           // My age is $age 
+</code></pre></div>
+<p>هنا في فرق واضح بين:</p>
+<ul>
+<li><strong>Double quotes</strong> &quot; &quot; → بتفهم إن فيه متغير وبتطبعه.</li>
+<li><strong>Single quotes</strong> &#39; &#39; → بتطبع الكلام زي ما هو حتى لو فيه متغير.</li>
+</ul>
+<hr>
+<h3 id="طباعة-علامات-التنصيص-جوه-string">طباعة علامات التنصيص جوه String</h3><div class="md-code-wrap"><pre><code>echo &quot;my name is \&quot;islam\&quot;&quot;;
+echo &#39;my name is &quot;islam&quot;&#39;;
+echo &#39;It\&#39;s beautiful day&#39;; 
+</code></pre></div>
+<p>لو عايز تكتب علامة تنصيص (زي &quot;) أو &#39; جوه نفس نوع الـ quotes، لازم تهربها بعلامة الـ backslash .</p>
+<hr>
+<h3 id="heredoc">Heredoc</h3><p>لو عندك نص كبير وعايز تكتبه بشكل منسق، استخدم Heredoc:</p>
+<div class="md-code-wrap"><pre><code>$name = &quot;Ahmed&quot;;
+$age = &quot;30&quot;;
+
+$mess = &lt;&lt;&lt;TEXT
+Hello &quot;$name&quot; 
+welcom to the PHP Course
+You can start anytime
+your age is &quot;$age&quot;
+TEXT;
+
+echo $mess; 
+</code></pre></div>
+<ul>
+<li>Heredoc بتعامل الكلام كأنه جوا double quotes يعني بتفهم المتغيرات.</li>
+</ul>
+<hr>
+<h3 id="nowdoc">Nowdoc</h3><p>نفس فكرة Heredoc بس بتعامل النص كأنه جوا single quotes:</p>
+<div class="md-code-wrap"><pre><code>$mess = &lt;&lt;&lt;&#39;TEXT&#39;
+Hello &quot;$name&quot; 
+welcom to the PHP Course
+You can start anytime
+your age is &quot;$age&quot;
+TEXT;
+
+echo $mess; 
+</code></pre></div>
+<ul>
+<li>هنا مش هيطبع قيمة المتغير، هيطبع الاسم زي ما هو $name.</li>
+</ul>
+<hr>
+<h3 id="دوال-التعامل-مع-الـ-strings">دوال التعامل مع الـ Strings</h3><h3 id="1-strlen">1. strlen()</h3><p>تعرف بيها عدد الحروف:</p>
+<div class="md-code-wrap"><pre><code>$pass = &quot;123456&quot;;
+echo strlen($pass); // 6 
+</code></pre></div>
+<hr>
+<h3 id="2-strtoupper-و-strtolower">2. strtoupper() و strtolower()</h3><p>تغيير شكل الحروف:</p>
+<div class="md-code-wrap"><pre><code>$name = &quot;ali&quot;;
+echo strtoupper($name); // ALI
+
+$name = &quot;ALI&quot;;
+echo strtolower($name); // ali 
+</code></pre></div>
+<hr>
+<h3 id="3-substr">3. substr()</h3><p>تقطع جزء من النص:</p>
+<div class="md-code-wrap"><pre><code>$title = &quot;Hello World&quot;;
+echo substr($title, 0, 5);  // Hello
+
+$test = substr($title, 5, 6); //  World
+echo strlen($test);          // 6 
+</code></pre></div>
+<hr>
+<h3 id="4-strpos">4. strpos()</h3><p>تشوف مكان كلمة معينة في النص:</p>
+<div class="md-code-wrap"><pre><code>$text = &quot;welcome to PHP&quot;;
+var_dump(strpos($text, &quot;PHP&quot;)); // يطبع رقم البداية للكلمة 
+</code></pre></div>
+<p>لو الكلمة مش موجودة بيرجع false.</p>
+<hr>
+<h3 id="5-str-replace">5. str_replace()</h3><p>تبدل كلمة بكلمة تانية:</p>
+<div class="md-code-wrap"><pre><code>$text = &quot;This is bad&quot;;
+echo str_replace(&quot;bad&quot;, &quot;mostafa&quot;, $text); // This is mostafa 
+</code></pre></div>
+<p><em>خد بالك الحروف لازم تكون بنفس الحالة (Case Sensitive)</em>.</p>
+<hr>
+<p>نيجي بقي لاخر نقطه وهي اكتر نقطه مهمه اتكلم عنها البشمهندس بس قال ان دا حاجه بسيطه جدا عنها و ف المرات الجايه باذن الله نبقي نتكلم عنها اكتر الا وهي</p>
+<h3 id="functions-in-php">Functions in PHP</h3><p>بص يا سيدي، الـ <strong>function</strong> يعني &quot;وظيفة&quot; أو &quot;مجموعة أوامر&quot; بتكتبها مرة، وتقدر تستخدمها في أي وقت بعد كده.</p>
+<hr>
+<h3 id="1-function-بسيطة-من-غير-باراميتر">1. Function بسيطة من غير باراميتر</h3><div class="md-code-wrap"><pre><code>function welcome()
+{
+    echo &quot;welcome to website&quot;;
+} 
+</code></pre></div>
+<p>دي فنكشن اسمها welcome، كل اللي بتعمله إنها تطبع جملة معينة، ومفيهاش أي مدخلات (باراميترز).</p>
+<p>لو حبيت تنفذها، بتكتب بس اسمها كده:</p>
+<div class="md-code-wrap"><pre><code>welcome(); 
+</code></pre></div>
+<hr>
+<h3 id="2-function-فيها-باراميتر-parameter">2. Function فيها باراميتر (Parameter)</h3><div class="md-code-wrap"><pre><code>function greet($name)
+{
+    echo &quot;Hello $name&quot;;
+} 
+</code></pre></div>
+<p>دي بقى فنكشن بتاخد <strong>باراميتر</strong> اسمه $name، ولما تنادي عليها وتديها اسم، هتطبع جملة ترحيب بالاسم ده.</p>
+<p>مثلاً:</p>
+<div class="md-code-wrap"><pre><code>greet(&quot;sara&quot;);  // Hello sara 
+</code></pre></div>
+<hr>
+<h3 id="3-function-بترجع-قيمة-return">3. Function بترجع قيمة (Return)</h3><div class="md-code-wrap"><pre><code>function add($x, $y)
+{
+    return $x + $y;
+} 
+</code></pre></div>
+<p>دي فنكشن اسمها add، بتاخد رقمين وتعملهم جمع، وبترجع الناتج باستخدام return.</p>
+<p>يعني لما تنادي عليها، النتيجة بتتخزن:</p>
+<div class="md-code-wrap"><pre><code>$sum = add(10, 5);
+echo $sum; // 15 
+</code></pre></div>
+<hr>
+<h3 id="كد-نكون-خلصنا-السيشن-التانيه-ف-php-القاك-المره-القادمه">كد نكون خلصنا السيشن التانيه ف php القاك المره القادمه</h3><p>وف النهايه احب اقلك<br>✨ Not the first, Not the end, It’s an endless way! ✨</p>
+<hr>
+
+          </section>
+        
+
+        <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- MathJax & Mermaid libraries for rich post content -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">04 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Want to learn PHP deeply?<br>Let's <em class="accent-em">talk</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to discussions on PHP development, type systems, and server-side logic.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Injection Attacks: SQL Injection, Command Injection & XSS — Yousef Tamer</title>
+  <meta name="description" content="شرح أنواع Injection Attacks الثلاث — SQL Injection وCommand Injection وXSS مع طرق الاكتشاف والاستغلال والحماية." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, SQL injection, XSS, command injection, OWASP, bug bounty, cybersecurity, sqlmap" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/injection-attacks" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/injection-attacks" />
+  <meta property="og:title" content="Injection Attacks: SQL Injection, Command Injection & XSS — Yousef Tamer" />
+  <meta property="og:description" content="شرح أنواع Injection Attacks الثلاث — SQL Injection وCommand Injection وXSS مع طرق الاكتشاف والاستغلال والحماية." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/injection-attacks" />
+  <meta name="twitter:title" content="Injection Attacks: SQL Injection, Command Injection & XSS — Yousef Tamer" />
+  <meta name="twitter:description" content="شرح أنواع Injection Attacks الثلاث — SQL Injection وCommand Injection وXSS مع طرق الاكتشاف والاستغلال والحماية." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://jooexploit.dev/blog/injection-attacks/#post",
+      "headline": "Injection Attacks 💉 — SQLi, Command Injection & XSS",
+      "description": "شرح أنواع Injection Attacks الثلاث — SQL Injection وCommand Injection وXSS مع طرق الاكتشاف والاستغلال والحماية.",
+      "url": "https://jooexploit.dev/blog/injection-attacks",
+      "datePublished": "2025-03-01",
+      "dateModified": "2025-03-01",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jooexploit.dev/blog/injection-attacks/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/blog/injection-attacks/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://jooexploit.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Injection Attacks 💉 — SQLi, Command Injection & XSS",
+          "item": "https://jooexploit.dev/blog/injection-attacks"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" class="is-active" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <article class="section" aria-labelledby="post-title">
+      <div class="container" style="max-width: 860px;">
+
+        <header style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="tag mono">
+              OWASP &middot; SQLi &middot; XSS &middot; Bug Bounty &middot; Security
+            </span>
+          </div>
+          <h1 id="post-title" class="section__title"
+            style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text);">
+            Injection Attacks 💉 — SQLi, Command Injection &amp; XSS
+          </h1>
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Published</span><span>March 2, 2025</span></div>
+            <div class="meta-item"><span>Read Time</span><span>10 Min</span></div>
+            <div class="meta-item"><span>Author</span><span>Yousef Tamer</span></div>
+          </div>
+        </header>
+
+        
+        
+          <section class="post-content prose" dir="auto">
+            <h1 id="injection-attacks">Injection Attacks</h1><p> بسم الله والصلاه والسلام علي رسول الله ف البدايه كد صلي ع النبي عشان معلومات كتير بس مختصره ف هتتعب عشان تعرف اكتر وتغوص ف المعلومه متنساش ورد انهارده يوم 3 رمضان ومعانا ورد من صفحه (42) الي (62) وبرضه معانا عده ثغرات بس تحت مسمي واحد الا وهو</p>
+<h4 id="injection-attacks-خطورة-الحقن-في-التطبيقات">💉💻 Injection Attacks — خطورة الحقن في التطبيقات 💻💉</h4><p>ودي من أخطر الثغرات اللي ممكن تقابلها في مجال الـ <strong>Web Security</strong>، وده لإنها بتسمح للمهاجم بتنفيذ أكواد خبيثة مباشرة داخل التطبيق، سواء كان قاعدة بيانات، أو أوامر نظام التشغيل، أو سكريبتات في المتصفح. 🛑</p>
+<p>في البوست ده، هشرح أشهر أنواع <strong>الـ Injection Attacks</strong> وازاي نلاقيها، نستغلها، ونحمي مواقعنا منها. 🎯</p>
+<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*i3g9Jc8udouSNAN97vA1Bg.jpeg" alt=""></figure>
+<p>2/30 Injection attacks</p>
+<h2 id="1-sql-injection-sqli">🔎 1️⃣ SQL Injection (SQLi)</h2><p>📌 <strong>ايه هي؟</strong><br>بتحصل SQL Injection لما التطبيق بيقبل user input مش متهندله او متفلتره يعني ويدمجها مباشرة في استعلامات قاعدة البيانات، وده يسمح للمهاجم بالتلاعب بالبيانات أو حتى الوصول لبيانات حساسة.</p>
+<p>⚡ <strong>أنواع SQL Injection:</strong></p>
+<ul>
+<li><strong>Union-Based</strong> ➝ استخراج البيانات باستخدام أوامر <code>UNION SELECT</code>.</li>
+<li><strong>Boolean-Based</strong> ➝ الاعتماد على إجابات True/False لمعرفة البيانات.</li>
+<li><strong>Time-Based</strong> ➝ استغلال الأوامر <code>SLEEP()</code> أو <code>WAITFOR DELAY</code> لاستخراج البيانات من خلال التأخير الزمني.</li>
+<li><strong>Error-Based</strong> ➝ استخراج البيانات من خلال رسائل الخطأ.</li>
+</ul>
+<p>🔍 <strong>ازاي تلاقيهاو استغلالها ؟</strong></p>
+<ul>
+<li>اشهر مثال وهو <code>&#39; OR &#39;1&#39;=&#39;1</code> ضيفه في أي مكان بياخد إدخال من المستخدم.</li>
+<li>استخدم أدوات زي <strong>sqlmap</strong> أو <strong>Burp Suite</strong> لفحص التطبيق.</li>
+</ul>
+<p>🛡 <strong>ازاي تحمي نفسك؟</strong><br>✅ استخدام <strong>Prepared Statements</strong> بدلاً من الاستعلامات الديناميكية.<br>✅ تفعيل <strong>Web Application Firewall (WAF)</strong>.<br>✅ فلترة وتحقق من المدخلات قبل إدخالها لقاعدة البيانات.</p>
+<p>🔗 <strong>كام Writeup للتعلم:</strong> <a href="https://hackerone.com/reports/1046084">https://hackerone.com/reports/1046084</a> <a href="https://portswigger.net/web-security/sql-injection/cheat-sheet">https://portswigger.net/web-security/sql-injection/cheat-sheet</a></p>
+<p>🎥 <strong>كام POC تتفرج عليه:</strong></p>
+<p><a href="https://www.youtube.com/playlist?list=PLyr9rSDwI-6PbLor2d1XMifRMNu7y-mOt">https://www.youtube.com/playlist?list=PLyr9rSDwI-6PbLor2d1XMifRMNu7y-mOt</a></p>
+<p>🛠 <strong>لابات تحلها:</strong></p>
+<ul>
+<li><a href="https://tryhackme.com/room/sqlilab">https://tryhackme.com/room/sqlilab</a></li>
+<li><a href="https://portswigger.net/web-security/all-labs">PortSwigger Labs</a>.</li>
+</ul>
+<h2 id="2-command-injection">🔎 2️⃣ Command Injection</h2><p>📌 <strong>ايه هي؟</strong><br>ثغرة Command Injection بتحصل لما التطبيق بياخد مدخلات مستخدم ويدمجها في أوامر نظام التشغيل بدون فلترة، وده يسمح للمهاجم بتنفيذ أوامر على السيرفر (قريبه من SQLI برضه بس علي حسب ال input دا بيتضاف فين انت المفروض تبقي عارف).</p>
+<p>⚡ <strong>أنواع Command Injection:</strong></p>
+<ul>
+<li><strong>Blind Command Injection</strong> ➝ يتم اختبار الثغرة من خلال التأثيرات (زي التأخير الزمني <code>ping -c 5 127.0.0.1</code>).</li>
+<li><strong>Error-Based Command Injection</strong> ➝ محاولة استخراج الأخطاء من النظام.</li>
+<li><strong>Out-of-Band (OOB) Command Injection</strong> ➝ إرسال الطلبات لخارج السيرفر عشان نتحقق من الثغرة.</li>
+</ul>
+<p>🔍 <strong>ازاي تلاقيها؟</strong></p>
+<ul>
+<li>جرّب إدخال <code>; ls -la</code> أو <code>&amp;&amp; whoami</code> في أي مكان بياخد إدخال نصّي.</li>
+<li>استخدم أدوات زي <strong>Burp Suite Intruder</strong> أو <strong>commix</strong>.</li>
+</ul>
+<p>💣 <strong>ازاي تستغلها؟</strong></p>
+<ul>
+<li>تنفيذ أوامر على السيرفر (<code>; cat /etc/passwd</code>).</li>
+<li>فتح <strong>Reverse Shell</strong> للسيطرة على السيرفر (<code>nc -e /bin/sh</code>).</li>
+</ul>
+<p>🛡 <strong>ازاي تحمي نفسك؟</strong><br>✅ استخدام <strong>allowlist</strong> للمدخلات المقبولة.<br>✅ تشغيل التطبيقات بأقل صلاحيات ممكنة.<br>✅ تجنب استخدام أوامر النظام المباشرة في الأكواد.</p>
+<p>🔗 <strong>كام Writeup للتعلم:</strong></p>
+<ul>
+<li><a href="https://owasp.org/www-community/attacks/Command_Injection">Command Injection Guide</a></li>
+<li><a href="https://book.hacktricks.xyz/pentesting-web/command-injection">HackTricks Command Injection</a></li>
+</ul>
+<p>🎥 <strong>كام POC تتفرج عليه:</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=SuiXxrl1PS4">Command Injection Exploit</a></li>
+</ul>
+<p>🛠 <strong>لابات تحلها:</strong></p>
+<ul>
+<li><a href="https://portswigger.net/web-security/all-labs">PortSwigger Labs</a>.</li>
+<li>TryHackMe Rooms مثل <strong>“Injection” و “OverTheWire Bandit”</strong>.</li>
+</ul>
+<h2 id="3-cross-site-scripting-xss">🔎 3️⃣ Cross-Site Scripting (XSS)</h2><p>📌 <strong>ايه هي؟</strong><br>ثغرة بتحصل لما التطبيق يسمح بحقن سكريبتات JavaScript داخل الصفحة بدون فلترة، وده يسمح بسرقة بيانات المستخدم أو تنفيذ أكواد خبيثة.</p>
+<p>⚡ <strong>أنواع XSS:</strong></p>
+<ul>
+<li><strong>Stored XSS</strong> ➝ الأكواد الضارة بتتخزن في السيرفر وتتنفذ على كل المستخدمين.</li>
+<li><strong>Reflected XSS</strong> ➝ الأكواد بتنطلق فورًا عند فتح الرابط.</li>
+<li><strong>DOM-Based XSS</strong> ➝ التنفيذ بيتم داخل متصفح المستخدم بدون طلب للسيرفر.</li>
+</ul>
+<p>🔍 <strong>ازاي تلاقيها؟</strong></p>
+<ul>
+<li>جرّب إدخال <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> في أي مكان بياخد مدخلات مستخدم.</li>
+<li>استخدم أدوات زي <strong>XSStrike</strong> أو <strong>Burp Suite Scanner</strong>.</li>
+</ul>
+<p>💣 <strong>ازاي تستغلها؟</strong></p>
+<ul>
+<li>سرقة الكوكيز (<code>document.cookie</code>).</li>
+<li>خداع المستخدمين بتنفيذ عمليات بدلًا عنهم (<strong>CSRF + XSS</strong>).</li>
+</ul>
+<p>🛡 <strong>ازاي تحمي نفسك؟</strong><br>✅ تفعيل <strong>Content Security Policy (CSP)</strong>.<br>✅ فلترة المدخلات وإزالة الأكواد الضارة.<br>✅ استخدام <strong>HTTPOnly Cookies</strong> لحماية الجلسات.</p>
+<p>🔗 <strong>كام Writeup للتعلم:</strong></p>
+<ul>
+<li><a href="https://portswigger.net/web-security/cross-site-scripting/cheat-sheet">XSS Cheatsheet — PortSwigger</a></li>
+<li><a href="https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting">HackTricks XSS</a></li>
+</ul>
+<p>🎥 <strong>كام POC تتفرج عليه:</strong></p>
+<ul>
+<li><a href="https://youtu.be/s96Dos8i8Qg?si=wv51pKOaNWaO5D8J">XSS poc</a></li>
+</ul>
+<p>🛠 <strong>لابات تحلها:</strong></p>
+<ul>
+<li><strong>XSS Challenges</strong> على <a href="https://portswigger.net/web-security/all-labs">PortSwigger Labs</a>.</li>
+<li><a href="https://tryhackme.com/room/xss">TryHackMe: XSS Room</a>.</li>
+</ul>
+<p>في النهاية احب اقلك يا صديقي السباك متثقش ف حد</p>
+<p>و يا صديقي ال hunter دور علي اي input , parameter لعل و عسي يطلع ماسوره مخرومه من سباك مش شايف شغله كويس اتمني تكون اتبسطت و دي مجرد معلومات بسيطه لسا فيه بحر علم قدامك<br>متنساش تتابعني عشان بكرا هنتكلم باذن الله عن</p>
+<p>Insecure Design — التصميم غير الآمن</p>
+<hr>
+
+          </section>
+        
+
+        <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- MathJax & Mermaid libraries for rich post content -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">04 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Want to secure your app?<br>Let's <em class="accent-em">inject some fixes</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to web application security testing, SQL injection assessment, and XSS protection consulting.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

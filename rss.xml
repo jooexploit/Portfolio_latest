@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>DevOps, Cloud &amp; Systems Engineering Blog — Yousef Tamer (jooexploit)</title>
+  <link>https://jooexploit.dev/blog</link>
+  <description>Technical guides, case studies, and tutorials on container orchestration, cloud-native pipelines, and systems automation.</description>
+  <language>en-us</language>
+  <lastBuildDate>Wed, 08 Jul 2026 23:00:00 +0300</lastBuildDate>
+  <pubDate>Wed, 08 Jul 2026 23:00:00 +0300</pubDate>
+  <atom:link href="https://jooexploit.dev/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Demystifying GitOps: Automating Kubernetes Deployments with ArgoCD</title>
+    <link>https://jooexploit.dev/blog/demystifying-gitops</link>
+    <guid>https://jooexploit.dev/blog/demystifying-gitops</guid>
+    <pubDate>Wed, 01 Jul 2026 12:00:00 +0300</pubDate>
+    <description>A comprehensive guide detailing GitOps architectures, ArgoCD sync loops, and structural setups to synchronize declarative repository states directly into HA Kubernetes clusters.</description>
+  </item>
+
+  <item>
+    <title>Provisioning Multi-Region AWS Networks Using Terraform State Locks</title>
+    <link>https://jooexploit.dev/blog/terraform-state-locking</link>
+    <guid>https://jooexploit.dev/blog/terraform-state-locking</guid>
+    <pubDate>Sat, 20 Jun 2026 12:00:00 +0300</pubDate>
+    <description>Exploring multi-account AWS architectures. Learn how to configure S3 state backends and DynamoDB lock tables to prevent deployment race conditions in automated pipelines.</description>
+  </item>
+
+  <item>
+    <title>Linux Kernel Tuning &amp; Network Protocol Hardening for DevOps Engineers</title>
+    <link>https://jooexploit.dev/blog/linux-kernel-tuning</link>
+    <guid>https://jooexploit.dev/blog/linux-kernel-tuning</guid>
+    <pubDate>Fri, 15 May 2026 12:00:00 +0300</pubDate>
+    <description>A deep dive into sysctl configurations, network buffer tuning, TCP backlog queues, and firewall policies to harden Linux servers against DDoS floods.</description>
+  </item>
+
+</channel>
+</rss>

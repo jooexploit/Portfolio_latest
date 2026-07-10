@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Markdown Rendering Test Suite & Elements Reference — Yousef Tamer (jooexploit)</title>
+  <meta name="description" content="A complete rendering stress-test reference page to verify the display of headings, custom lists, complex tables, equations, and diagrams on the blog." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, markdown test suite, mermaid rendering, MathJax support, blog layout" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/markdown-test-suite" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/markdown-test-suite" />
+  <meta property="og:title" content="Markdown Rendering Test Suite & Elements Reference — Yousef Tamer (jooexploit)" />
+  <meta property="og:description" content="A complete rendering stress-test reference page to verify the display of headings, custom lists, complex tables, equations, and diagrams on the blog." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/markdown-test-suite" />
+  <meta name="twitter:title" content="Markdown Rendering Test Suite & Elements Reference — Yousef Tamer (jooexploit)" />
+  <meta name="twitter:description" content="A complete rendering stress-test reference page to verify the display of headings, custom lists, complex tables, equations, and diagrams on the blog." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://jooexploit.dev/blog/markdown-test-suite/#post",
+      "headline": "Markdown Rendering Test Suite & Elements Reference",
+      "description": "A complete rendering stress-test reference page to verify the display of headings, custom lists, complex tables, equations, and diagrams on the blog.",
+      "url": "https://jooexploit.dev/blog/markdown-test-suite",
+      "datePublished": "2026-07-09",
+      "dateModified": "2026-07-09",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jooexploit.dev/blog/markdown-test-suite/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/blog/markdown-test-suite/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://jooexploit.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Markdown Rendering Test Suite & Elements Reference",
+          "item": "https://jooexploit.dev/blog/markdown-test-suite"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" class="is-active" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <article class="section" aria-labelledby="post-title">
+      <div class="container" style="max-width: 860px;">
+
+        <header style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="tag mono">
+              Markdown &middot; Reference &middot; Test
+            </span>
+          </div>
+          <h1 id="post-title" class="section__title"
+            style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text);">
+            Markdown Rendering Test Suite &amp; Elements Reference
+          </h1>
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Published</span><span>July 10, 2026</span></div>
+            <div class="meta-item"><span>Read Time</span><span>10 Min</span></div>
+            <div class="meta-item"><span>Author</span><span>Yousef Tamer</span></div>
+          </div>
+        </header>
+
+        
+        
+          <section class="post-content prose" dir="auto">
+            <h1 id="markdown-test-suite">Markdown Test Suite</h1><blockquote>
+<p>A complete Markdown testing document for Markdown → HTML converters.</p>
+</blockquote>
+<hr>
+<h1 id="table-of-contents">Table of Contents</h1><ul>
+<li><a href="#headings">Headings</a></li>
+<li><a href="#text-formatting">Text Formatting</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#video">Video</a></li>
+<li><a href="#audio">Audio</a></li>
+<li><a href="#pdf">PDF</a></li>
+<li><a href="#html">HTML</a></li>
+<li><a href="#math">Math</a></li>
+<li><a href="#mermaid">Mermaid</a></li>
+<li><a href="#everything-else">Everything Else</a></li>
+</ul>
+<hr>
+<h1 id="headings">Headings</h1><h1 id="h1">H1</h1><h2 id="h2">H2</h2><h3 id="h3">H3</h3><h4 id="h4">H4</h4><h5 id="h5">H5</h5><h6 id="h6">H6</h6><hr>
+<h1 id="text-formatting">Text Formatting</h1><p>Normal text.</p>
+<p><strong>Bold</strong></p>
+<p><em>Italic</em></p>
+<p><em><strong>Bold + Italic</strong></em></p>
+<p><del>Strikethrough</del></p>
+<p><u>Underline (HTML)</u></p>
+<p><mark>Highlighted</mark></p>
+<p><code>Inline Code</code></p>
+<blockquote>
+<p>Quote</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Nested Quote</p>
+</blockquote>
+</blockquote>
+<hr>
+<h1 id="horizontal-rule">Horizontal Rule</h1><hr>
+<hr>
+<hr>
+<hr>
+<h1 id="lists">Lists</h1><h2 id="unordered">Unordered</h2><ul>
+<li>Apple</li>
+<li>Banana</li>
+<li>Orange<ul>
+<li>Small</li>
+<li>Medium</li>
+<li>Large</li>
+</ul>
+</li>
+</ul>
+<h2 id="ordered">Ordered</h2><ol>
+<li>First</li>
+<li>Second</li>
+<li>Third</li>
+</ol>
+<h2 id="mixed">Mixed</h2><ol>
+<li>Item<ul>
+<li>Child<ul>
+<li>Child Child</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h1 id="task-lists">Task Lists</h1><ul>
+<li><input checked="" disabled="" type="checkbox"> Completed</li>
+<li><input checked="" disabled="" type="checkbox"> Another</li>
+<li><input disabled="" type="checkbox"> Pending</li>
+<li><input disabled="" type="checkbox"> Testing</li>
+</ul>
+<hr>
+<h1 id="links">Links</h1><p>Inline:</p>
+<p><a href="https://google.com">Google</a></p>
+<p>Auto Link:</p>
+<p><a href="https://github.com">https://github.com</a></p>
+<p>Email:</p>
+<p><a href="mailto:example@example.com">example@example.com</a></p>
+<hr>
+<h1 id="images">Images</h1><h2 id="normal-image">Normal Image</h2><figure class="md-figure"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200" alt="Mountains"><figcaption>Mountains</figcaption></figure>
+<h2 id="image-with-title">Image with title</h2><figure class="md-figure"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200" alt="Ocean" title="Ocean"><figcaption>Ocean</figcaption></figure>
+<h2 id="html-image">HTML Image</h2><figure class="md-figure"><img
+src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800"
+width="400"
+alt="Laptop"
+/><figcaption>Laptop</figcaption></figure>
+<hr>
+<h1 id="video">Video</h1><h2 id="html-video">HTML Video</h2><video controls width="500">
+    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+</video><hr>
+<h2 id="embedded-youtube">Embedded YouTube</h2><iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe><hr>
+<h1 id="audio">Audio</h1><audio controls>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio><hr>
+<h1 id="pdf">PDF</h1><iframe
+src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+width="100%"
+height="600">
+</iframe><hr>
+<h1 id="tables">Tables</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="right">Age</th>
+<th>Country</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>John</td>
+<td align="right">20</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>Sarah</td>
+<td align="right">25</td>
+<td>Canada</td>
+</tr>
+<tr>
+<td>Ali</td>
+<td align="right">30</td>
+<td>Egypt</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="complex-table">Complex Table</h2><table>
+<thead>
+<tr>
+<th align="left">Left</th>
+<th align="center">Center</th>
+<th align="right">Right</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">A</td>
+<td align="center">B</td>
+<td align="right">C</td>
+</tr>
+<tr>
+<td align="left">D</td>
+<td align="center">E</td>
+<td align="right">F</td>
+</tr>
+<tr>
+<td align="left">G</td>
+<td align="center">H</td>
+<td align="right">I</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="code">Code</h1><h2 id="inline">Inline</h2><p>Use <code>npm install</code></p>
+<hr>
+<h2 id="c">C++</h2><div class="md-code-wrap"><span class="md-code-lang">cpp</span><pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; &quot;Hello&quot;;
+}
+</code></pre></div>
+<hr>
+<h2 id="python">Python</h2><div class="md-code-wrap"><span class="md-code-lang">python</span><pre><code class="language-python">def hello():
+    print(&quot;Hello World&quot;)
+</code></pre></div>
+<hr>
+<h2 id="javascript">JavaScript</h2><div class="md-code-wrap"><span class="md-code-lang">javascript</span><pre><code class="language-javascript">const app = () =&gt; {
+    console.log(&quot;Hello&quot;);
+}
+</code></pre></div>
+<hr>
+<h2 id="bash">Bash</h2><div class="md-code-wrap"><span class="md-code-lang">bash</span><pre><code class="language-bash">npm install
+npm run dev
+git status
+</code></pre></div>
+<hr>
+<h2 id="json">JSON</h2><div class="md-code-wrap"><span class="md-code-lang">json</span><pre><code class="language-json">{
+    &quot;name&quot;:&quot;Markdown&quot;,
+    &quot;version&quot;:1
+}
+</code></pre></div>
+<hr>
+<h2 id="yaml">YAML</h2><div class="md-code-wrap"><span class="md-code-lang">yaml</span><pre><code class="language-yaml">name: Test
+version: 1
+author: John
+</code></pre></div>
+<hr>
+<h2 id="html">HTML</h2><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;div class=&quot;card&quot;&gt;
+    Hello
+&lt;/div&gt;
+</code></pre></div>
+<hr>
+<h2 id="css">CSS</h2><div class="md-code-wrap"><span class="md-code-lang">css</span><pre><code class="language-css">body{
+    background:#111;
+}
+</code></pre></div>
+<hr>
+<h1 id="html">HTML</h1><div style="padding:20px;border:1px solid gray;border-radius:10px"><h3>HTML Card</h3><p>This is embedded HTML.</p><p><button>Click Me</button></p>
+</div><hr>
+<h1 id="details">Details</h1><details><summary>Click to Expand</summary><p>Hidden Content</p>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+</ul>
+</details><hr>
+<h1 id="emoji">Emoji</h1><p>😀 😎 🚀 ❤️ 🎉</p>
+<p>:smile:</p>
+<hr>
+<h1 id="keyboard">Keyboard</h1><p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd></p>
+<hr>
+<h1 id="footnote">Footnote</h1><p>Markdown Footnote.[^1]</p>
+<p>[^1]: This is a footnote.</p>
+<hr>
+<h1 id="definition-list">Definition List</h1><p>Markdown<br>: A lightweight markup language.</p>
+<p>HTML<br>: HyperText Markup Language.</p>
+<hr>
+<h1 id="escaping">Escaping</h1><p>*Not Bold*</p>
+<p># Not Heading</p>
+<p>`Code`</p>
+<hr>
+<h1 id="subscript-superscript">Subscript / Superscript</h1><p>H<sub>2</sub>O</p>
+<p>x<sup>2</sup></p>
+<hr>
+<h1 id="abbreviation">Abbreviation</h1><p>The HTML specification.</p>
+<p>*[HTML]: Hyper Text Markup Language</p>
+<hr>
+<h1 id="math">Math</h1><p>Inline:</p>
+<p>$E = mc^2$</p>
+<p>Block:</p>
+<p>$$<br>\int_a^b x^2 dx<br>$$</p>
+<hr>
+<h1 id="mermaid">Mermaid</h1><div class="mermaid">graph TD
+
+A --> B
+A --> C
+B --> D
+C --> D
+</div>
+<hr>
+<h1 id="sequence-diagram">Sequence Diagram</h1><div class="mermaid">sequenceDiagram
+
+Alice->>Bob: Hello
+Bob-->>Alice: Hi
+</div>
+<hr>
+<h1 id="flowchart">Flowchart</h1><div class="mermaid">flowchart LR
+
+A(Start) --> B{Decision}
+B -->|Yes| C[Continue]
+B -->|No| D[Stop]
+</div>
+<hr>
+<h1 id="blockquote">Blockquote</h1><blockquote>
+<p>Level 1</p>
+<blockquote>
+<p>Level 2</p>
+<blockquote>
+<p>Level 3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr>
+<h1 id="nested-list">Nested List</h1><ul>
+<li>A<ul>
+<li>B<ul>
+<li>C<ul>
+<li>D</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="mixed-content">Mixed Content</h1><h2 id="project-card">Project Card</h2><h3 id="gymflow">GymFlow</h3><p><strong>Tech Stack</strong></p>
+<ul>
+<li>Python</li>
+<li>SQLite</li>
+<li>CustomTkinter</li>
+</ul>
+<p>Repository:</p>
+<p><a href="https://github.com/Mtgazer/GymFLow">https://github.com/Mtgazer/GymFLow</a></p>
+<p>Image:</p>
+<figure class="md-figure"><img src="https://placehold.co/300x120" alt="Logo"><figcaption>Logo</figcaption></figure>
+<div class="md-code-wrap"><span class="md-code-lang">python</span><pre><code class="language-python">print(&quot;GymFlow&quot;)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Members</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Plans</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Payments</td>
+<td>🚧</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="anchor-test">Anchor Test</h1><p>Jump to:</p>
+<p><a href="#math">Go to Math</a></p>
+<p><a href="#images">Go to Images</a></p>
+<p><a href="#mermaid">Go to Mermaid</a></p>
+<hr>
+<h1 id="github-alerts">GitHub Alerts</h1><blockquote class="github-alert alert-note"><div class="alert-title">NOTE</div><p>This is a note.</p>
+</blockquote>
+<blockquote class="github-alert alert-tip"><div class="alert-title">TIP</div><p>Helpful information.</p>
+</blockquote>
+<blockquote class="github-alert alert-important"><div class="alert-title">IMPORTANT</div><p>Important information.</p>
+</blockquote>
+<blockquote class="github-alert alert-warning"><div class="alert-title">WARNING</div><p>Warning message.</p>
+</blockquote>
+<blockquote class="github-alert alert-caution"><div class="alert-title">CAUTION</div><p>Dangerous action.</p>
+</blockquote>
+<hr>
+<h1 id="html-form">HTML Form</h1><form><p><label>Name</label><br></p>
+<input type="text"><p><br><br></p>
+<p><label>Password</label><br></p>
+<input type="password"><p><br><br></p>
+<p><button>Submit</button></p>
+</form><hr>
+<h1 id="svg">SVG</h1><svg width="120" height="120"><p><circle
+cx="60"
+cy="60"
+r="50"
+fill="red"
+/></p>
+</svg><hr>
+<h1 id="collapsible-html">Collapsible HTML</h1><details open><summary>Always Open</summary><p>Content Here</p>
+</details><hr>
+<h1 id="unicode">Unicode</h1><p>こんにちは</p>
+<p>مرحبا</p>
+<p>Привет</p>
+<p>你好</p>
+<p>😀❤️🚀</p>
+<hr>
+<h1 id="end">End</h1><p>Everything above is intentionally included to stress-test a Markdown renderer.</p>
+
+          </section>
+        
+
+        <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- MathJax & Mermaid libraries for rich post content -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">04 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Found rendering issues?<br>Let's <em class="accent-em">fix them</em>.
+        </h2>
+        <p class="contact__sub">
+          Report rendering, UI theme, or layout bugs directly on GitHub.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

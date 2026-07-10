@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DEBI First Session HTML: كيف يعمل الإنترنت وأساسيات HTML — Yousef Tamer</title>
+  <meta name="description" content="أول سيشن HTML في دورة رواد مصر الرقمية — DNS، HTTP، URLs، وأساسيات HTML من doctype لغاية meta tags وربط الملفات." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, HTML, DNS, HTTP, HTTPS, URLs, meta tags, head, body, frontend" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/debi-first-session-html" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/debi-first-session-html" />
+  <meta property="og:title" content="DEBI First Session HTML: كيف يعمل الإنترنت وأساسيات HTML — Yousef Tamer" />
+  <meta property="og:description" content="أول سيشن HTML في دورة رواد مصر الرقمية — DNS، HTTP، URLs، وأساسيات HTML من doctype لغاية meta tags وربط الملفات." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/debi-first-session-html" />
+  <meta name="twitter:title" content="DEBI First Session HTML: كيف يعمل الإنترنت وأساسيات HTML — Yousef Tamer" />
+  <meta name="twitter:description" content="أول سيشن HTML في دورة رواد مصر الرقمية — DNS، HTTP، URLs، وأساسيات HTML من doctype لغاية meta tags وربط الملفات." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://jooexploit.dev/blog/debi-first-session-html/#post",
+      "headline": "DEBI First Session — HTML من الصفر لغاية المتصفح",
+      "description": "أول سيشن HTML في دورة رواد مصر الرقمية — DNS، HTTP، URLs، وأساسيات HTML من doctype لغاية meta tags وربط الملفات.",
+      "url": "https://jooexploit.dev/blog/debi-first-session-html",
+      "datePublished": "2025-06-06",
+      "dateModified": "2025-06-06",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jooexploit.dev/blog/debi-first-session-html/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/blog/debi-first-session-html/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://jooexploit.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "DEBI First Session — HTML من الصفر لغاية المتصفح",
+          "item": "https://jooexploit.dev/blog/debi-first-session-html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" class="is-active" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <article class="section" aria-labelledby="post-title">
+      <div class="container" style="max-width: 860px;">
+
+        <header style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="tag mono">
+              HTML &middot; Frontend &middot; Web Basics
+            </span>
+          </div>
+          <h1 id="post-title" class="section__title"
+            style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text);">
+            DEBI First Session — HTML من الصفر لغاية المتصفح
+          </h1>
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Published</span><span>June 7, 2025</span></div>
+            <div class="meta-item"><span>Read Time</span><span>12 Min</span></div>
+            <div class="meta-item"><span>Author</span><span>Yousef Tamer</span></div>
+          </div>
+        </header>
+
+        
+        
+          <section class="post-content prose" dir="auto">
+            <h1 id="debi-first-session-html">DEBI First Session html</h1><p>بسـم اللـه الرحمـن الرحيـم الحمد لله رب العالمين، والصلاة والسلام على سيدنا محمد الصادق الوعد الأمين، اللهم لا علم لنا إلا ما علمتنا، إنك أنت العليم الحكيم، اللهم علمنا ما ينفعنا، وانفعنا بما علمتنا وزدنا علماً</p>
+<p>موعدنا انهارده باذن الله مع اول سيشن في دوره رواد مصر الرقميه والي كانت بشكل كبير مركزه علي</p>
+<p>HTML</p>
+<p>ف البدايه بقي تعالي نفهم كام مفهوم كد وهو اصلا ازاي بدأ النت او اي هو النت و ازاي موقع زي جوجل بزوره وكد ف تعالي نتكلم ب التفاصيل شويه</p>
+<p>ف البدايه لو انت فاكر ان النت هو عباره عن حاجات بتطير ف الجو وكلها اشارات يبقي محتاج تراجع كام نقطه مهمه و عشان تلاقي حد مجمع النقط الاساسيه ف مكان واحد فمفيش غير الدحيح هو الي هيحكيلك القصه</p>
+<p>بعد اما تتفرج عليه ف انت كد فهمت كام حاجه حلوه بس تعالي برضه نكمل ونسال بعض اول سؤال وهو ازاي بنلاقي صفحه الانترنت او ازاي بنلاقي الموقع</p>
+<p>ف تعالي نبدأ سيناريو كد انك فتحت المتصفح بتاعك كتبت</p>
+<div class="md-code-wrap"><pre><code>https://www.google.com/
+</code></pre></div>
+<p>هو هنا هيعمل اي ولا هيعرف منين انت رايح تزور اي ؟؟</p>
+<p>تعالا نرجع خطوه بسيطه و اقلك انت ازاي بتتعرف علي النت او ازاي بنكلم النت</p>
+<p>اي هو بقي دا وبيعمل ip بص فيه حاجه اسمها</p>
+<p>دا يسيدي زي رقمك كد انت مش رقمك كمثال</p>
+<div class="md-code-wrap"><pre><code>+2010909*****
+</code></pre></div>
+<p>هو زيك كد بس هو رقمه بيختلف شويه</p>
+<div class="md-code-wrap"><pre><code>192.168.1.1
+</code></pre></div>
+<p>الداخلي ip دا مثال لل</p>
+<p>يعني اي داخلي يعني انت ليك طريقتين تتكلم بيها ف الاول بتروح للرواتر بتاعك تقله اديني رقم عشان اكلمك من عليه وهكذا مع كل الي ف البيت بعد كد بقي انتوا كلكوا بتبقي ابناء الراوتر طب الراوتر بقي ipبيروح للشركه بتاعتك يقلها اديني</p>
+<p>ودا بيبقي كمثال لل ip</p>
+<div class="md-code-wrap"><pre><code>197.36.21.75
+</code></pre></div>
+<figure class="md-figure"><img src="https://media.licdn.com/dms/image/v2/D4D12AQEjjjGrmBdk5Q/article-inline_image-shrink_1500_2232/B4DZfk_1qhGUAU-/0/1751893630254?e=1785369600&v=beta&t=vQDicX4z57vRQpP2Xgx-UCKm5hz0jgVsos0loEKEyWk" alt="Article content"></figure>
+<p>internal vs external IP address</p>
+<p>حلو اوي انت كد عرفت ازاي اكلم النت يبقي انا دلوقتي لو معايا راوتر ف انا ممكن اروح لراوتر تاني واكلمه عشان انا معايا رقمه</p>
+<p>طب هل انا هقعد احفظ كل الارقام دي ؟؟</p>
+<p>ف قالك لا احنا هنعملك حاجه يبقي فيها كل ارقامك زي جهات الاتصال كد ف موبايلك انت مهمتك تكتب اسمها وهو هيجبلك رقمها</p>
+<p>ودا بقي الي اسمه DNS</p>
+<div class="md-code-wrap"><pre><code>DNS --&gt; Domain Name System
+</code></pre></div>
+<p>دا يسيدي فيه منه نسختين نسخه ف الرواتر عندك ونسخه بقي علي حسب انت رايح لانهي واحد بس اشهرهم بتاع جوجل الي رقمه</p>
+<div class="md-code-wrap"><pre><code>8.8.8.8 and 8.8.4.4
+</code></pre></div>
+<p>دول بيبقوا موجودين ف الاجهزه لان دا الاكثر شهره واستخداما يعني</p>
+<p>تعالي بقي كد نمشيها خطوه خطوه عشان نوصل لموقع</p>
+<div class="md-code-wrap"><pre><code>https://www.google.com/
+</code></pre></div>
+<ul>
+<li>فتحنا المتصفح كتبنا (<a href="http://google.com/">google.com</a>)</li>
+<li>المتصفح فهم ان دا domain</li>
+<li>قام زود عليه https:// , www. عشان عرف انه بيستخدم دا</li>
+</ul>
+<div class="md-code-wrap"><pre><code>www. 
+كانت بتسختدم زمان عشان يفرقوا بين الموثع والخدمات التانيه زي 
+mail , ftp , ...
+مش مهم تفهمهم يعني المهم تعرف انها مش شرط تتكتب
+</code></pre></div>
+<ul>
+<li>الي في الرواتر DNS دور ف ال</li>
+<li>مكتوب عندك الي قلنا عليه بتاع جوجل dns ملقاش عندك حاجه ب الاسم دا قام رايح ل</li>
+<li>عرف ان رقم جوجل (<strong>64.233.165.102</strong>)</li>
+<li>يعني هاتلي الي عندك GET قام كلمه وقالي</li>
+<li>ف بعتله الملفات الي المتصفح هيقرأه</li>
+<li>الملفات جت المتصفح قرأها انت شفتها</li>
+</ul>
+<p>وبكد تكون عرفت اجابه اول سؤال</p>
+<hr>
+<p>GET السؤال التاني بقي وهو طب ازاي الملفات دي بتتبعت واي هي</p>
+<p>بص يسيدي لما بتعوز حاجه من حد بتقله هات ولما بتعوز تدي لحد حاجه بتقله اتفضل</p>
+<p>هي زيها بس فيه حاجات تانيه بقي زي</p>
+<h3 id="1-get-هاتلي-الحاجة-دي">1. GET – هاتلي الحاجة دي</h3><p>لما بتقول للموظف:</p>
+<blockquote>
+<p>&quot;هاتلي قائمة الأسعار من فضلك&quot; أو &quot;وريني صفحة جوجل&quot;</p>
+</blockquote>
+<h3 id="2-post-خُد-الحاجة-دي">2. POST – خُد الحاجة دي</h3><p>هنا أنت مش بتطلب، لأ، أنت بتبعتله <strong>معلومة أو بيانات</strong>.</p>
+<p>يعني بتقوله:</p>
+<blockquote>
+<p>&quot;خد الاسم والباسورد دول، وسجّلني&quot;</p>
+</blockquote>
+<h3 id="3-put-حدّث-الحاجة-دي-بالكامل">3. PUT – حدّث الحاجة دي بالكامل</h3><p>يعني بتقوله:</p>
+<blockquote>
+<p>&quot;أنا عندي ملف قديم، خده وبدّله كله بالجديد ده&quot;</p>
+</blockquote>
+<h3 id="4-patch-حدّث-جزء-من-الحاجة">4. PATCH – حدّث جزء من الحاجة</h3><p>زي الـ PUT بس بدل ما تغير كل حاجة، بتقول:</p>
+<blockquote>
+<p>&quot;غيّرلي الاسم بس وسيب الباقي زي ما هو&quot;</p>
+</blockquote>
+<h3 id="5-delete-امسح-الحاجة-دي">5. DELETE – امسح الحاجة دي</h3><p>واضحة جدًا…</p>
+<blockquote>
+<p>&quot;شيل الصورة دي من السيرفر&quot;</p>
+</blockquote>
+<h3 id="6-options-إنت-بتفهم-إيه؟">6. OPTIONS – إنت بتفهم إيه؟</h3><p>ده سؤال بيبعت للسيرفر، كأنه بيقوله:</p>
+<blockquote>
+<p>&quot;إنت بتقبل أنواع إيه من الطلبات؟ (GET, POST… إلخ)&quot;</p>
+</blockquote>
+<h3 id="7-head-زي-get-بس-من-غير-الملفات">7. HEAD – زي GET بس من غير الملفات</h3><p>يعني بتقول للسيرفر:</p>
+<blockquote>
+<p>&quot;هاتلي المعلومات عن الصفحة، بس من غير ما تبعتلي محتواها&quot;</p>
+</blockquote>
+<p>الكلام دا مش مهم تحفظه خالص دا كلام لسا قداام شويه بس عشان تبقي فاهم الدنيا مش اكتر</p>
+<p>كد خلصنا نخش علي السؤال الي بعده وهو</p>
+<hr>
+<h3 id="إزاي-اللي-بنشوفه-في-المتصفح-بيتكوّن-من-داتا؟">إزاي اللي بنشوفه في المتصفح بيتكوّن من داتا؟</h3><p>يعني إنت دلوقتي فتحت المتصفح وكتبت موقع... فجأة لقيت الموقع ظهر قدامك شكله حلو، فيه صور وزراير وكلام بيتحرّك. طب إزاي ده حصل؟ تعال أقولك واحدة واحدة</p>
+<h3 id="1-كل-حاجة-بتبدأ-بـ-ملفات">1. كل حاجة بتبدأ بـ ملفات</h3><p>لما بتفتح موقع، المتصفح بيروح يجيب شوية ملفات من السيرفر (الكمبيوتر اللي عليه الموقع)، والملفات دي هما:</p>
+<ul>
+<li><strong>HTML</strong>: بيقول المتصفح هيعرض إيه؟ (عناوين، صور، كلام…)</li>
+<li><strong>CSS</strong>: بيجمّل الصفحة، يلونها، يزبط الخطوط، يخلي الشكل حلو.</li>
+<li><strong>JavaScript</strong>: بيخلي الصفحة تتفاعل معاك، يفتح منيو، يغير ألوان، يحرك صور… يعني الحياة.</li>
+</ul>
+<blockquote>
+<p>تقدر تقول: <strong>HTML = العضم /</strong> <strong>CSS = الجلد واللبس</strong> / <strong>JS = العقل والحركة</strong></p>
+</blockquote>
+<hr>
+<h3 id="2-المتصفح-بيجمّع-الكلام-ده-ويكوّن-الصفحة">2. المتصفح بيجمّع الكلام ده ويكوّن الصفحة</h3><p>أول ما الملفات توصله، المتصفح بيشتغل كده:</p>
+<ul>
+<li>يقرأ ملف الـ HTML، ويكوّن منه حاجة اسمها <strong>DOM</strong> ← يعني خريطة للعناصر اللي في الصفحة.</li>
+<li>يطبّق عليها الـ CSS علشان يزبط الألوان والشكل.</li>
+<li>يشغّل كود JavaScript علشان يعمل أي حاجة ديناميكية.</li>
+<li>وفي الآخر يرسم الصفحة ويعرضها ليك.</li>
+</ul>
+<blockquote>
+<p>يعني اللي إنت شايفه في الآخر هو <strong>نتيجة تجميع وترجمة شوية بيانات جت من الإنترنت</strong>.</p>
+</blockquote>
+<p>دا بشكل بسيط ازاي الملفات بتتقري وبتظهر ب انهي شكل</p>
+<p>طب احنا دلوقتي لما جينا كتبنا عشان نجيب جوجل كتبنا</p>
+<div class="md-code-wrap"><pre><code>https://
+</code></pre></div>
+<p>اي هي بقي دي ؟؟</p>
+<p>دي يسيدي بيبقي فيه منها نوعين</p>
+<div class="md-code-wrap"><pre><code>https://  &amp;   http://
+</code></pre></div>
+<h3 id="يعني-إيه-http-أو-https؟">يعني إيه http:// أو https://؟</h3><p>الكلمة دي اختصار لـ:</p>
+<blockquote>
+<p><strong>HyperText Transfer Protocol</strong></p>
+</blockquote>
+<p>ودي ببساطة اللغة أو <strong>الطريقة اللي المتصفح بيكلم بيها السيرفر</strong> علشان يطلب منه البيانات</p>
+<p>يعني كأنك بتقول للمتصفح:</p>
+<blockquote>
+<p>&quot;كلّم السيرفر بالطريقة دي!&quot;</p>
+</blockquote>
+<h3 id="طيب-الـ-s-اللي-في-https-معناها-إيه؟">طيب الـ S اللي في https معناها إيه؟</h3><p>الـ s في https معناها:</p>
+<blockquote>
+<p><strong>Secure</strong> يعني الاتصال <strong>مؤمّن ومشفّر</strong> 🔒</p>
+</blockquote>
+<p>s طب لي اصلا احنا استخدمنا ال</p>
+<p>بص يسيدي عشان تتخيل الحوار وتفهمه اكتر ف عايزك تتخيل انك بتكلم صحبك وفيه واحد تالت قاعد معاكم ف الشخص دا لو قرب منك هيسمع كل الكلام الي بيتقال بشكل واضح ودا طبعا مينفعش افرض انت بتقله الباسورد بتاعك او بتقله حاجه خاصه</p>
+<p>https فعشان كد عملو بقي ال</p>
+<p>دي مهمتها ان الكلام الي بين وبين صحبك لو حد سمعه ميفهموش غيرك انت وصاحبك سيم يعني بينك انت وهو</p>
+<hr>
+<p>Http , https طب دلوقتي احنا فهمنا ال</p>
+<p>اي الباقي دا واسمه اي</p>
+<div class="md-code-wrap"><pre><code>Uniform Resource Locators (URLs) = https://www.google.com/search
+</code></pre></div>
+<p>ودا يسيدي بيتقسم ل3 اجزاء</p>
+<figure class="md-figure"><img src="https://media.licdn.com/dms/image/v2/D4D12AQGAqXSgFawiqg/article-inline_image-shrink_1000_1488/B4DZflRv7.HkAQ-/0/1751898325749?e=1785369600&v=beta&t=Mrvw4LFOBfR1xD7KnKu6n4q7_XYSBzI7gyzlyWrpcA8" alt="Article content"></figure>
+<p>host name اول جزء ودا شرحناه خلاص نخش بقي علي الي بعده والي هو</p>
+<p>بص دا ليه كذا تسميه وكذا شكل</p>
+<figure class="md-figure"><img src="https://media.licdn.com/dms/image/v2/D4D12AQH38VuH4cxrtQ/article-inline_image-shrink_1500_2232/B4DZflTI6.HMAU-/0/1751898689906?e=1785369600&v=beta&t=VHOgEqOcZgW_FMD4Z_Ikr8fHRpkcNLz7Uqt3UIIgnkU" alt="Article content"></figure>
+<figure class="md-figure"><img src="https://media.licdn.com/dms/image/v2/D4D12AQGTUujHo1Zw7w/article-inline_image-shrink_400_744/B4DZflTNEtHMAg-/0/1751898706860?e=1785369600&v=beta&t=WW2_4a4A4HmIOiDLyNTffbPRfZRJUJpfhfP_pL-xrp0" alt="Article content"></figure>
+<p>مش مهم تحفظ يعني بس عشان تبقي عارف اي الحاجات دي عشان هتفيدك الاهم والي عايزك تركز عليه file path وهو ال</p>
+<p>اي هو دا وعباره عن اي</p>
+<p>دا بشكل اسهل وابسط عشان تفهم فتخيل معايا ان كل الي قبل المسار الكمبيوتر بتاعك ف انت هتختار ملف ال D</p>
+<figure class="md-figure"><img src="https://media.licdn.com/dms/image/v2/D4D12AQHdzBlyuEM-5Q/article-inline_image-shrink_1000_1488/B4DZflUBFDGkAQ-/0/1751898919848?e=1785369600&v=beta&t=2JZoOIBCOu86_zMKC3hj6qgyDPwxa1YjPNyHBUakHMc" alt="Article content"></figure>
+<figure class="md-figure"><img src="https://media.licdn.com/dms/image/v2/D4D12AQFp0m0QtuqaaA/article-inline_image-shrink_1500_2232/B4DZflUECQGgAY-/0/1751898932217?e=1785369600&v=beta&t=dhMCRTDD5-wMvfs1G_vebCEHfazU0L78LGm3s4uNPfI" alt="Article content"></figure>
+<p>هو نفس النظام كد بيقلك انك دلوقتي فاتح الكود الي ف الملف دا ولما تتحرك جوا هيبدأ يتغير المسار</p>
+<blockquote>
+<p>عشان تفهم الحوار دا اكتر جربه علي الكمبيوتر والمسارات وكد</p>
+</blockquote>
+<p>طب دلوقتي هو دخل جوا المجلد ولقي ملفات كتير اوي هيفتح انهي ؟؟</p>
+<p>بص يسيدي السيرفرات كلها اول اما بتلاقي ملف اسمه</p>
+<div class="md-code-wrap"><pre><code>index.html
+</code></pre></div>
+<p>خلاص كد دا ب النسبالها الفايل الاساسي الي هتفتحه علي طول من غير متسألك لو غيرت الاسم دا ف هيجيبلك بقي كل الملفات و انت تختار تفتح انهي واحد</p>
+<figure class="md-figure"><img src="https://media.licdn.com/dms/image/v2/D4D12AQHH04B_SbSOLw/article-inline_image-shrink_1000_1488/B4DZflVhW9GkAY-/0/1751899316466?e=1785369600&v=beta&t=AKK6f3Mb4zbnGvwUoM9A5iseJApb1zGTA-88RWdnS4Q" alt="Article content"></figure>
+<blockquote>
+<p>هنا فتح الموقع علي طول عشان لقي ملف index</p>
+</blockquote>
+<p>لو ملقاش بيجيبلك كد</p>
+<figure class="md-figure"><img src="https://media.licdn.com/dms/image/v2/D4D12AQEpkpd8cfV7Zg/article-inline_image-shrink_1000_1488/B4DZflV2ioHAAQ-/0/1751899403199?e=1785369600&v=beta&t=rCF6x9KgxMoxjNqCd3RGMG2lwuUqMIAzHClVuos-gJs" alt="Article content"></figure>
+<p>هنا بيجيبلك بقي كل الملفات لانه مش عارف يفتح انهي</p>
+<p>كد انت فهمت لي دايما بتلاقي الملف اسمه index.html</p>
+<hr>
+<p>طب انت دلوقتي عايز تسمي بقي الملفات وباقي الملفات تسميها ازاي ؟؟</p>
+<ol>
+<li><strong>استخدم الحروف الصغيرة (lowercase)</strong> متكتبش Home.html (ا لصح: home.html)</li>
+</ol>
+<blockquote>
+<p>عشان في بعض السيرفرات (زي Linux) Home.html ≠ home.html</p>
+</blockquote>
+<ol start="2">
+<li>ممنوع الفراغات في الاسم</li>
+</ol>
+<p>⛔️ about us.html</p>
+<p>✅ about-us.html (الافضل)</p>
+<p>✅ about_us.html</p>
+<ol start="3">
+<li><strong>تجنّب الرموز الغريبة</strong>⛔️</li>
+</ol>
+<p>مينفعش تحط علامات زي: ! @ # $ % ^ &amp; * () = +</p>
+<ol start="4">
+<li>خلي الاسم واضح ومعبّر</li>
+</ol>
+<p>⛔️ p 1.html, x 2.html</p>
+<p>✅ products.html, services.html, login.html</p>
+<p>كد يبقي انت فهمت كل حاجه وازاي نوصل للموقع وازاي بيتقرأ طب دلوقتي بقي اي هي اللغات المستخدمه ؟؟</p>
+<div class="md-code-wrap"><pre><code>HTML &amp; CSS &amp; JavaScript
+</code></pre></div>
+<p>تعالا نبدأ ب اول حاجه وهي</p>
+<div class="md-code-wrap"><pre><code>HTML --&gt; Hyper-text Markup Language
+</code></pre></div>
+<p>بص يسيدي اللغه دي عباره عن انها بتضيفلك العظم بتاع الموقع يعني الكلام الي هيتكتب بقي زي العنوان والصور والكلام دا كله تعالا نبدأ ب اول حاجه فيها وهي</p>
+<div class="md-code-wrap"><pre><code>&lt;!DOCTYPE html&gt;
+</code></pre></div>
+<p>دا عباره عن انك بتحدد نوع الملف بتقله</p>
+<blockquote>
+<p><em>Documentation type html</em></p>
+</blockquote>
+<p>tags بعد كد بنبدأ بقي نكتب كود الاساسي هنا لازم نكتب مبين ال</p>
+<div class="md-code-wrap"><pre><code>&lt; open tag &gt; any thing &lt;/ close tag &gt;
+</code></pre></div>
+<p>بتتفتح وفيه لا tags فيه</p>
+<p>كمثال بس انت مش مضطر تحفظ لسا او تفهم الحاجات دي</p>
+<div class="md-code-wrap"><pre><code>open and close tags 
+---------
+&lt;html&gt;&lt;/html&gt;
+&lt;h1&gt;&lt;/h1&gt;
+and alot of tags
+----------------------------------
+tags doesn&#39;t need to close
+--------
+&lt;hr&gt;
+&lt;img&gt;
+&lt;br&gt;
+</code></pre></div>
+<p>بص عشان تفتكر هل لازم تتقفل ولا لا اسأل نفسك هل انا محتاج كلام يظهر ؟؟</p>
+<p>لو انت هتبقي محتاج كلام يظهر يبقي انت محتاج تقفله لو لا يبقي انت هتبقي عايز تضيف صوره او تعمل خط كمثال</p>
+<p>انت كد فهمت ال Tags</p>
+<p>attribute تعالا نخش علي الجزي الي بعده وهو ان فيه كلام بيتضاف جواه وهو ال</p>
+<div class="md-code-wrap"><pre><code>&lt;img src=&quot;&quot; alt=&quot;&quot; width=&quot;&quot;&gt;
+مش مهم تعرف الحاجات دي بتعمل اي لسا هفتفهم قدام
+المهم انك عرفت انا الي جوا دا اسمه اي 
+دا بقي استخدامه بيبقي علي حسب كل واحد بيختلف استخدامه يعني 
+attribute ليه tag وكل
+</code></pre></div>
+<p>نبدأ بقي نكتب كود</p>
+<div class="md-code-wrap"><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+******
+&lt;/html&gt;
+</code></pre></div>
+<p>بيبقي فيه كل حاجه قدام هتتكتب tag دا اهم</p>
+<h3 id="head-tag-نخش-علي-ال">head tag نخش علي ال</h3><p>هو الجزء الخفّي من صفحة الويب، يعني الحاجات اللي جواه مش بتظهر للمستخدم بشكل مباشر، لكن المتصفح بيستخدمها علشان:</p>
+<ul>
+<li><p>يفهم بيانات الصفحة</p>
+</li>
+<li><p>يربط ملفات خارجية (زي CSS و JS)</p>
+</li>
+<li><p>يظهر عنوان الصفحة</p>
+</li>
+<li><p>يضبط اللغة والتكويد</p>
+</li>
+</ul>
+<h2 id="الجزء-الخاص-بـ-head">🔹 الجزء الخاص بـ `<head>`</h2><p>الـ <code>&lt;head&gt;</code> بيتعامل مع محركات البحث والسوشيال ميديا، وممكن تعتبره:</p>
+<blockquote>
+<p><em>&quot;عقل الصفحة وبياناتها الخلفية&quot;</em></p>
+</blockquote>
+<hr>
+<h2 id="1-title">1. `<title>`</h2><p>ده عنوان الصفحة اللي بيظهر في الـ <strong>Tab</strong> فوق في المتصفح.</p>
+<div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Team Shoky Helper - Your College Companion&lt;/title&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</code></pre></div>
+<hr>
+<h2 id="2-meta">2. `<meta>`</h2><p>وسوم الـ <strong>Meta</strong> ليها استخدامات كتير جدًا، وأهمها الـ <strong>SEO</strong> (تحسين ظهور موقعك في نتائج البحث).</p>
+<blockquote>
+<p><em>وظيفتها تخلي موقعك يظهر في محركات البحث بشكل أفضل.</em></p>
+</blockquote>
+<p>وسوم الميتا = معلومات عن الصفحة، وفي منها أنواع كتير:</p>
+<hr>
+<h3 id="a-وصف-الصفحة-seo">🔹 a. وصف الصفحة (SEO)</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;meta name=&quot;description&quot; content=&quot;ده موقع بيشرح كل حاجة عن الويب للمبتدئين&quot;&gt;
+</code></pre></div>
+<hr>
+<h3 id="b-الكلمات-المفتاحية">🔹 b. الكلمات المفتاحية</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;meta name=&quot;keywords&quot; content=&quot;HTML, CSS, تعلم الويب, برمجة&quot;&gt;
+</code></pre></div>
+<blockquote>
+<p><em>دي بتستخدم علشان لو حد كتب أي كلمة من دول في البحث، موقعك يظهر له.</em></p>
+</blockquote>
+<hr>
+<h3 id="c-اسم-الكاتب">🔹 c. اسم الكاتب</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;meta name=&quot;author&quot; content=&quot;Yousef Tamer&quot;&gt;
+</code></pre></div>
+<hr>
+<h3 id="d-تحديد-الترميز-مهم-جدًا">🔹 d. تحديد الترميز (مهم جدًا)</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;meta charset=&quot;UTF-8&quot;&gt;
+</code></pre></div>
+<h4 id="يعني-إيه-utf-8؟">يعني إيه UTF-8؟</h4><ul>
+<li><p>UTF = Unicode Transformation Format</p>
+</li>
+<li><p>8 = بيستخدم 8 bits</p>
+</li>
+</ul>
+<p>ببساطة:<br>هو نظام بيحوّل الحروف لرموز رقمية علشان الكمبيوتر يقرأها، ويدعم كل لغات العالم (عربي، إنجليزي، صيني، إيموجي...).</p>
+<h4 id="لو-نسيت-تكتبه؟">لو نسيت تكتبه؟</h4><ul>
+<li><p>النص العربي يطلع خرابيش 💥</p>
+</li>
+<li><p>الموقع يعرض الكلام بشكل غلط</p>
+</li>
+<li><p>مشاكل في قواعد البيانات</p>
+</li>
+</ul>
+<hr>
+<h3 id="e-عرض-الصفحة-على-الموبايل">🔹 e. عرض الصفحة على الموبايل</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+</code></pre></div>
+<blockquote>
+<p><em>ده اللي بيخلي الموقع Responsive ويشتغل كويس على الموبايل.</em></p>
+</blockquote>
+<hr>
+<h3 id="f-open-graph-السوشيال-ميديا">🔹 f. Open Graph (السوشيال ميديا)</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt; 
+&lt;meta property=&quot;og:site_name&quot; content=&quot;PureTone&quot;&gt;
+</code></pre></div>
+<blockquote>
+<p><em>بتتحكم في شكل اللينك لما حد يعمل Share على فيسبوك أو غيره.</em></p>
+</blockquote>
+<hr>
+<h3 id="g-لون-شريط-المتصفح">🔹 g. لون شريط المتصفح</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;meta name=&quot;theme-color&quot; content=&quot;#4F46E5&quot;&gt;
+</code></pre></div>
+<blockquote>
+<p><em>بيغير لون التاب في المتصفح.</em></p>
+</blockquote>
+<hr>
+<h2 id="مثال-شامل-على-meta-tags">🔸 مثال شامل على Meta Tags</h2><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#4F46E5&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+
+&lt;meta name=&quot;description&quot; content=&quot;Team Shoky Helper - A modern web application for college students to access courses, lecture schedules, and university news.&quot;&gt;
+
+&lt;meta name=&quot;keywords&quot;
+      content=&quot;Team Shoky Helper, college student app, university courses, lecture schedules, university news, student portal&quot;&gt;
+
+&lt;meta name=&quot;author&quot; content=&quot;Team Shoky&quot;&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;
+
+&lt;!-- Open Graph --&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;Team Shoky Helper - Your College Companion&quot;&gt;
+&lt;meta property=&quot;og:description&quot; content=&quot;Access your courses, lecture schedules, and university news with Team Shoky Helper.&quot;&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;https://i.ibb.co/bRCWmT9d/Team-Shoky-Helper.jpg&quot;&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;https://teamshoky.or-g.net/&quot;&gt;
+&lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;
+&lt;meta property=&quot;og:site_name&quot; content=&quot;Team Shoky Helper&quot;&gt;
+
+&lt;!-- Twitter --&gt;
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;Team Shoky Helper - Your College Companion&quot;&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;Access your courses, lecture schedules, and university news with Team Shoky Helper.&quot;&gt;
+&lt;meta name=&quot;twitter:image&quot; content=&quot;https://i.ibb.co/bRCWmT9d/Team-Shoky-Helper.jpg&quot;&gt;
+&lt;meta name=&quot;twitter:site&quot; content=&quot;@yousefsrour13&quot;&gt;
+</code></pre></div>
+<hr>
+<h2 id="3-ربط-ملفات-خارجية">3. ربط ملفات خارجية</h2><h3 id="ربط-css">🔹 ربط CSS</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+</code></pre></div>
+<hr>
+<h3 id="ربط-javascript">🔹 ربط JavaScript</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+</code></pre></div>
+<hr>
+<h3 id="google-fonts">🔹 Google Fonts</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Cairo&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre></div>
+<hr>
+<h3 id="favicon-أيقونة-الموقع">🔹 Favicon (أيقونة الموقع)</h3><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot;&gt;
+</code></pre></div>
+<hr>
+<h2 id="مثال-كامل-لـ-head">🔸 مثال كامل لـ `<head>`</h2><div class="md-code-wrap"><span class="md-code-lang">html</span><pre><code class="language-html">&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;موقع تعليمي لتعلم HTML وCSS ببساطة&quot;&gt;
+  &lt;meta name=&quot;keywords&quot; content=&quot;HTML, CSS, تعلم البرمجة, تصميم مواقع&quot;&gt;
+  &lt;meta name=&quot;author&quot; content=&quot;Yousef Tamer&quot;&gt;
+
+  &lt;title&gt;دليل تعلم HTML للمبتدئين&lt;/title&gt;
+
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot;&gt;
+
+  &lt;!-- Open Graph --&gt;
+  &lt;meta property=&quot;og:title&quot; content=&quot;تعلم HTML من الصفر&quot;&gt;
+  &lt;meta property=&quot;og:description&quot; content=&quot;دليلك المبسط لتعلم HTML خطوة بخطوة&quot;&gt;
+  &lt;meta property=&quot;og:image&quot; content=&quot;https://yoursite.com/og-image.jpg&quot;&gt;
+  &lt;meta property=&quot;og:url&quot; content=&quot;https://yoursite.com&quot;&gt;
+
+  &lt;script src=&quot;main.js&quot; defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre></div>
+<hr>
+<h2 id="الجزء-الخاص-بـ-body">🔹 الجزء الخاص بـ `<body>`</h2><p>الـ <code>&lt;body&gt;</code> مهم جدًا، لأنه بيحتوي على <strong>كل حاجة بتظهر في الموقع</strong>:</p>
+<ul>
+<li><p>نصوص</p>
+</li>
+<li><p>صور</p>
+</li>
+<li><p>لينكات</p>
+</li>
+<li><p>فيديوهات</p>
+</li>
+<li><p>فورمز</p>
+</li>
+<li><p>كل حاجة حرفيًا</p>
+</li>
+</ul>
+<hr>
+<h2 id="مصادر-للمذاكرة">🔹 مصادر للمذاكرة</h2><ul>
+<li><p><a href="https://www.w3schools.com/html/">https://www.w3schools.com/html/</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">https://developer.mozilla.org/en-US/docs/Web/HTML</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="prompt-تستخدمه-مع-ai">🔹 Prompt تستخدمه مع AI</h2><div class="md-code-wrap"><span class="md-code-lang">text</span><pre><code class="language-text">I want you to explain everything about HTML tags, step by step, in full detail.
+
+Only use information from these two websites:
+https://www.w3schools.com/html/
+https://developer.mozilla.org/en-US/docs/Web/HTML
+
+Explain in Arabic using the Egyptian dialect. Imagine you&#39;re teaching a complete beginner, so keep it simple and friendly.
+
+Start with the main structure tags like &lt;html&gt;, &lt;head&gt;, and &lt;body&gt;, then go through every common HTML tag one by one (like headings, paragraphs, images, links, forms, semantic tags, etc.).
+
+For each tag:
+- Explain what it is
+- When and why we use it
+- How to write it
+- Give a simple example
+
+Don’t move to the next tag until finishing the current one. After each explanation, ask if I understood or want to try an example.
+
+Take your time and keep everything clear.
+
+Use only W3Schools and MDN as references.
+</code></pre></div>
+<hr>
+<h2 id="النهاية">✨ النهاية</h2><p>✨ Not the first, Not the end, It’s an endless way! ✨</p>
+<hr>
+
+          </section>
+        
+
+        <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- MathJax & Mermaid libraries for rich post content -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">04 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Starting your web journey?<br>Let's <em class="accent-em">build together</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to mentoring beginners in web development, HTML, and frontend basics.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>DevOps, Cloud &amp; Systems Engineering Blog — Yousef Tamer (jooexploit)</title>
+  <subtitle>Technical guides, case studies, and tutorials on container orchestration, cloud-native pipelines, and systems automation.</subtitle>
+  <link href="https://jooexploit.dev/atom.xml" rel="self"/>
+  <link href="https://jooexploit.dev/blog"/>
+  <updated>2026-07-08T23:00:00Z</updated>
+  <id>https://jooexploit.dev/blog</id>
+  <author>
+    <name>Yousef Tamer</name>
+    <email>support@jooexploit.dev</email>
+  </author>
+
+  <entry>
+    <title>Demystifying GitOps: Automating Kubernetes Deployments with ArgoCD</title>
+    <link href="https://jooexploit.dev/blog/demystifying-gitops"/>
+    <id>https://jooexploit.dev/blog/demystifying-gitops</id>
+    <updated>2026-07-01T12:00:00Z</updated>
+    <summary>A comprehensive guide detailing GitOps architectures, ArgoCD sync loops, and structural setups to synchronize declarative repository states directly into HA Kubernetes clusters.</summary>
+  </entry>
+
+  <entry>
+    <title>Provisioning Multi-Region AWS Networks Using Terraform State Locks</title>
+    <link href="https://jooexploit.dev/blog/terraform-state-locking"/>
+    <id>https://jooexploit.dev/blog/terraform-state-locking</id>
+    <updated>2026-06-20T12:00:00Z</updated>
+    <summary>Exploring multi-account AWS architectures. Learn how to configure S3 state backends and DynamoDB lock tables to prevent deployment race conditions in automated pipelines.</summary>
+  </entry>
+
+  <entry>
+    <title>Linux Kernel Tuning &amp; Network Protocol Hardening for DevOps Engineers</title>
+    <link href="https://jooexploit.dev/blog/linux-kernel-tuning"/>
+    <id>https://jooexploit.dev/blog/linux-kernel-tuning</id>
+    <updated>2026-05-15T12:00:00Z</updated>
+    <summary>A deep dive into sysctl configurations, network buffer tuning, TCP backlog queues, and firewall policies to harden Linux servers against DDoS floods.</summary>
+  </entry>
+</feed>

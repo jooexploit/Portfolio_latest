@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Session Backend PHP — Yousef Tamer (jooexploit)</title>
+  <meta name="description" content="أول سيشن في backend PHP مع EraaSoft. تعلم الفرق بين client side وserver side وأساسيات PHP من متغيرات وأنواع بيانات." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, PHP, backend, server side, client side, EraaSoft, programming" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/first-session-backend-php" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/first-session-backend-php" />
+  <meta property="og:title" content="First Session Backend PHP — Yousef Tamer (jooexploit)" />
+  <meta property="og:description" content="أول سيشن في backend PHP مع EraaSoft. تعلم الفرق بين client side وserver side وأساسيات PHP من متغيرات وأنواع بيانات." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/first-session-backend-php" />
+  <meta name="twitter:title" content="First Session Backend PHP — Yousef Tamer (jooexploit)" />
+  <meta name="twitter:description" content="أول سيشن في backend PHP مع EraaSoft. تعلم الفرق بين client side وserver side وأساسيات PHP من متغيرات وأنواع بيانات." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://jooexploit.dev/blog/first-session-backend-php/#post",
+      "headline": "First Session Backend PHP — أول خطوة في عالم الـ Backend",
+      "description": "أول سيشن في backend PHP مع EraaSoft. تعلم الفرق بين client side وserver side وأساسيات PHP من متغيرات وأنواع بيانات.",
+      "url": "https://jooexploit.dev/blog/first-session-backend-php",
+      "datePublished": "2025-03-13",
+      "dateModified": "2025-03-13",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jooexploit.dev/blog/first-session-backend-php/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/blog/first-session-backend-php/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://jooexploit.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "First Session Backend PHP — أول خطوة في عالم الـ Backend",
+          "item": "https://jooexploit.dev/blog/first-session-backend-php"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" class="is-active" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <article class="section" aria-labelledby="post-title">
+      <div class="container" style="max-width: 860px;">
+
+        <header style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="tag mono">
+              PHP &middot; Backend &middot; Programming
+            </span>
+          </div>
+          <h1 id="post-title" class="section__title"
+            style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text);">
+            First Session Backend PHP — أول خطوة في عالم الـ Backend
+          </h1>
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Published</span><span>March 14, 2025</span></div>
+            <div class="meta-item"><span>Read Time</span><span>5 Min</span></div>
+            <div class="meta-item"><span>Author</span><span>Yousef Tamer</span></div>
+          </div>
+        </header>
+
+        
+        
+          <section class="post-content prose" dir="auto">
+            <h1 id="first-session-backend-php">First Session Backend PHP</h1><p>بسـم اللـه الرحمـن الرحيـم الحمد لله رب العالمين، والصلاة والسلام على سيدنا محمد الصادق الوعد الأمين، اللهم لا علم لنا إلا ما علمتنا، إنك أنت العليم الحكيم، اللهم علمنا ما ينفعنا، وانفعنا بما علمتنا وزدنا علماً  </p>
+<p>سلسله تانيه بس المره دي backend مع <a href="https://www.linkedin.com/company/eraasoft/">EraaSoft</a> ف البدايه البشمهندس <a href="https://www.linkedin.com/in/islam-kabbary-2b35a814b/">Islam kabbary</a> كان بدأ بيعني اي اصلا backend و اي الفرق بينه وبين frontend ف بص بقي يا سيدي وعايزك كد تتخيل معايا اننا فاتحين صفحه انشاء حساب اول اما فتحت شفت قدامك خانات عشان تكتب بياناتك ف الي انت شايف دا frontend امامي حاجه انت شايفها طب انت خلاص كتبت البيانات ودوست تأكيد ف يجي بقي دور backend تقوم واخده بيانات وتشوف انت جي منين ومعاك اي وعلي الاساس دا تتعامل هي ف هي لقت انك جي من تسجيل الدخول ف تروح بعته بقي لل DB تقلها سجلي الراجل دا عندك (طبعا انت الي بتبقي معرفه تسجله فين وتسجل اي) دا بشكل مبسط الفرق بينهم تعالا بقي نركز علي ال backend المره دي  </p>
+<p>بص يسيدي هو ليه لغات كتيير وكل لغه متميزه فحاجه وكل حاجه ليها ميزه وليها برضه عيب بس احنا انهارده هنركز علي لغه php بس قبل اما نبدأ فيها عايزك افهمك فرق بين حاجتين مهمين جداا وهم ال client side , server side تعالا نبدأ ب client side  </p>
+<p>دي يسيدي زي اللغات html,css كد انت ممكن تخش علي inspect وتعدل الكود وتشوف كل حاجه عادي طب انت من وجهه نظرك هل دا ينفع للbackend انه يمشي بنفس النظام والكود الي مهم جداا وبيبقي فيه حاجات مهمه انه يبقي قدام الناس كلها ويقدروا يشوفوه ف لا طبعا مينفعش ف عشان كد ال backend شغال ب server side ودا عباره عن انك بتبعت للسيرفر تقله والله 5+5 يساوي كام كمثال يعني فهو يشوف عنده ويحسب بعد كد يرد عليك انت متعرفش هو حسبها ازاي ولا شفت اي الي حصل بس هو خلص وبعتلك الي انت عايزه ف الاخر ف دا الفرق بينهم ببساطه يعني تعالا بقي يسيدي نخش علي ال php  </p>
+<p>انت كد فهمت انها عشان تعرف تتكلم معاها لازم سيرفر ف احنا بنقوم سيرفر بسيط اسمه apache هتحمل برنامج بسيط زي (lampp,xampp) وتشغل بقي السيرفر بس السيرفر دا بيبقي ليه مكان بس بيقرأ منه ف انت شوف البرنامج بتاعك انت سطبته فين وهتلاقي مجلد مثلا اسمه اما (htdocs/www) وهتبدأ تعمل فيه بقي ملف (index.php) اول حاجه معانا ف php وهي  </p>
+<div class="md-code-wrap"><pre><code>  
+php?&gt;  
+  
+</code></pre></div>
+<p>ممكن تتقفل وممكن لا لو هتكتب جواها html بتقفلها لو لا يبقي عادي هو هيعرف ان كل حاجه php نخش علي الي بعده وهو امرين مهمين  </p>
+<div class="md-code-wrap"><pre><code>;&quot;echo &quot;hi  
+  
+;&quot;print &quot; hi  
+  
+</code></pre></div>
+<p>وهنا الاتنين دول زي بعض بس الفرق بسيط وهو ان echo بيبقي ليها اكتر من حاجه ممكن تتطبعهم ف نفس الوقت مش شرط يبقي hi فقط اما print ف لا مفيهاش كد<br>نخش علي الموضوع الي بعده وهو كان datatype in php  </p>
+<div class="md-code-wrap"><pre><code>&lt;?php  
+$name = &quot;jooexploit&quot;;   // string (نص)  
+$age = 20;        // integer (عدد صحيح)  
+$price = 99.99;      // float (عدد عشري)  
+$isAdmin = true;     // boolean (صح أو غلط)  
+$colors = array(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;); // array (مجموعة بيانات)  
+</code></pre></div>
+<p>هو الكود مع الاسف مش راضي يتكتب عدل هنا ف linkedin عشان معتمد انه عربي بس المهم تعرف الانواع<br>وفيه برضه function  </p>
+<div class="md-code-wrap"><pre><code>$age = 20;  
+echo gettype($age);  
+</code></pre></div>
+<p>ودي بتقلك اي ال datatype وتطبعه<br>دا كان ملخص صغير هي جت متأخره شويه بس عشان كان فيه ضغط شويه و ف النهايه احب اقلك<br>✨ Not the first, Not the end, It’s an endless way! ✨</p>
+
+          </section>
+        
+
+        <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- MathJax & Mermaid libraries for rich post content -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">04 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Interested in backend development?<br>Let's <em class="accent-em">connect</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to discussions on PHP, backend architecture, and server-side programming.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

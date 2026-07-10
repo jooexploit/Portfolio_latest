@@ -45,6 +45,16 @@
   box-sizing: border-box;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
@@ -1231,8 +1241,9 @@ button {
   z-index: 2;
 }
 
-#proj-whatsapp .project-card__header {
-  grid-template-columns: 0.9fr 1.25fr;
+#proj-whatsapp .project-card__header,
+.project-card--reversed .project-card__header {
+  grid-template-columns: 1fr 1.15fr;
   grid-template-areas: "visual info";
 }
 
@@ -2300,7 +2311,8 @@ button {
     padding: 32px;
   }
 
-  #proj-whatsapp .project-card__header {
+  #proj-whatsapp .project-card__header,
+  .project-card--reversed .project-card__header {
     grid-template-columns: 1fr;
     grid-template-areas: "visual" "info";
   }
@@ -2561,4 +2573,514 @@ html {
   .side-slider {
     display: none;
   }
+}
+
+/* ============ Bento Grid Projects Layout ============ */
+.projects-bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.projects-bento__featured {
+  grid-column: span 2;
+  margin-bottom: 0 !important;
+}
+
+@media (min-width: 992px) {
+  .projects-bento__featured {
+    display: flex;
+    flex-direction: row !important;
+  }
+  .projects-bento__featured .project-card__visual {
+    flex: 1.2;
+    margin-bottom: 0 !important;
+  }
+  .projects-bento__featured .project-card__content {
+    flex: 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .projects-bento {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .projects-bento__featured {
+    grid-column: span 1;
+  }
+}
+/* ============================================================
+   PROSE — Rich Markdown / Blog post content styling
+   ============================================================ */
+
+.prose {
+  color: var(--text-2);
+  line-height: 1.85;
+  font-size: 1.08rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ── Headings ─────────────────────────────────────────────── */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: var(--font-mono, monospace);
+  color: var(--text);
+  line-height: 1.25;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.prose h1 { font-size: 2rem;   border-bottom: 2px solid var(--border); padding-bottom: .5rem; }
+.prose h2 { font-size: 1.55rem; border-bottom: 1px solid var(--border); padding-bottom: .35rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.1rem;  }
+.prose h5,
+.prose h6 { font-size: 1rem; text-transform: uppercase; letter-spacing: .05em; opacity: .8; }
+
+/* ── Paragraphs ───────────────────────────────────────────── */
+.prose p {
+  margin-bottom: 1.4rem;
+}
+.prose p:last-child { margin-bottom: 0; }
+
+/* ── Inline code ──────────────────────────────────────────── */
+.prose code:not(pre code) {
+  font-family: var(--font-mono, monospace);
+  font-size: .875em;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .15em .45em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ── Code blocks ──────────────────────────────────────────── */
+.md-code-wrap {
+  position: relative;
+  margin: 1.75rem 0;
+}
+.md-code-lang {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--accent);
+  color: #000;
+  font-family: var(--font-mono, monospace);
+  font-size: .7rem;
+  font-weight: 700;
+  padding: .2rem .6rem;
+  border-radius: 0 var(--radius-sm) 0 4px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  z-index: 1;
+}
+.md-code-wrap pre {
+  background: var(--card) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.4rem 1.5rem;
+  overflow-x: auto;
+  margin: 0;
+  tab-size: 2;
+}
+.md-code-wrap pre code {
+  font-family: var(--font-mono, monospace);
+  font-size: .875rem;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  padding: 0;
+  white-space: pre;
+}
+
+/* Fallback for prose pre blocks without the wrapper */
+.prose pre {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.4rem 1.5rem;
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  tab-size: 2;
+}
+.prose pre code {
+  font-family: var(--font-mono, monospace);
+  font-size: .875rem;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ── Blockquotes ──────────────────────────────────────────── */
+.prose blockquote {
+  margin: 1.75rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text);
+  font-style: italic;
+}
+.prose blockquote p { margin-bottom: 0; }
+
+/* ── Lists ────────────────────────────────────────────────── */
+.prose ul,
+.prose ol {
+  padding-left: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+.prose li {
+  margin-bottom: .45rem;
+  padding-left: .25rem;
+}
+.prose ul li { list-style-type: disc; }
+.prose ol li { list-style-type: decimal; }
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  margin-top: .4rem;
+  margin-bottom: .4rem;
+}
+
+/* ── Task lists (- [ ] / - [x]) ───────────────────────────── */
+.prose .task-list-item { list-style: none; margin-left: -1.25rem; }
+.prose .task-list-item input[type="checkbox"] {
+  accent-color: var(--accent);
+  margin-right: .5rem;
+  vertical-align: middle;
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: .95rem;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.prose th {
+  background: var(--card);
+  color: var(--text);
+  font-family: var(--font-mono, monospace);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: .75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--border);
+}
+.prose td {
+  padding: .7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-2);
+  vertical-align: top;
+}
+.prose tr:last-child td { border-bottom: none; }
+.prose tr:hover td { background: color-mix(in srgb, var(--accent) 4%, transparent); }
+
+/* ── Horizontal rules ─────────────────────────────────────── */
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* ── Links ────────────────────────────────────────────────── */
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity .15s;
+}
+.prose a:hover { opacity: .75; }
+
+/* ── Images ───────────────────────────────────────────────── */
+.prose img,
+.md-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  display: block;
+  margin: 0 auto;
+}
+.md-figure {
+  margin: 1.75rem 0;
+  text-align: center;
+}
+.md-figure figcaption {
+  font-size: .8rem;
+  color: var(--text-2);
+  margin-top: .5rem;
+  font-style: italic;
+  opacity: .75;
+}
+
+/* ── Embedded YouTube / video iframes ─────────────────────── */
+.md-video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  margin: 1.75rem 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+.md-video-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Strong / em ──────────────────────────────────────────── */
+.prose strong { color: var(--text); font-weight: 700; }
+.prose em { font-style: italic; }
+
+/* ── Strikethrough ────────────────────────────────────────── */
+.prose del { text-decoration: line-through; opacity: .65; }
+
+/* ── RTL paragraph support (Arabic content) ───────────────── */
+.prose[dir="auto"] p,
+.prose[dir="auto"] li,
+.prose[dir="auto"] blockquote {
+  direction: auto;
+  unicode-bidi: plaintext;
+}
+
+/* ── Responsive tweaks ────────────────────────────────────── */
+@media (max-width: 640px) {
+  .prose { font-size: 1rem; }
+  .prose h1 { font-size: 1.6rem; }
+  .prose h2 { font-size: 1.3rem; }
+  .prose h3 { font-size: 1.1rem; }
+  .md-code-wrap pre,
+  .prose pre { padding: 1rem; }
+  .prose table { font-size: .82rem; }
+  .prose th,
+  .prose td { padding: .55rem .65rem; }
+}
+
+/* ── Highlighted Text ─────────────────────────────────────── */
+.prose mark {
+  background-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--accent);
+  padding: 0.125em 0.25em;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+/* ── Keyboard Keys ────────────────────────────────────────── */
+.prose kbd {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.825em;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08);
+  color: var(--accent);
+}
+
+/* ── Details / Summary ────────────────────────────────────── */
+.prose details {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem 1.4rem;
+  margin: 1.75rem 0;
+  transition: border-color 0.2s ease;
+}
+.prose details:hover {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+}
+.prose summary {
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  user-select: none;
+}
+.prose details[open] summary {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+/* ── GitHub Styled Blockquote Alerts ──────────────────────── */
+.github-alert {
+  margin: 1.75rem 0;
+  padding: 1.15rem 1.4rem !important;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border) !important;
+  border-left-width: 4px !important;
+  background: var(--card) !important;
+}
+.github-alert .alert-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.825rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+}
+
+/* Alert styles with specific theme colors */
+.alert-note {
+  border-left-color: #3b82f6 !important; /* Blue */
+}
+.alert-note .alert-title {
+  color: #3b82f6;
+}
+.alert-tip {
+  border-left-color: #10b981 !important; /* Emerald Green */
+}
+.alert-tip .alert-title {
+  color: #10b981;
+}
+.alert-important {
+  border-left-color: #a855f7 !important; /* Purple */
+}
+.alert-important .alert-title {
+  color: #a855f7;
+}
+.alert-warning {
+  border-left-color: #f59e0b !important; /* Amber Orange */
+}
+.alert-warning .alert-title {
+  color: #f59e0b;
+}
+.alert-caution {
+  border-left-color: #ef4444 !important; /* Red */
+}
+.alert-caution .alert-title {
+  color: #ef4444;
+}
+
+/* ── HTML Form Inputs in Markdown ─────────────────────────── */
+.prose form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  margin: 1.75rem 0;
+  max-width: 500px;
+}
+.prose label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  display: inline-block;
+}
+.prose input[type="text"],
+.prose input[type="password"],
+.prose input[type="email"],
+.prose input[type="url"],
+.prose select,
+.prose textarea {
+  background: color-mix(in srgb, var(--card) 95%, #fff);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.95rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+  margin-bottom: 1.15rem;
+  box-sizing: border-box;
+}
+.prose input:focus,
+.prose select:focus,
+.prose textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 15%, transparent);
+  outline: none;
+}
+.prose button,
+.prose input[type="submit"] {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.prose button:hover,
+.prose input[type="submit"]:hover {
+  opacity: 0.9;
+}
+.prose button:active,
+.prose input[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+/* ── Inline SVG Scaling ────────────────────────────────────── */
+.prose svg {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  display: block;
+  margin: 1.5rem 0;
+}
+
+/* ── Definition Lists ─────────────────────────────────────── */
+.prose dl {
+  margin: 1.75rem 0;
+}
+.prose dt {
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 1rem;
+}
+.prose dd {
+  margin-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-2);
+}
+
+/* ── Mermaid Diagrams Wrapper ─────────────────────────────── */
+.mermaid {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  margin: 1.75rem 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
 }

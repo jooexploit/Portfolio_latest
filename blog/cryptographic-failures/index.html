@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cryptographic Failures — OWASP Top 10 Day 2 — Yousef Tamer (jooexploit)</title>
+  <meta name="description" content="شرح كامل لثغرة Cryptographic Failures — تشفير ضعيف، بيانات مكشوفة، Google Dorking على GitHub، وأدوات البحث عن المعلومات المسربة." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, cryptographic failures, OWASP, MD5, SHA-1, HTTPS, TLS, bug bounty, GitHub dorking" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/cryptographic-failures" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/cryptographic-failures" />
+  <meta property="og:title" content="Cryptographic Failures — OWASP Top 10 Day 2 — Yousef Tamer (jooexploit)" />
+  <meta property="og:description" content="شرح كامل لثغرة Cryptographic Failures — تشفير ضعيف، بيانات مكشوفة، Google Dorking على GitHub، وأدوات البحث عن المعلومات المسربة." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/cryptographic-failures" />
+  <meta name="twitter:title" content="Cryptographic Failures — OWASP Top 10 Day 2 — Yousef Tamer (jooexploit)" />
+  <meta name="twitter:description" content="شرح كامل لثغرة Cryptographic Failures — تشفير ضعيف، بيانات مكشوفة، Google Dorking على GitHub، وأدوات البحث عن المعلومات المسربة." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://jooexploit.dev/blog/cryptographic-failures/#post",
+      "headline": "Cryptographic Failures 🔐 — OWASP Top 10 Day 2",
+      "description": "شرح كامل لثغرة Cryptographic Failures — تشفير ضعيف، بيانات مكشوفة، Google Dorking على GitHub، وأدوات البحث عن المعلومات المسربة.",
+      "url": "https://jooexploit.dev/blog/cryptographic-failures",
+      "datePublished": "2025-02-28",
+      "dateModified": "2025-02-28",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jooexploit.dev/blog/cryptographic-failures/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/blog/cryptographic-failures/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://jooexploit.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cryptographic Failures 🔐 — OWASP Top 10 Day 2",
+          "item": "https://jooexploit.dev/blog/cryptographic-failures"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" class="is-active" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <article class="section" aria-labelledby="post-title">
+      <div class="container" style="max-width: 860px;">
+
+        <header style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="tag mono">
+              OWASP &middot; Cryptography &middot; Bug Bounty &middot; Security
+            </span>
+          </div>
+          <h1 id="post-title" class="section__title"
+            style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text);">
+            Cryptographic Failures 🔐 — OWASP Top 10 Day 2
+          </h1>
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Published</span><span>March 1, 2025</span></div>
+            <div class="meta-item"><span>Read Time</span><span>9 Min</span></div>
+            <div class="meta-item"><span>Author</span><span>Yousef Tamer</span></div>
+          </div>
+        </header>
+
+        
+        
+          <section class="post-content prose" dir="auto">
+            <h1 id="cryptographic-failures">Cryptographic failures</h1><p>ازيك يا صديقي معدنا مع اليوم الثاني ف رمضان و بورد قرأني جديد (من صفحه 22 حتي 42 ) ومعانا ثغره محببه الي قلبي بصراحه ف قبل ما نبدأ عايزك تصلي بينا ع النبي ونبدأ بسم الله الرحمن الرحيم</p>
+<h2 id="اليوم-التاني-cryptographic-failures">اليوم التاني – Cryptographic Failures 🔐</h2><p>يعني إيه Cryptographic Failures؟</p>
+<p>ثغرة Cryptographic Failures أو إخفاقات التشفير، هي واحدة من أخطر الثغرات في عالم الويب. بمعناها البسيط، الموضوع بيبقى إن البيانات الحساسة بتتعامل بتشفير ضعيف أو حتى بتتخزن من غير تشفير أصلاً. يعني ممكن تلاقي مثلاً كلمات المرور أو معلومات المستخدمين بتتحفظ بشكل مكشوف أو باستخدام خوارزميات مش قوية زي MD 5 أو SHA-1. والنتيجة؟ بياناتك ممكن تتسرق بسهولة من أي هاكر شاطر.<br>او ان يبقي ليهم صفحات قديمه ف WebArchive مثلا فيه معلومات حساسه وهم شالوه بس لسا موجود ف Archive</p>
+<p>أنا من تجاربي الشخصية في مجال الأمان، واجهت مواقف كتير كان سببها إن المطورين مش واخدين الموضوع بجدية كفاية. ساعات بتلاقي حتى الشركات الكبيرة، اللي المفروض يكون عندها أعلى معايير الأمان، بتستخدم حلول تشفير ضعيفة أو بتخزن البيانات الحساسة من غير تشفير ملائم. عشان كده افضل ف خطواتك الاولي تدور علي كل الملفات المهمه و تبحث علي السورس كود برضه (وانا مجهزلك ادوات ومواقع تساعدك انك تلاقي كل المعلومات و الملفات )</p>
+<hr>
+<h2 id="إزاي-ممكن-نلاقي-الثغرة؟">إزاي ممكن نلاقي الثغرة؟</h2><p>من خلال تجربتي، في شوية طرق وأدوات ممكن تساعدك تكتشف الثغرة دي بسهولة:</p>
+<p>فحص الاتصالات:<br>لو الموقع مش مفعل HTTPS بشكل صحيح أو مش بيستخدم TLS 1.2/1.3، يبقى فيه فرصة كبيرة لمهاجمة MITM (Man-in-the-Middle). (بس دي مش اوي يعني مش كل المواقع بتقبلها ونادر وجودها اصلا )<br>تركايه: استخدم أدوات زي Wireshark أو Burp Suite عشان تراقب حركة المرور وتشوف إذا كان فيه بيانات حساسة بتتبعت على شكل Plaintext.</p>
+<p>تحليل الأكواد:<br>ابحث في الكود عن أماكن تخزين البيانات الحساسة أو عن خوارزميات التشفير المستخدمة.<br>أوقات كتير بتلاقي إن المطورين بيسيبوا مفاتيح التشفير أو API Keys في الكود، خصوصاً في GitHub .</p>
+<p>فحص التخزين:<br>شوف لو البيانات الحساسة زي كلمات السر أو بيانات العملاء متخزنة في قواعد البيانات من غير تشفير مناسب.</p>
+<p>التحقق من الشهادات:<br>لو الموقع عنده شهادات SSL/TLS، اتأكد إنها مش منتهية الصلاحية أو مش موثوقة، لإنها ممكن تكون مؤشر على ضعف التشفير.</p>
+<hr>
+<h2 id="إزاي-نستغل-الثغرة؟">إزاي نستغل الثغرة؟</h2><p>Interception &amp; Sniffing:<br>لو الاتصالات مش مشفرة كويس، استخدم أدوات زي Bettercap أو MITMf لعترض البيانات وفك تشفيرها. التجربة دي بتحتاج صبر وفهم لطبيعة البروتوكولات.</p>
+<p>Brute Force on Hashes:<br>لو لقيت كلمات السر مشفرة باستخدام MD 5 أو SHA-1، تقدر تستخدم John the Ripper أو Hashcat لفك التشفير بسرعة. و دايمًا لازم تتأكد إنك جربت الأدوات دي في بيئة اختبار قبل ما تستخدمها في أي تقرير.</p>
+<p>استغلال مفاتيح API المكشوفة:<br>لما تلاقي مفاتيح API أو أسرار في الكود، استغلها للوصول لخدمات حساسة أو بيانات خاصة بالمستخدمين. في ناس كتير بتعمل ده وتلاقي معلومات قيمة جدًا ممكن تستخدمها كـ POC (Proof of Concept) للتقرير.</p>
+<p>Man-in-the-Middle Attack:<br>هجوم MITM بيكون فعال لو لقيت اتصال غير مشفر. دايمًا تابع تلاعب الطلبات وراجع الردود بحثًا عن بيانات حساسة.</p>
+<hr>
+<h2 id="إزاي-نحمي-الموقع-من-cryptographic-failures؟">إزاي نحمي الموقع من Cryptographic Failures؟</h2><p>الوقاية أحسن بكتير من العلاج. عشان كده، هنا شوية نصايح تساعدك:</p>
+<p>تفعيل HTTPS وTLS:<br>لازم تستخدم HTTPS مع أحدث بروتوكولات TLS (1.2 أو 1.3) عشان تحمي البيانات أثناء التنقل. ولازم تفعل HSTS لتأكيد أن المتصفح دايمًا يستخدم HTTPS.</p>
+<p>استخدام خوارزميات تشفير قوية:<br>ابعد عن MD 5 و SHA-1 واستخدم AES-256 لتشفير البيانات الحساسة، وبالنسبة لكلمات المرور، استخدم خوارزميات زي bcrypt أو Argon 2.</p>
+<p>إدارة المفاتيح بشكل آمن:<br>متخليش مفاتيح التشفير أو الـ API Keys في الكود. استخدم متغيرات البيئة (Environment Variables) أو حلول إدارة الأسرار زي HashiCorp Vault.</p>
+<p>مراجعة دورية للكود:<br>نفذ اختبارات أمان دورية باستخدام أدوات زي Burp Suite و OWASP ZAP.</p>
+<p>تدريب الفرق:<br>درب فريقك على أفضل ممارسات الأمان والتشفير، وكن دائمًا على تواصل مع آخر المستجدات في مجال Cybersecurity.</p>
+<hr>
+<h2 id="أمثلة-واقعية-و-write-ups-poc-videos">أمثلة واقعية و Write-ups & POC Videos:</h2><p>Write-ups:</p>
+<ol>
+<li><a href="https://hackerone.com/reports/77231">Weak Cryptographic Hash report</a></li>
+</ol>
+<p>2. <a href="https://hackerone.com/reports/260689">Weak Cryptography for Passwords</a></p>
+<p>3. <a href="https://medium.com/@CVxTz/how-i-found-hundreds-of-secret-passwords-and-api-keys-on-github-and-then-got-banned-for-trying-to-f6f11f0e15a6">How I found hundreds of secret passwords and API keys on GitHub and then got Banned for trying to notify their owners (writup)</a></p>
+<p>4. <a href="http://omespino.com/write-up-twitter-bug-bounty-my-1st-bugbounty-poodle-sslv3-bug-on-multiple-twitter-smtp-servers/">WRITE UP — TWITTER BUG BOUNTY [Report of my 1 st bugbounty]: “POODLE SSLv 3 bug on multiple twitter smtp servers</a></p>
+<p>5. <a href="https://www.hackerone.com/blog/owasp-top-10-risk-cryptographic-failures">OWASP Top 10: The Risk of Cryptographic Failures</a></p>
+<p>6. <a href="https://medium.com/@ajay.monga73/cryptographic-failures-understanding-and-preventing-vulnerabilities-91c8b2c56854">Cryptographic Failures: Understanding and Preventing Vulnerabilities (writups)</a></p>
+<p>POC Videos:</p>
+<p><a href="https://youtu.be/ZQ8mSfAiloU?si=CMNWJiq5TRrCMvzu">$300 Bounty || Sensitive Information Disclosure || Exploit || POC</a></p>
+<p><a href="https://www.youtube.com/watch?v=LEPEk5pFffw">How to Perform MITM Attack — Practical Demo</a></p>
+<hr>
+<h2 id="لابات-لتحسين-مهاراتك">لابات لتحسين مهاراتك:</h2><p>لو عايز تتعلم أكتر وتطبق عملياً، جرب Labs زي:</p>
+<p><a href="https://portswigger.net/web-security/information-disclosure/exploiting/lab-infoleak-in-error-messages">PortSwigger Labs – Cryptographic Failures:</a></p>
+<p><a href="https://app.hackthebox.com/challenges/6">HackTheBox – Weak Encryption Challenge</a>:</p>
+<p><a href="https://tryhackme.com/room/cryptographyintro">TryHackMe – Cryptography Room:</a></p>
+<hr>
+<p>خلصنا بقي فهم وتدريب نخش ع الشغل الي بجد دي حاجات مهمه وهتفيدك لو بتدور علي ال Bug دي لو انت hunter ولو انت backend DEV فخد بالك بقي و انت بتضيف او بترفع شغلك منهم</p>
+<p>1️⃣ GitHub – البحث عن الأكواد المسربة</p>
+<p>🔍 Google Dorking على GitHub:<br>فيه شركات كتير بتنشر بالخطأ ملفات فيها أسرار زي API Keys أو بيانات دخول، وده كنز لأي هاكر أخلاقي.</p>
+<p>🔎 Dorks للبحث عن الأكواد الحساسة:</p>
+<h2 id="get-jooexploits-stories-in-your-inbox">Get Jooexploit’s stories in your inbox</h2><p>Join Medium for free to get updates from this writer.</p>
+<p>Subscribe</p>
+<p>Remember me for faster sign in</p>
+<p>📌 مفاتيح API أو أسرار الشركات:</p>
+<p>site:github.com &quot;SECRET_KEY&quot; &quot;company_name&quot;<br>site:github.com &quot;API_KEY&quot; &quot;company_name&quot;<br>site:github.com &quot;mysql password&quot; &quot;company_name&quot;</p>
+<p>📌 ملفات البيئة (Environment Files) اللي ممكن يكون فيها بيانات حساسة:</p>
+<p>site:github.com &quot;DB_PASSWORD&quot; &quot;company_name&quot;<br>site:github.com &quot;config.json&quot; &quot;company_name&quot;<br>site:github.com &quot;aws_access_key_id&quot; &quot;company_name&quot;</p>
+<p>📌 بحث عام عن الأكواد الخاصة بشركة معينة:</p>
+<p>site:github.com company_name</p>
+<p>📌 البحث عن الأكواد اللي تم حذفها بس لسه موجودة في الـ commit history:</p>
+<p>site:github.com company_name path:.git</p>
+<p>📌 البحث عن ملفات التكوين الحساسة (.env, .json, .yaml, .config):</p>
+<p>site:github.com &quot;company_name&quot; ext:env<br>site:github.com &quot;company_name&quot; ext:json<br>site:github.com &quot;company_name&quot; ext:yaml</p>
+<p>🛠️ أدوات تساعدك في البحث داخل GitHub:</p>
+<p>GitLeaks → أداة قوية بتساعدك تلاقي البيانات الحساسة المسربة في GitHub.</p>
+<p>GitRob → بتساعدك تحلل مستودعات GitHub وتكتشف الأكواد المسربة.</p>
+<hr>
+<p>2️⃣ Google Dorks – البحث في جوجل عن البيانات المكشوفة</p>
+<p>لو عايز تلاقي أكواد مسربة أو معلومات حساسة عن شركة معينة، جرب تستخدم Google Dorks:</p>
+<p>📌 البحث عن ملفات التكوين الحساسة (.env, .json, .yaml, .config):</p>
+<p>site:pastebin.com &quot;company_name&quot; // or use hastebin.com</p>
+<p>📌 البحث عن قواعد البيانات المكشوفة:</p>
+<p>site:pastebin.com &quot;database password&quot; // or use hastebin.com</p>
+<p>📌 البحث عن السيرفرات الضعيفة:</p>
+<p>intitle:&quot;index of&quot; &quot;company_name&quot; // or use hastebin.com</p>
+<p>—</p>
+<p>3️⃣ Public Code Repositories – مستودعات الكود العامة</p>
+<p>🔹 <a href="https://sourcegraph.com/">SourceGraph</a></p>
+<p>🔍 موقع بيساعدك تبحث في أكواد GitHub وGitLab بسهولة، وبيوفر لك فيلتر قوي جدًا للبحث عن الأكواد المسربة.</p>
+<p>🔹 <a href="https://grep.app/">Grep.app</a></p>
+<p>🔍 زي SourceGraph لكنه أسرع في البحث عن الأكواد، ومفيد جدًا لو بتدور على مكتبات أو كود معين.</p>
+<hr>
+<p>4️⃣ Shodan &amp; Censys – البحث عن الأجهزة والسيرفرات</p>
+<p>🔍 <a href="https://www.shodan.io/">Shodan.io</a><br>ده محرك بحث للسيرفرات المتصلة بالإنترنت، تقدر من خلاله تلاقي خدمات غير مؤمنة أو قواعد بيانات مكشوفة.</p>
+<p>🔍 <a href="https://censys.io/">Censys.io</a><br>بديل لـ Shodan، وبيساعدك تلاقي شهادات SSL والتعرف على الأجهزة المرتبطة بدومين معين.</p>
+<p>🔎 أمثلة على البحث:</p>
+<p>📌 البحث عن سيرفرات شركة معينة:</p>
+<p>org:&quot;Company Name&quot;</p>
+<p>📌 البحث عن قواعد بيانات MongoDB المكشوفة:</p>
+<p>product:&quot;MongoDB&quot;</p>
+<p>📌 البحث عن لوحات تحكم مكشوفة:</p>
+<p>http.title:&quot;admin panel&quot;</p>
+<hr>
+<p>5️⃣ <a href="https://web.archive.org/">Wayback Machine</a> – البحث عن الإصدارات القديمة للمواقع<br>🕵️‍♂️ موقع ممتاز لو عايز تشوف الإصدارات القديمة من موقع معين، وكتير من الثغرات بتكون بسبب أكواد قديمة مازالت متاحة.</p>
+<p>📌 استخدم أداة <a href="https://github.com/tomnomnom/waybackurls">Waybackurls</a> لاستخراج الروابط القديمة لموقع معين:</p>
+<p>waybackurls example.com</p>
+<hr>
+<p>🛠️ أدوات تساعدك في البحث بشكل أسرع</p>
+<p>✅ <a href="https://github.com/OWASP/Amass">Amass</a></p>
+<p>أداة قوية جدًا لجمع المعلومات عن نطاق معين.</p>
+<p>✅ <a href="https://github.com/projectdiscovery/subfinder">Subfinder</a></p>
+<p>بتساعدك تلاقي الـ subdomains بسرعة.</p>
+<p>✅ <a href="https://github.com/s0md3v/Photon">Photon</a></p>
+<p>Web Crawler يجيب بيانات حساسة من المواقع.</p>
+<p>✅ <a href="https://github.com/guelfoweb/knock">Knockpy</a></p>
+<p>بيعمل enumeration للنطاقات الفرعية (subdomains).</p>
+<p>✅ <a href="https://github.com/zeusvlun/zeusback">zeusback</a></p>
+<p>بتدورلك علي كل الملفات المهمه زي pdf,.xlsx</p>
+<p>جاهزين لبكرة؟<br>الثغرة الجاية هتكون بإذن الله عن Injection Attacks، خليك متابع ومستعد!</p>
+<p>Press enter or click to view image in full size</p>
+<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*JMKGnLYMY3g25TNi24pDBg.jpeg" alt=""></figure>
+<hr>
+
+          </section>
+        
+
+        <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- MathJax & Mermaid libraries for rich post content -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">04 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Need data security review?<br>Let's <em class="accent-em">encrypt right</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to discussions on cryptographic best practices, HTTPS implementation, and API key security.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

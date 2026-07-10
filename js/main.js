@@ -667,7 +667,24 @@
   const nav          = $("#nav");
   const progressBar  = $("#progressBar");
   const spyLinks     = $$("[data-spy]");
-  const sections     = spyLinks.map(a => $(a.getAttribute("href"))).filter(Boolean);
+  
+  // Safe mapping of navigation links to elements present on the page
+  const sections     = spyLinks.map(a => {
+    const href = a.getAttribute("href");
+    if (!href) return null;
+    if (href.startsWith("#")) {
+      return $(href);
+    }
+    // Extract last segment of path (e.g., /about -> about)
+    const id = href.split("/").filter(Boolean).pop();
+    if (id) {
+      const el = $("#" + id);
+      if (el) return el;
+      if (id === "projects") return $("#work");
+    }
+    return null;
+  }).filter(Boolean);
+
   const timelineEl   = $("#timeline");
   const timelineFill = $("#timelineFill");
   let scrollQueued   = false;
@@ -687,15 +704,44 @@
     }
 
     let active = null;
-    for (const s of sections)
-      if (s.getBoundingClientRect().top <= innerHeight * 0.45) active = s.id;
-    spyLinks.forEach(a =>
-      a.classList.toggle("is-active", a.getAttribute("href") === "#" + active));
+    for (const s of sections) {
+      if (s.getBoundingClientRect().top <= innerHeight * 0.45) {
+        active = s.id;
+      }
+    }
+
+    // Highlight active link based on scroll section (on Home) or URL pathname (on subpages)
+    spyLinks.forEach(a => {
+      const href = a.getAttribute("href");
+      if (!href) return;
+      let isActive = false;
+      
+      if (href.startsWith("#")) {
+        isActive = (href === "#" + active);
+      } else {
+        const path = window.location.pathname;
+        const cleanPath = path.replace(/\/$/, "");
+        const cleanHref = href.replace(/\/$/, "");
+        
+        if (cleanPath === cleanHref) {
+          isActive = true;
+        } else if (cleanPath === "" || cleanPath === "/index.html") {
+          // Fallback if we are on the homepage: highlight based on active section id
+          const id = cleanHref.split("/").filter(Boolean).pop();
+          if (id === "projects" && active === "work") {
+            isActive = true;
+          } else if (id === active) {
+            isActive = true;
+          }
+        }
+      }
+      a.classList.toggle("is-active", isActive);
+    });
 
     // Update side dots navigation active state dynamically
     const sideDotsList = $$(".side-slider__dot");
     let activeDot = "top";
-    const sectionIds = ["top", "about", "journey", "work", "skills", "library", "contact"];
+    const sectionIds = ["top", "about", "journey", "certifications", "work", "skills", "library", "contact"];
     for (const id of sectionIds) {
       const el = $("#" + id);
       if (el && el.getBoundingClientRect().top <= innerHeight * 0.45) {
@@ -896,15 +942,16 @@
     if (tooltip) tooltip.classList.remove("is-active");
 
     const skills = [
-      { id: "devops",     label: "DevOps",     tech: ["Docker", "CI/CD", "Kubernetes", "IaC"] },
-      { id: "cloud",      label: "Cloud",      tech: ["AWS", "Azure", "Infrastructure"] },
-      { id: "linux",      label: "Linux",      tech: ["Containers", "System Administration", "Networking"] },
-      { id: "automation", label: "Automation", tech: ["Python", "Bash", "Bots & Agents", "Pipelines"] },
-      { id: "backend",    label: "Backend",    tech: ["APIs", "Authentication", "Databases"] },
-      { id: "frontend",   label: "Frontend",   tech: ["React", "TypeScript", "Design Systems"] },
-      { id: "security",   label: "Security",   tech: ["Penetration Testing", "Security Auditing", "Hardening"] },
-      { id: "ai",         label: "AI",         tech: ["LLMs", "Autonomous Agents", "Workflows"] },
-      { id: "education",  label: "Education",  tech: ["Technical Writing", "LMS Platforms", "Documentation"] },
+      { id: "devops",     label: "DevOps",     tech: ["Docker", "Git", "CI/CD Platforms", "Kubernetes"] },
+      { id: "cloud",      label: "Cloud",      tech: ["AWS", "Cloud Computing", "Virtualization Concepts"] },
+      { id: "linux",      label: "Linux",      tech: ["RHEL (Red Hat Linux)", "System Administration", "Networking (TCP/IP, Subnetting)"] },
+      { id: "automation", label: "Automation", tech: ["Python / Scripting", "Bash", "Task Automation Pipelines"] },
+      { id: "backend",    label: "Backend",    tech: ["API Development", "PHP / Node.js", "MySQL / Databases", "Apache / WAMP"] },
+      { id: "frontend",   label: "Frontend",   tech: ["React.js & JavaScript", "HTML & CSS", "User Interface Design", "Chrome Extensions"] },
+      { id: "security",   label: "Security",   tech: ["Penetration Testing / Hacking", "IDS / IPS / Firewalls", "Web App Security Assessment", "Wireshark / Kali Linux"] },
+      { id: "leadership", label: "Leadership", tech: ["Team Leadership & Management", "Project Coordination", "Event Management", "Communication & Teamwork"] },
+      { id: "ai",         label: "AI",         tech: ["LLMs & Workflows", "Autonomous Agents"] },
+      { id: "education",  label: "Education",  tech: ["Computer Science Education", "LMS Platforms", "Research & Self Learning"] }
     ];
 
     const CX = 320, CY = 240;

@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insecure Design — OWASP Top 10 Day 4 — Yousef Tamer (jooexploit)</title>
+  <meta name="description" content="شرح ثغرة Insecure Design في OWASP Top 10 — Business Logic Flaws، غياب التحقق من الصلاحيات، وكيفية تصميم تطبيقات آمنة." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, insecure design, OWASP, business logic, IDOR, security architecture, bug bounty" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/insecure-design" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/insecure-design" />
+  <meta property="og:title" content="Insecure Design — OWASP Top 10 Day 4 — Yousef Tamer (jooexploit)" />
+  <meta property="og:description" content="شرح ثغرة Insecure Design في OWASP Top 10 — Business Logic Flaws، غياب التحقق من الصلاحيات، وكيفية تصميم تطبيقات آمنة." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/insecure-design" />
+  <meta name="twitter:title" content="Insecure Design — OWASP Top 10 Day 4 — Yousef Tamer (jooexploit)" />
+  <meta name="twitter:description" content="شرح ثغرة Insecure Design في OWASP Top 10 — Business Logic Flaws، غياب التحقق من الصلاحيات، وكيفية تصميم تطبيقات آمنة." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://jooexploit.dev/blog/insecure-design/#post",
+      "headline": "Insecure Design 🔥 — OWASP Top 10 Day 4",
+      "description": "شرح ثغرة Insecure Design في OWASP Top 10 — Business Logic Flaws، غياب التحقق من الصلاحيات، وكيفية تصميم تطبيقات آمنة.",
+      "url": "https://jooexploit.dev/blog/insecure-design",
+      "datePublished": "2025-03-02",
+      "dateModified": "2025-03-02",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jooexploit.dev/blog/insecure-design/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/blog/insecure-design/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://jooexploit.dev/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Insecure Design 🔥 — OWASP Top 10 Day 4",
+          "item": "https://jooexploit.dev/blog/insecure-design"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" class="is-active" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <article class="section" aria-labelledby="post-title">
+      <div class="container" style="max-width: 860px;">
+
+        <header style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="tag mono">
+              OWASP &middot; Security Design &middot; Bug Bounty
+            </span>
+          </div>
+          <h1 id="post-title" class="section__title"
+            style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text);">
+            Insecure Design 🔥 — OWASP Top 10 Day 4
+          </h1>
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Published</span><span>March 3, 2025</span></div>
+            <div class="meta-item"><span>Read Time</span><span>8 Min</span></div>
+            <div class="meta-item"><span>Author</span><span>Yousef Tamer</span></div>
+          </div>
+        </header>
+
+        
+        
+          <section class="post-content prose" dir="auto">
+            <h1 id="insecure-design">Insecure design</h1><p>بسم الله والصلاه والسلام علي رسول الله ف البدايه كد صلي ع النبي و عايزك تركز معانا حاجه حلوه انهادره متنساش ورد انهارده يوم 4 رمضان ومعانا ورد من صفحه (62) الي (82) معانا انهارده ثغره مهمه بس قبل اما تبدأ تعمل كود ودي الي تفرق بينك وبين اي مبرمج تاني معانا ومعاكوا</p>
+<h2 id="التصميم-غير-الآمن-insecure-design">🔥 التصميم غير الآمن (Insecure Design) 🔥</h2><p>Press enter or click to view image in full size</p>
+<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*iBI5XTONDRscOiQplmal2w.jpeg" alt=""></figure>
+<p>4/30 Insecure Design</p>
+<h2 id="ايه-هو-التصميم-غير-الآمن؟">🛠 ايه هو التصميم غير الآمن؟</h2><p>التصميم غير الآمن هو لما يكون التطبيق نفسه معمول بطريقة تخليه عُرضة للاختراق، حتى لو الكود مفيهوش ثغرات تقليدية زي SQL Injection أو XSS. المشكلة هنا بتكون في <strong>التخطيط والتصميم</strong> مش في التنفيذ بس.</p>
+<p>بمعنى تاني، التطبيق ممكن يكون شغال <strong>بدون أخطاء تقنية واضحة</strong>، لكن بسبب ضعف التصميم، المهاجم يقدر يستغله بطرق غير متوقعة!</p>
+<h2 id="get-jooexploits-stories-in-your-inbox">Get Jooexploit’s stories in your inbox</h2><p>Join Medium for free to get updates from this writer.</p>
+<p>Subscribe</p>
+<p>Remember me for faster sign in</p>
+<p>💡 <strong>مثال واقعي:</strong><br>تخيل عندك موقع بيقدم خدمة تحويل الأموال بين المستخدمين، لكن بدون أي <strong>تأكيد على الهوية</strong> لما حد يطلب تحويل مبلغ كبير!</p>
+<ul>
+<li>المفروض لما حد يطلب تحويل مبلغ كبير (زي 10000$)، يكون فيه <strong>خطوة تحقق إضافية</strong> زي إدخال OTP أو المصادقة الثنائية (2 FA).</li>
+<li>لكن في بعض الأنظمة اللي فيها <strong>تصميم غير آمن</strong>، المستخدم ممكن يحول الفلوس <strong>بضغطة زر</strong> بدون أي تحقق إضافي.</li>
+<li>في الحالة دي، لو حساب المستخدم اتعرض للاختراق أو حتى لو حد استخدم جهازه بدون إذنه، ممكن يخسر كل فلوسه بسهولة.</li>
+</ul>
+<p><strong>وده بيكون خطأ في التصميم مش في البرمجة!</strong> 🤯</p>
+<h2 id="إزاي-ممكن-نلاقيها؟">🔎 إزاي ممكن نلاقيها؟</h2><h2 id="ابحث-عن-غياب-التحقق-من-الصلاحيات">👀 ابحث عن غياب التحقق من الصلاحيات:</h2><ul>
+<li>جرب الدخول بحساب مستخدم عادي، وحاول <strong>تنفيذ أوامر خاصة بالإدارة</strong> وشوف لو عندك الصلاحيات ولا لأ.</li>
+<li>لو مفيش تحقق، يبقى فيه <strong>تصميم غير آمن</strong> يسمح بأي حد يعمل حاجات مش من حقه.</li>
+</ul>
+<p>كمثال لو عندك <strong>لوحة تحكم للادمن</strong> في الموقع على الرابط ده:</p>
+<p><a href="https://example.com/admin">https://example.com/admin</a></p>
+<p>لكن مفيش <strong>تحقق حقيقي من صلاحيات المستخدم</strong>، ممكن أي حد يدخل على الرابط ويشوف بيانات حساسة!</p>
+<h2 id="اختبر-مسار-العمليات-في-الموقع-business-logic-flaws">🕵️ اختبر مسار العمليات في الموقع (Business Logic Flaws):</h2><ul>
+<li>شوف لو فيه <strong>خطوات مفقودة</strong> أو <strong>تحقق ناقص</strong> قبل تنفيذ عمليات حساسة.</li>
+<li>جرب التلاعب في الـ <strong>requests</strong> لمعرفة هل التطبيق بيحمي العمليات المهمة ولا لأ.</li>
+</ul>
+<p>عشان تفهم عايزك تتخيل إن عندك نظام <strong>خصومات</strong> في موقع بيع إلكتروني، بيدي <strong>20% خصم</strong> لأول عملية شراء لكل مستخدم جديد.</p>
+<ul>
+<li>لو النظام مصمم بطريقة غير آمنة، ممكن حد يستغل ده ويسجل <strong>أكثر من حساب</strong> وياخد الخصم كل مرة!</li>
+<li>لو مفيش <strong>تحقق حقيقي</strong> على إن الحسابات دي حقيقية، ممكن المهاجم يستغل النظام بسهولة.</li>
+</ul>
+<p><strong>⛔️ الحل:</strong></p>
+<ul>
+<li>لازم الموقع يعتمد على <strong>طرق تحقق قوية</strong> زي التحقق من رقم الهاتف أو بيانات الدفع بدل ما يعتمد على البريد الإلكتروني بس.</li>
+</ul>
+<h2 id="إزاي-نقدر-نستغلها؟">🎯 إزاي نقدر نستغلها؟</h2><h2 id="1-استغلال-غياب-الحماية-في-مسارات-العمليات">🔥 1️⃣ استغلال غياب الحماية في مسارات العمليات:</h2><ul>
+<li>لو فيه <strong>خطوات مفقودة في التحقق</strong>، جرب تنفيذ الطلبات يدويًا عبر أدوات زي <strong>Burp Suite</strong>.</li>
+<li>جرب التعديل على <strong>الـ requests</strong> قبل إرسالها للسيرفر، وشوف هل التطبيق بيتحقق من صحة البيانات ولا لا.</li>
+</ul>
+<h2 id="2-استغلال-ضعف-الصلاحيات-broken-access-control">🔥 2️⃣ استغلال ضعف الصلاحيات (Broken Access Control):</h2><ul>
+<li>جرب الدخول بحساب عادي، وابعت <strong>request لصفحات المشرفين</strong> وشوف هل عندك صلاحية ولا لأ.</li>
+<li>استخدم <strong>IDOR (Insecure Direct Object References)</strong> لمحاولة الوصول لبيانات غيرك بدون إذن.</li>
+</ul>
+<p>💡 <strong>مثال عملي:</strong><br>لو عندك رابط بيدي تفاصيل طلبات الشراء:</p>
+<p><a href="https://example.com/orders/12345">https://example.com/orders/12345</a></p>
+<ul>
+<li>جرب تغيّر الـ <strong>ID</strong> في الرابط لـ <strong>طلب يخص مستخدم تاني</strong>، وشوف لو تقدر تشوف بياناته ولا لأ!</li>
+<li>لو تقدر تشوف الطلبات بتاعت ناس تانية، يبقى فيه <strong>تصميم غير آمن</strong> يسمح بتجاوز الصلاحيات.</li>
+</ul>
+<h2 id="إزاي-نحمي-الموقع-منها؟">🛡 إزاي نحمي الموقع منها؟</h2><p>✅ <strong>تخطيط أمني من البداية:</strong></p>
+<ul>
+<li>لازم الأمان يكون جزء أساسي من <strong>تصميم التطبيق</strong> مش مجرد إضافة بعدين.</li>
+<li>حل أي <strong>مشاكل في تدفق العمليات (Business Logic)</strong> قبل تنفيذ الكود.</li>
+</ul>
+<p>✅ <strong>تفعيل التحقق من الصلاحيات:</strong></p>
+<ul>
+<li>لازم كل طلب <strong>يتم التحقق منه على السيرفر</strong> قبل تنفيذه.</li>
+<li>عدم الاعتماد على التحقق من الصلاحيات في الـ Frontend بس.</li>
+</ul>
+<p>✅ <strong>استخدام MFA (المصادقة متعددة العوامل):</strong></p>
+<ul>
+<li>أي عملية حساسة لازم يكون فيها <strong>خطوة تحقق إضافية</strong> زي OTP أو 2 FA.</li>
+</ul>
+<p>✅ <strong>تطبيق قيود صارمة على الإدخال:</strong></p>
+<ul>
+<li>أي بيانات بيدخلها المستخدم لازم يتم التحقق منها بشكل دقيق عشان تمنع أي <strong>ثغرات محتملة</strong>.</li>
+</ul>
+<p>✅ <strong>مراجعة الأمان بانتظام:</strong></p>
+<ul>
+<li>إجراء <strong>اختبارات اختراق</strong> دورية عشان تكتشف أي مشاكل في التصميم قبل المهاجمين.</li>
+</ul>
+<h2 id="كام-writeup-عشان-تشوف-حاجات-على-أرض-الواقع-poc">📂 كام Writeup عشان تشوف حاجات على أرض الواقع + POC:</h2><p>🔗 <a href="https://medium.com/@shivam_bathla/a04-2021-insecure-design-9e16449f29ef">Insecure Design Writeup 1</a><br>🔗 <a href="https://ranjaniitian.medium.com/the-secure-design-framework-for-resilient-systems-683daad69e1f">Insecure Design Writeup 2</a><br>🔗 <a href="https://www.youtube.com/watch?v=1lLi4GLwRXs">Insecure Design POC Video</a></p>
+<h2 id="لابات-تحلها-عشان-تتمكن-من-الثغرة">💻 لابات تحلها عشان تتمكن من الثغرة:</h2><p>🎯 <a href="https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-using-application-functionality-to-exploit-insecure-deserialization">Lab 1 — Insecure Design Testing</a></p>
+<h2 id="الخلاصة">🎯 الخلاصة:</h2><p>يا اخويا يسباك يمحترم خلي شغلك نضيف وابدا كد ظبط ال logic بتاع ال application وامشي واحده واحده وجرب كل الحالات كونك بتلاقي ثغرات ف موقعك افضل من كون حد تاني يلاقيها وهنا نكون قد انتهينا متنساش تتابعني عشان بكرا باذن الله هتكلم عن Security Misconfiguration — سوء التهيئة الأمنية</p>
+<hr>
+
+          </section>
+        
+
+        <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- MathJax & Mermaid libraries for rich post content -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">04 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Worried about design flaws?<br>Let's <em class="accent-em">redesign securely</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to security architecture review, business logic testing, and secure design consulting.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

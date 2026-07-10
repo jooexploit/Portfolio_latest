@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docker Container Platform Case Study — Yousef Tamer (jooexploit)</title>
+  <meta name="description" content="Case study of Docker Container Platform by Yousef Tamer (jooexploit). Deploying microservices, container security, routing, and automated webhook pipelines." />
+  <meta name="keywords" content="Yousef Tamer, jooexploit, Docker Platform, containerization, microservices, secure container registry, webhooks" />
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/projects/whatsapp-automation-system" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jooexploit.dev/projects/whatsapp-automation-system" />
+  <meta property="og:title" content="Docker Container Platform Case Study — Yousef Tamer (jooexploit)" />
+  <meta property="og:description" content="Case study of Docker Container Platform by Yousef Tamer (jooexploit). Deploying microservices, container security, routing, and automated webhook pipelines." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/projects/whatsapp-automation-system" />
+  <meta name="twitter:title" content="Docker Container Platform Case Study — Yousef Tamer (jooexploit)" />
+  <meta name="twitter:description" content="Case study of Docker Container Platform by Yousef Tamer (jooexploit). Deploying microservices, container security, routing, and automated webhook pipelines." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit",
+        "https://gitlab.com/shoky",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://jooexploit.dev/projects/whatsapp-automation-system/#webpage",
+      "url": "https://jooexploit.dev/projects/whatsapp-automation-system",
+      "name": "Automation & WhatsApp Bot System Case Study — Yousef Tamer (jooexploit)",
+      "description": "A comprehensive, automated WhatsApp bot system featuring classified ads routing, duplicate detection, content classification, and auto-publishing via WordPress REST APIs.",
+      "isPartOf": {
+        "@id": "https://jooexploit.dev/#website"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://jooexploit.dev/projects/whatsapp-automation-system/#sourcecode",
+      "name": "Automation & WhatsApp Bot System",
+      "codeRepository": "https://github.com/jooexploit",
+      "programmingLanguage": [
+        "Python",
+        "Docker API",
+        "Shell"
+      ],
+      "runtimePlatform": "Docker, Linux, Nginx",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "description": "Modular microservice platform architecture utilizing container orchestrations and webhook triggers.",
+      "mainEntityOfPage": {
+        "@id": "https://jooexploit.dev/projects/whatsapp-automation-system/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/projects/whatsapp-automation-system/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://jooexploit.dev/projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Automation & WhatsApp Bot System",
+          "item": "https://jooexploit.dev/projects/whatsapp-automation-system"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about" data-spy>About</a>
+        
+          <a href="/journey" data-spy>Journey</a>
+        
+          <a href="/certifications" data-spy>Certifications</a>
+        
+          <a href="/projects" class="is-active" data-spy>Work</a>
+        
+          <a href="/skills" data-spy>Skills</a>
+        
+          <a href="/library" data-spy>Library</a>
+        
+          <a href="/blog" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <section class="section" aria-labelledby="project-title">
+      <div class="container">
+
+        <!-- Project Hero Header -->
+        <div class="project-header-detail" style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="badge badge--featured mono">Featured</span>
+            <span class="tag mono">Automation &middot; Node.js &middot; Webhooks</span>
+          </div>
+          <h1 id="project-title" class="section__title" style="margin-bottom: 1.5rem;">Automation &amp; WhatsApp Bot System</h1>
+          <p class="about__lead" style="max-width: 800px; margin-bottom: 2rem;">
+            A comprehensive, automated WhatsApp bot system featuring classified ads routing, duplicate detection, content classification, and auto-publishing via WordPress REST APIs.
+          </p>
+
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Year</span><span>2026</span></div>
+            <div class="meta-item"><span>Role</span><span>Backend Architect</span></div>
+            <div class="meta-item"><span>Status</span><span>Production</span></div>
+            <div class="meta-item"><span>Duration</span><span>2 Months</span></div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a class="btn btn--primary" href="https://github.com/jooexploit" target="_blank"
+              rel="noopener noreferrer">
+              GitHub Repository
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg>
+            </a>
+            <a class="btn btn--ghost" href="/projects" style="border: 1px solid var(--border);">Back to Projects</a>
+          </div>
+        </div>
+
+        <!-- Project Screenshot Visual -->
+        <div class="project-detail__visual" style="margin-bottom: 4rem;">
+          
+          <div class="browser-frame">
+            <div class="browser-header">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-address">api.whatsapp.com</div>
+            </div>
+            <div class="browser-body">
+              <picture>
+                <source srcset="/images/whatsapp_automation_preview.webp" type="image/webp" />
+                <img src="/images/whatsapp_automation_preview.png" alt="Automation &amp; WhatsApp Bot System Dashboard Screenshot" width="1280" height="720"
+                  style="width: 100%; height: auto;" />
+              </picture>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Project Details Grid -->
+        <div class="about__grid">
+
+          <div class="about__story">
+
+            <h2 class="mono" style="color: var(--text); margin-bottom: 1rem;">1. Recruiter-Friendly Summary</h2>
+            <div class="about__body" style="margin-bottom: 2rem;">
+              Classified listings shared inside high-frequency WhatsApp groups were previously scraped, verified, and manually uploaded by admins, leading to severe latency and data entry errors.
+            </div>
+
+            <h2 class="mono" style="color: var(--text); margin-bottom: 1rem;">
+              2. Platform Architecture &amp; Execution Flow
+            </h2>
+            <div class="about__body" style="margin-bottom: 2.5rem;">
+              Engineered an automatic pipeline that intercepts incoming messages via WhatsApp webhooks, runs validation rules to flag ads and filter duplicate listings, and publishes verified records straight to WordPress.
+            </div>
+
+            <h2 class="mono" style="color: var(--text); margin-bottom: 1rem;">3. Engineering Challenges</h2>
+            <div class="about__body" style="margin-bottom: 2.5rem;">
+              Built on a Node.js daemon with Express webhook handlers. It parses incoming payloads, stores short-term message fingerprints in memory, and triggers WordPress REST API creation requests.
+            </div>
+
+            <h2 class="mono" style="color: var(--text); margin-bottom: 1rem;">4. Implemented Solutions</h2>
+            <div class="about__body" style="margin-bottom: 2rem;">
+              Eliminated manual publication delays, allowing listings to go live in under 5 seconds from receipt.
+            </div>
+
+          </div>
+
+          <!-- Sidebar details -->
+          <div>
+            <div class="card"
+              style="padding: 2rem; border: 1px solid var(--border); margin-bottom: 2rem; position: sticky; top: 100px;">
+              <h3 class="mono" style="margin-bottom: 1.5rem; color: var(--primary);">Case Profile</h3>
+
+              <div style="margin-bottom: 1.5rem;">
+                <h4 class="mono" style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 0.5rem;">Primary
+                  Technologies</h4>
+                <ul class="chips" style="padding: 0;">
+                  
+                  <li>Node.js</li>
+                  
+                  <li>Express.js</li>
+                  
+                  <li>WordPress API</li>
+                  
+                  <li>WhatsApp API</li>
+                  
+                </ul>
+              </div>
+
+              <div style="margin-bottom: 1.5rem;">
+                <h4 class="mono" style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 0.5rem;">Operational
+                  Impact</h4>
+                <ul class="chips" style="padding: 0;">
+                  
+                  <li>100% automated message parsing and ingestion</li>
+                  
+                  <li>Real-time publishing synchronization with WordPress API</li>
+                  
+                  <li>Intelligent duplicate detection filtering spam</li>
+                  
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="mono" style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 0.5rem;">Key Takeaway
+                </h4>
+                <p style="font-size: 0.9rem; color: var(--text-2);">
+                  Using event-driven webhook architecture with clean message indexing removes the scaling limits of manual content entry.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">05 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Let's build something<br>that <em class="accent-em">matters</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to cloud engineering positions, infrastructure consulting, and collaborations on automation.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            youseftamereg@gmail.com
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/shoky" id="contact-gitlab" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">GitLab</a>
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit" id="contact-github" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">GitHub</a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">X</a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+              rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">LinkedIn</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>
