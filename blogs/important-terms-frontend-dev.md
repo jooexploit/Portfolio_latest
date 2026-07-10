@@ -5,7 +5,7 @@
 
 Press enter or click to view image in full size
 
-![](https://miro.medium.com/v2/resize:fit:700/1*9TMeRlbIQAwuMH4qSg_u6Q.png)
+![Library vs Framework vs SDK vs API comparison chart](https://miro.medium.com/v2/resize:fit:700/1*9TMeRlbIQAwuMH4qSg_u6Q.png)
 
 Thumbnail
 
@@ -15,7 +15,7 @@ Thumbnail
 
 Press enter or click to view image in full size
 
-![](https://miro.medium.com/v2/resize:fit:700/1*UYa8PLizCvB95GTV38oRgg.png)
+![Plugin vs Extension differences table](https://miro.medium.com/v2/resize:fit:700/1*UYa8PLizCvB95GTV38oRgg.png)
 
 Figure 1
 
@@ -23,7 +23,7 @@ Figure 1
 
 Press enter or click to view image in full size
 
-![](https://miro.medium.com/v2/resize:fit:700/1*7h4GitzuBjlGe0BfPj0yUw.png)
+![CLI vs Middleware vs SDK ecosystem overview](https://miro.medium.com/v2/resize:fit:700/1*7h4GitzuBjlGe0BfPj0yUw.png)
 
 و ف النهايه هو كان بوست قصير بس كانت معلومه شغله بالي ومكنتش اعرفها وحبيت برضه اني اجمع كل حاجه ف مكان واحده يمكن تفيد غيري
 

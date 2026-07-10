@@ -9,7 +9,7 @@
   <meta name="keywords" content="Yousef Tamer, jooexploit, broken access control, OWASP, privilege escalation, IDOR, bug bounty, cybersecurity" />
   <meta name="theme-color" content="#09090B" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://jooexploit.dev/blog/broken-access-control" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/broken-access-control/" />
 
   
 
@@ -20,7 +20,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://jooexploit.dev/blog/broken-access-control" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/broken-access-control/" />
   <meta property="og:title" content="Broken Access Control — OWASP Top 10 Day 1 — Yousef Tamer (jooexploit)" />
   <meta property="og:description" content="شرح كامل لثغرة Broken Access Control — تعريفها، أنواعها، كيفية اكتشافها واستغلالها والحماية منها مع writeups وlabs." />
   <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
@@ -28,7 +28,7 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://jooexploit.dev/blog/broken-access-control" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/broken-access-control/" />
   <meta name="twitter:title" content="Broken Access Control — OWASP Top 10 Day 1 — Yousef Tamer (jooexploit)" />
   <meta name="twitter:description" content="شرح كامل لثغرة Broken Access Control — تعريفها، أنواعها، كيفية اكتشافها واستغلالها والحماية منها مع writeups وlabs." />
   <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
@@ -108,7 +108,7 @@
       "@id": "https://jooexploit.dev/blog/broken-access-control/#post",
       "headline": "Broken Access Control 🔓 — OWASP Top 10 Day 1",
       "description": "شرح كامل لثغرة Broken Access Control — تعريفها، أنواعها، كيفية اكتشافها واستغلالها والحماية منها مع writeups وlabs.",
-      "url": "https://jooexploit.dev/blog/broken-access-control",
+      "url": "https://jooexploit.dev/blog/broken-access-control/",
       "datePublished": "2025-02-27",
       "dateModified": "2025-02-27",
       "author": {
@@ -136,13 +136,13 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Blog",
-          "item": "https://jooexploit.dev/blog"
+          "item": "https://jooexploit.dev/blog/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Broken Access Control 🔓 — OWASP Top 10 Day 1",
-          "item": "https://jooexploit.dev/blog/broken-access-control"
+          "item": "https://jooexploit.dev/blog/broken-access-control/"
         }
       ]
     }
@@ -176,23 +176,23 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         
-          <a href="/about" data-spy>About</a>
+          <a href="/about/" data-spy>About</a>
         
-          <a href="/journey" data-spy>Journey</a>
+          <a href="/journey/" data-spy>Journey</a>
         
-          <a href="/certifications" data-spy>Certifications</a>
+          <a href="/certifications/" data-spy>Certifications</a>
         
-          <a href="/projects" data-spy>Work</a>
+          <a href="/projects/" data-spy>Work</a>
         
-          <a href="/skills" data-spy>Skills</a>
+          <a href="/skills/" data-spy>Skills</a>
         
-          <a href="/library" data-spy>Library</a>
+          <a href="/library/" data-spy>Library</a>
         
-          <a href="/blog" class="is-active" data-spy>Blog</a>
+          <a href="/blog/" data-spy>Blog</a>
         
       </nav>
       <div class="nav__actions">
-        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
           aria-label="Toggle navigation menu">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -241,7 +241,7 @@
 </ul>
 <p>(1) يعني إيه Broken Access Control؟ 🔓</p>
 <p>Press enter or click to view image in full size</p>
-<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*zadTVgPYp4pppSshXf2XzQ.jpeg" alt=""></figure>
+<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*zadTVgPYp4pppSshXf2XzQ.jpeg" alt="Broken Access Control OWASP Vulnerability Diagram"><figcaption>Broken Access Control OWASP Vulnerability Diagram</figcaption></figure>
 <p>Broken acces control Bug 1/30</p>
 <p>📌 تعريف الثغرة:</p>
 <p>ثغرة Broken Access Control معناها إن التطبيق مش بيتحقق كويس من صلاحيات المستخدمين، وده ممكن يسمح لحد مش مفروض يكون عنده إذن إنه:<br>✅ يدخل على صفحات خاصة زي صفحة الأدمن Vertical privilge escalation<br>✅ يشوف بيانات ناس تانية Horizontal privilge escalation<br>✅ يعدّل أو يمسح حاجات مش من حقه<br>✅ ينفذ عمليات حساسة زي تحويل الفلوس أو تغيير الباسوردات</p>
@@ -255,11 +255,11 @@
 <p>1️⃣ التلاعب في الروابط (Forced Browsing):</p>
 <p>جرّب تفتح صفحات المفروض تكون مقفولة، زي صفحات الأدمن.</p>
 <p>مثال:</p>
-<p><a href="https://example.com/user/dashboard">https://example.com/user/dashboard</a><br><a href="https://example.com/admin/dashboard">https://example.com/admin/dashboard</a> ❌ (مش من حق المستخدم العادي يدخلها)</p>
+<p><code>https://example.com/user/dashboard</code><br><code>https://example.com/admin/dashboard</code> ❌ (مش من حق المستخدم العادي يدخلها)</p>
 <p>2️⃣ التعديل على الـ IDs في الطلبات:</p>
 <p>جرب تغير User ID وشوف هل تقدر تشوف أو تعدّل بيانات حد تاني.</p>
 <p>مثال:</p>
-<p><a href="https://example.com/profile?user_id=100">https://example.com/profile?user_id=100</a><br><a href="https://example.com/profile?user_id=101">https://example.com/profile?user_id=101</a> ❌ (مش المفروض تقدر تشوف حساب حد تاني)</p>
+<p><code>https://example.com/profile?user_id=100</code><br><code>https://example.com/profile?user_id=101</code> ❌ (مش المفروض تقدر تشوف حساب حد تاني)</p>
 <p>3️⃣ التلاعب في الصلاحيات (Parameter Tampering):</p>
 <p>لو الموقع بيستخدم متغير زي role=user في الطلب، جرّب تغيّره لـ role=admin وشوف هل الموقع هيقبل التعديل ولا لأ.</p>
 <p>4️⃣ التعديل على الـ Cookies أو الـ JWT Tokens:</p>
@@ -288,7 +288,7 @@
 <p>5️⃣ اختبر الموقع بانتظام:</p>
 <p>استخدم أدوات زي OWASP ZAP أو Burp Suite عشان تكتشف الثغرات قبل ما يستغلها حد.</p>
 <hr>
-<p>(5) Writeups<br>- <a href="https://cyberweapons.medium.com/a-story-of-a-700-broken-access-control-2ec2c21f6ffe">https://cyberweapons.medium.com/a-story-of-a-700-broken-access-control-2ec2c21f6ffe</a><br>- <a href="https://infosecwriteups.com/full-team-takeover-678c79842065">https://infosecwriteups.com/full-team-takeover-678c79842065</a> ( Account takeover, broken acces control)<br>- <a href="https://secreltyhiddenwriteups.blogspot.com/2024/07/leaking-all-users-google-drive-files.html?m=1">https://secreltyhiddenwriteups.blogspot.com/2024/07/leaking-all-users-google-drive-files.html?m=1</a><br>وتقدر تشوف اكتر كمان من هنا<br>🔗 <a href="https://pentester.land/writeups/">https://pentester.land/writeups/</a><br>(5) poc<br>- <a href="https://youtu.be/t8v8VA8BjfA?si=mDCSHEf1czHHRpG3">https://youtu.be/t8v8VA8BjfA?si=mDCSHEf1czHHRpG3</a><br>- <a href="https://youtu.be/oj-GE0mbm5U?si=Q_SdIh0f4MrjZ_uQ">https://youtu.be/oj-GE0mbm5U?si=Q_SdIh0f4MrjZ_uQ</a>  </p>
+<p>(5) Writeups<br>- <a href="https://cyberweapons.medium.com/a-story-of-a-700-broken-access-control-2ec2c21f6ffe">https://cyberweapons.medium.com/a-story-of-a-700-broken-access-control-2ec2c21f6ffe</a><br>- <a href="https://infosecwriteups.com/full-team-takeover-678c79842065">https://infosecwriteups.com/full-team-takeover-678c79842065</a> ( Account takeover, broken acces control)<br>- <a href="https://secreltyhiddenwriteups.blogspot.com/2024/07/leaking-all-users-google-drive-files.html?m=1">https://secreltyhiddenwriteups.blogspot.com/2024/07/leaking-all-users-google-drive-files.html?m=1</a><br>وتقدر تشوف اكتر كمان من هنا<br>🔗 <a href="https://pentester.land/writeups/">https://pentester.land/writeups/</a><br>(5) poc<br>- <a href="https://www.youtube.com/watch?v=t8v8VA8BjfA">https://www.youtube.com/watch?v=t8v8VA8BjfA</a><br>- <a href="https://www.youtube.com/watch?v=oj-GE0mbm5U">https://www.youtube.com/watch?v=oj-GE0mbm5U</a>  </p>
 <ul>
 <li>وتقدر تلاقي اكتر برضه لما تكتب ف يوتيوب Broken acces control poc<br>(6) labs  </li>
 <li>الغني عن التعريف portswigger</li>
@@ -303,7 +303,7 @@
         
 
         <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+          <a class="btn btn--ghost" href="/blog/" style="border: 1px solid var(--border);">Back to Blog</a>
         </div>
 
       </div>

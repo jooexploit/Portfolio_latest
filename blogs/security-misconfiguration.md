@@ -4,7 +4,7 @@
 
 Press enter or click to view image in full size
 
-![](https://miro.medium.com/v2/resize:fit:700/1*ML9lwtQ7u6xCyrzLHo_-1Q.jpeg)
+![Security Misconfiguration Vulnerability Illustration](https://miro.medium.com/v2/resize:fit:700/1*ML9lwtQ7u6xCyrzLHo_-1Q.jpeg)
 
 4/30 Security Misconfiguration
 
@@ -48,8 +48,8 @@ Remember me for faster sign in
 
 📺 **POCs لو مش حابب تقرأ وعايز تتفرج؟**
 
-- [فيديو 1](https://youtu.be/ggbCz2tyTEM?si=geZVCHgjR_K8FRah)
-- [فيديو 2](https://youtu.be/BH05FGzLy_s?si=xyad5q-ITWEKY3Cm)
+- [فيديو 1](https://www.youtube.com/watch?v=ggbCz2tyTEM)
+- [فيديو 2](https://www.youtube.com/watch?v=BH05FGzLy_s)
 
 🖥 **لابات تحلها عشان تتمكن من الثغرة؟**  
 🔹 PortSwigger Labs — Security Misconfiguration  

@@ -8,7 +8,7 @@
 في البوست ده، هشرح أشهر أنواع **الـ Injection Attacks** وازاي نلاقيها، نستغلها، ونحمي مواقعنا منها. 🎯
 
 
-![](https://miro.medium.com/v2/resize:fit:700/1*i3g9Jc8udouSNAN97vA1Bg.jpeg)
+![Injection Attacks SQLi and Command Injection Diagram](https://miro.medium.com/v2/resize:fit:700/1*i3g9Jc8udouSNAN97vA1Bg.jpeg)
 
 2/30 Injection attacks
 
@@ -75,7 +75,7 @@
 🔗 **كام Writeup للتعلم:**
 
 - [Command Injection Guide](https://owasp.org/www-community/attacks/Command_Injection)
-- [HackTricks Command Injection](https://book.hacktricks.xyz/pentesting-web/command-injection)
+- [HackTricks Command Injection](https://book.hacktricks.xyz/pentesting-web/command-injection/)
 
 🎥 **كام POC تتفرج عليه:**
 
@@ -115,11 +115,11 @@
 🔗 **كام Writeup للتعلم:**
 
 - [XSS Cheatsheet — PortSwigger](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
-- [HackTricks XSS](https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting)
+- [HackTricks XSS](https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting/)
 
 🎥 **كام POC تتفرج عليه:**
 
-- [XSS poc](https://youtu.be/s96Dos8i8Qg?si=wv51pKOaNWaO5D8J)
+- [XSS poc](https://www.youtube.com/watch?v=s96Dos8i8Qg)
 
 🛠 **لابات تحلها:**
 

@@ -9,7 +9,7 @@
   <meta name="keywords" content="Yousef Tamer, jooexploit, insecure design, OWASP, business logic, IDOR, security architecture, bug bounty" />
   <meta name="theme-color" content="#09090B" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://jooexploit.dev/blog/insecure-design" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/insecure-design/" />
 
   
 
@@ -20,7 +20,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://jooexploit.dev/blog/insecure-design" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/insecure-design/" />
   <meta property="og:title" content="Insecure Design — OWASP Top 10 Day 4 — Yousef Tamer (jooexploit)" />
   <meta property="og:description" content="شرح ثغرة Insecure Design في OWASP Top 10 — Business Logic Flaws، غياب التحقق من الصلاحيات، وكيفية تصميم تطبيقات آمنة." />
   <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
@@ -28,7 +28,7 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://jooexploit.dev/blog/insecure-design" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/insecure-design/" />
   <meta name="twitter:title" content="Insecure Design — OWASP Top 10 Day 4 — Yousef Tamer (jooexploit)" />
   <meta name="twitter:description" content="شرح ثغرة Insecure Design في OWASP Top 10 — Business Logic Flaws، غياب التحقق من الصلاحيات، وكيفية تصميم تطبيقات آمنة." />
   <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
@@ -108,7 +108,7 @@
       "@id": "https://jooexploit.dev/blog/insecure-design/#post",
       "headline": "Insecure Design 🔥 — OWASP Top 10 Day 4",
       "description": "شرح ثغرة Insecure Design في OWASP Top 10 — Business Logic Flaws، غياب التحقق من الصلاحيات، وكيفية تصميم تطبيقات آمنة.",
-      "url": "https://jooexploit.dev/blog/insecure-design",
+      "url": "https://jooexploit.dev/blog/insecure-design/",
       "datePublished": "2025-03-02",
       "dateModified": "2025-03-02",
       "author": {
@@ -136,13 +136,13 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Blog",
-          "item": "https://jooexploit.dev/blog"
+          "item": "https://jooexploit.dev/blog/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Insecure Design 🔥 — OWASP Top 10 Day 4",
-          "item": "https://jooexploit.dev/blog/insecure-design"
+          "item": "https://jooexploit.dev/blog/insecure-design/"
         }
       ]
     }
@@ -176,23 +176,23 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         
-          <a href="/about" data-spy>About</a>
+          <a href="/about/" data-spy>About</a>
         
-          <a href="/journey" data-spy>Journey</a>
+          <a href="/journey/" data-spy>Journey</a>
         
-          <a href="/certifications" data-spy>Certifications</a>
+          <a href="/certifications/" data-spy>Certifications</a>
         
-          <a href="/projects" data-spy>Work</a>
+          <a href="/projects/" data-spy>Work</a>
         
-          <a href="/skills" data-spy>Skills</a>
+          <a href="/skills/" data-spy>Skills</a>
         
-          <a href="/library" data-spy>Library</a>
+          <a href="/library/" data-spy>Library</a>
         
-          <a href="/blog" class="is-active" data-spy>Blog</a>
+          <a href="/blog/" data-spy>Blog</a>
         
       </nav>
       <div class="nav__actions">
-        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
           aria-label="Toggle navigation menu">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -232,7 +232,7 @@
           <section class="post-content prose" dir="auto">
             <h1 id="insecure-design">Insecure design</h1><p>بسم الله والصلاه والسلام علي رسول الله ف البدايه كد صلي ع النبي و عايزك تركز معانا حاجه حلوه انهادره متنساش ورد انهارده يوم 4 رمضان ومعانا ورد من صفحه (62) الي (82) معانا انهارده ثغره مهمه بس قبل اما تبدأ تعمل كود ودي الي تفرق بينك وبين اي مبرمج تاني معانا ومعاكوا</p>
 <h2 id="التصميم-غير-الآمن-insecure-design">🔥 التصميم غير الآمن (Insecure Design) 🔥</h2><p>Press enter or click to view image in full size</p>
-<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*iBI5XTONDRscOiQplmal2w.jpeg" alt=""></figure>
+<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*iBI5XTONDRscOiQplmal2w.jpeg" alt="Insecure Design OWASP Category Diagram"><figcaption>Insecure Design OWASP Category Diagram</figcaption></figure>
 <p>4/30 Insecure Design</p>
 <h2 id="ايه-هو-التصميم-غير-الآمن؟">🛠 ايه هو التصميم غير الآمن؟</h2><p>التصميم غير الآمن هو لما يكون التطبيق نفسه معمول بطريقة تخليه عُرضة للاختراق، حتى لو الكود مفيهوش ثغرات تقليدية زي SQL Injection أو XSS. المشكلة هنا بتكون في <strong>التخطيط والتصميم</strong> مش في التنفيذ بس.</p>
 <p>بمعنى تاني، التطبيق ممكن يكون شغال <strong>بدون أخطاء تقنية واضحة</strong>، لكن بسبب ضعف التصميم، المهاجم يقدر يستغله بطرق غير متوقعة!</p>
@@ -251,7 +251,7 @@
 <li>لو مفيش تحقق، يبقى فيه <strong>تصميم غير آمن</strong> يسمح بأي حد يعمل حاجات مش من حقه.</li>
 </ul>
 <p>كمثال لو عندك <strong>لوحة تحكم للادمن</strong> في الموقع على الرابط ده:</p>
-<p><a href="https://example.com/admin">https://example.com/admin</a></p>
+<p><code>https://example.com/admin</code></p>
 <p>لكن مفيش <strong>تحقق حقيقي من صلاحيات المستخدم</strong>، ممكن أي حد يدخل على الرابط ويشوف بيانات حساسة!</p>
 <h2 id="اختبر-مسار-العمليات-في-الموقع-business-logic-flaws">🕵️ اختبر مسار العمليات في الموقع (Business Logic Flaws):</h2><ul>
 <li>شوف لو فيه <strong>خطوات مفقودة</strong> أو <strong>تحقق ناقص</strong> قبل تنفيذ عمليات حساسة.</li>
@@ -275,7 +275,7 @@
 <li>استخدم <strong>IDOR (Insecure Direct Object References)</strong> لمحاولة الوصول لبيانات غيرك بدون إذن.</li>
 </ul>
 <p>💡 <strong>مثال عملي:</strong><br>لو عندك رابط بيدي تفاصيل طلبات الشراء:</p>
-<p><a href="https://example.com/orders/12345">https://example.com/orders/12345</a></p>
+<p><code>https://example.com/orders/12345</code></p>
 <ul>
 <li>جرب تغيّر الـ <strong>ID</strong> في الرابط لـ <strong>طلب يخص مستخدم تاني</strong>، وشوف لو تقدر تشوف بياناته ولا لأ!</li>
 <li>لو تقدر تشوف الطلبات بتاعت ناس تانية، يبقى فيه <strong>تصميم غير آمن</strong> يسمح بتجاوز الصلاحيات.</li>
@@ -311,7 +311,7 @@
         
 
         <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+          <a class="btn btn--ghost" href="/blog/" style="border: 1px solid var(--border);">Back to Blog</a>
         </div>
 
       </div>

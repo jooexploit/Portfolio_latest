@@ -6,7 +6,7 @@
 
 Press enter or click to view image in full size
 
-![](https://miro.medium.com/v2/resize:fit:700/1*iBI5XTONDRscOiQplmal2w.jpeg)
+![Insecure Design OWASP Category Diagram](https://miro.medium.com/v2/resize:fit:700/1*iBI5XTONDRscOiQplmal2w.jpeg)
 
 4/30 Insecure Design
 
@@ -42,7 +42,7 @@ Remember me for faster sign in
 
 كمثال لو عندك **لوحة تحكم للادمن** في الموقع على الرابط ده:
 
-https://example.com/admin
+`https://example.com/admin`
 
 لكن مفيش **تحقق حقيقي من صلاحيات المستخدم**، ممكن أي حد يدخل على الرابط ويشوف بيانات حساسة!
 
@@ -75,7 +75,7 @@ https://example.com/admin
 💡 **مثال عملي:**  
 لو عندك رابط بيدي تفاصيل طلبات الشراء:
 
-https://example.com/orders/12345
+`https://example.com/orders/12345`
 
 - جرب تغيّر الـ **ID** في الرابط لـ **طلب يخص مستخدم تاني**، وشوف لو تقدر تشوف بياناته ولا لأ!
 - لو تقدر تشوف الطلبات بتاعت ناس تانية، يبقى فيه **تصميم غير آمن** يسمح بتجاوز الصلاحيات.

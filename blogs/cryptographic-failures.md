@@ -80,7 +80,7 @@ Write-ups:
 
 3. [How I found hundreds of secret passwords and API keys on GitHub and then got Banned for trying to notify their owners (writup)](https://medium.com/@CVxTz/how-i-found-hundreds-of-secret-passwords-and-api-keys-on-github-and-then-got-banned-for-trying-to-f6f11f0e15a6)
 
-4. [WRITE UP — TWITTER BUG BOUNTY [Report of my 1 st bugbounty]: “POODLE SSLv 3 bug on multiple twitter smtp servers](http://omespino.com/write-up-twitter-bug-bounty-my-1st-bugbounty-poodle-sslv3-bug-on-multiple-twitter-smtp-servers/)
+4. [WRITE UP — TWITTER BUG BOUNTY [Report of my 1 st bugbounty]: “POODLE SSLv 3 bug on multiple twitter smtp servers](https://omespino.com/write-up-twitter-bug-bounty-my-1st-bugbounty-poodle-sslv3-bug-on-multiple-twitter-smtp-servers/)
 
 5. [OWASP Top 10: The Risk of Cryptographic Failures](https://www.hackerone.com/blog/owasp-top-10-risk-cryptographic-failures)
 
@@ -88,7 +88,7 @@ Write-ups:
 
 POC Videos:
 
-[$300 Bounty || Sensitive Information Disclosure || Exploit || POC](https://youtu.be/ZQ8mSfAiloU?si=CMNWJiq5TRrCMvzu)
+[$300 Bounty || Sensitive Information Disclosure || Exploit || POC](https://www.youtube.com/watch?v=ZQ8mSfAiloU)
 
 [How to Perform MITM Attack — Practical Demo](https://www.youtube.com/watch?v=LEPEk5pFffw)
 
@@ -216,13 +216,13 @@ http.title:"admin panel"
 
 📌 استخدم أداة [Waybackurls](https://github.com/tomnomnom/waybackurls) لاستخراج الروابط القديمة لموقع معين:
 
-waybackurls example.com
+`waybackurls example.com`
 
 ---
 
 🛠️ أدوات تساعدك في البحث بشكل أسرع
 
-✅ [Amass](https://github.com/OWASP/Amass)
+✅ [Amass](https://github.com/owasp-amass/amass)
 
 أداة قوية جدًا لجمع المعلومات عن نطاق معين.
 
@@ -234,11 +234,11 @@ waybackurls example.com
 
 Web Crawler يجيب بيانات حساسة من المواقع.
 
-✅ [Knockpy](https://github.com/guelfoweb/knock)
+✅ [Knockpy](https://github.com/guelfoweb/knock/)
 
 بيعمل enumeration للنطاقات الفرعية (subdomains).
 
-✅ [zeusback](https://github.com/zeusvlun/zeusback)
+✅ [zeusback](https://github.com/zeusvlun/zeusback/)
 
 بتدورلك علي كل الملفات المهمه زي pdf,.xlsx
 
@@ -247,6 +247,6 @@ Web Crawler يجيب بيانات حساسة من المواقع.
 
 Press enter or click to view image in full size
 
-![](https://miro.medium.com/v2/resize:fit:700/1*JMKGnLYMY3g25TNi24pDBg.jpeg)
+![Cryptographic Failures and Sensitive Data Exposure Illustration](https://miro.medium.com/v2/resize:fit:700/1*JMKGnLYMY3g25TNi24pDBg.jpeg)
 
 ---

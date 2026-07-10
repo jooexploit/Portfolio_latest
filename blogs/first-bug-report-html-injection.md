@@ -31,6 +31,6 @@ It's just beginning 🦦
 
 Press enter or click to view image in full size
 
-![](https://miro.medium.com/v2/resize:fit:700/1*Nro1XQEDgujrbajbNkSpDg.jpeg)
+![HTML Injection Discovery on HackerOne](https://miro.medium.com/v2/resize:fit:700/1*Nro1XQEDgujrbajbNkSpDg.jpeg)
 
 ---

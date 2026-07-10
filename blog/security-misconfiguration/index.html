@@ -9,7 +9,7 @@
   <meta name="keywords" content="Yousef Tamer, jooexploit, security misconfiguration, OWASP, debug mode, .env, Nikto, Nmap, bug bounty, pentesting" />
   <meta name="theme-color" content="#09090B" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://jooexploit.dev/blog/security-misconfiguration" />
+  <link rel="canonical" href="https://jooexploit.dev/blog/security-misconfiguration/" />
 
   
 
@@ -20,7 +20,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://jooexploit.dev/blog/security-misconfiguration" />
+  <meta property="og:url" content="https://jooexploit.dev/blog/security-misconfiguration/" />
   <meta property="og:title" content="Security Misconfiguration — OWASP Top 10 Day 5 — Yousef Tamer (jooexploit)" />
   <meta property="og:description" content="شرح ثغرة Security Misconfiguration — إعدادات غير آمنة، debug mode، ملفات حساسة مكشوفة، وأدوات الفحص زي Nikto وNmap." />
   <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
@@ -28,7 +28,7 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://jooexploit.dev/blog/security-misconfiguration" />
+  <meta name="twitter:url" content="https://jooexploit.dev/blog/security-misconfiguration/" />
   <meta name="twitter:title" content="Security Misconfiguration — OWASP Top 10 Day 5 — Yousef Tamer (jooexploit)" />
   <meta name="twitter:description" content="شرح ثغرة Security Misconfiguration — إعدادات غير آمنة، debug mode، ملفات حساسة مكشوفة، وأدوات الفحص زي Nikto وNmap." />
   <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
@@ -108,7 +108,7 @@
       "@id": "https://jooexploit.dev/blog/security-misconfiguration/#post",
       "headline": "Security Misconfiguration 🔴 — OWASP Top 10 Day 5",
       "description": "شرح ثغرة Security Misconfiguration — إعدادات غير آمنة، debug mode، ملفات حساسة مكشوفة، وأدوات الفحص زي Nikto وNmap.",
-      "url": "https://jooexploit.dev/blog/security-misconfiguration",
+      "url": "https://jooexploit.dev/blog/security-misconfiguration/",
       "datePublished": "2025-03-03",
       "dateModified": "2025-03-03",
       "author": {
@@ -136,13 +136,13 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Blog",
-          "item": "https://jooexploit.dev/blog"
+          "item": "https://jooexploit.dev/blog/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Security Misconfiguration 🔴 — OWASP Top 10 Day 5",
-          "item": "https://jooexploit.dev/blog/security-misconfiguration"
+          "item": "https://jooexploit.dev/blog/security-misconfiguration/"
         }
       ]
     }
@@ -176,23 +176,23 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         
-          <a href="/about" data-spy>About</a>
+          <a href="/about/" data-spy>About</a>
         
-          <a href="/journey" data-spy>Journey</a>
+          <a href="/journey/" data-spy>Journey</a>
         
-          <a href="/certifications" data-spy>Certifications</a>
+          <a href="/certifications/" data-spy>Certifications</a>
         
-          <a href="/projects" data-spy>Work</a>
+          <a href="/projects/" data-spy>Work</a>
         
-          <a href="/skills" data-spy>Skills</a>
+          <a href="/skills/" data-spy>Skills</a>
         
-          <a href="/library" data-spy>Library</a>
+          <a href="/library/" data-spy>Library</a>
         
-          <a href="/blog" class="is-active" data-spy>Blog</a>
+          <a href="/blog/" data-spy>Blog</a>
         
       </nav>
       <div class="nav__actions">
-        <a class="btn btn--primary btn--sm" href="/contact" id="nav-cta">Get in touch</a>
+        <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
           aria-label="Toggle navigation menu">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -232,7 +232,7 @@
           <section class="post-content prose" dir="auto">
             <h1 id="security-misconfiguration">Security Misconfiguration</h1><p>بسم الله والصلاه والسلام علي رسول الله ف البدايه كد صلي ع النبي و عايزك تركز وتحاول تدور اكتر عشان دي تركيزها مش عليك ك مبرمج بس عليك ك hunter أكتر برضه او لو انت ليك ف ops وانا متكلم ب اختصار شديد يعني متنساش ورد انهارده يوم 4 رمضان ومعانا ورد من صفحه (82) الي (102) <strong>🔴 Security Misconfiguration — سوء التهيئة الأمنية 🔴</strong></p>
 <p>Press enter or click to view image in full size</p>
-<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*ML9lwtQ7u6xCyrzLHo_-1Q.jpeg" alt=""></figure>
+<figure class="md-figure"><img src="https://miro.medium.com/v2/resize:fit:700/1*ML9lwtQ7u6xCyrzLHo_-1Q.jpeg" alt="Security Misconfiguration Vulnerability Illustration"><figcaption>Security Misconfiguration Vulnerability Illustration</figcaption></figure>
 <p>4/30 Security Misconfiguration</p>
 <p>💡 <strong>ايه هي ثغرات Security Misconfiguration؟</strong><br>ثغرات <strong>Security Misconfiguration</strong> بتحصل لما يكون فيه إعدادات غير آمنة في السيرفرات أو التطبيقات، زي استخدام الإعدادات الافتراضية، كشف المعلومات الحساسة، أو السماح بصلاحيات زائدة للمستخدمين. المشكلة إن الأخطاء دي بتفتح باب واسع للهجمات بدون الحاجة لاستغلال ثغرات معقدة.</p>
 <p>🔎 <strong>ازاي ممكن نلاقيها؟</strong></p>
@@ -261,8 +261,8 @@
 </ul>
 <p>📺 <strong>POCs لو مش حابب تقرأ وعايز تتفرج؟</strong></p>
 <ul>
-<li><a href="https://youtu.be/ggbCz2tyTEM?si=geZVCHgjR_K8FRah">فيديو 1</a></li>
-<li><a href="https://youtu.be/BH05FGzLy_s?si=xyad5q-ITWEKY3Cm">فيديو 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=ggbCz2tyTEM">فيديو 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=BH05FGzLy_s">فيديو 2</a></li>
 </ul>
 <p>🖥 <strong>لابات تحلها عشان تتمكن من الثغرة؟</strong><br>🔹 PortSwigger Labs — Security Misconfiguration<br>🔹 Hack The Box — Misconfiguration Challenges<br>🔹 TryHackMe — Security Misconfiguration Path</p>
 <p>🚀 <strong>سوء التهيئة الأمنية تعتبر من أكتر الثغرات انتشارًا بسبب أخطاء بشرية بسيطة، بس تأثيرها بيكون كارثي! راجع إعدادات موقعك ومتخليش حاجة مكشوفة بدون داعي.</strong></p>
@@ -274,7 +274,7 @@
         
 
         <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-          <a class="btn btn--ghost" href="/blog" style="border: 1px solid var(--border);">Back to Blog</a>
+          <a class="btn btn--ghost" href="/blog/" style="border: 1px solid var(--border);">Back to Blog</a>
         </div>
 
       </div>
