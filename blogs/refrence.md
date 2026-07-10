@@ -25,10 +25,15 @@
 # Headings
 
 # H1
+
 ## H2
+
 ### H3
+
 #### H4
+
 ##### H5
+
 ###### H6
 
 ---
@@ -39,9 +44,9 @@ Normal text.
 
 **Bold**
 
-*Italic*
+_Italic_
 
-***Bold + Italic***
+**_Bold + Italic_**
 
 ~~Strikethrough~~
 
@@ -53,7 +58,7 @@ Normal text.
 
 > Quote
 
->> Nested Quote
+> > Nested Quote
 
 ---
 
@@ -61,9 +66,9 @@ Normal text.
 
 ---
 
-***
+---
 
-___
+---
 
 ---
 
@@ -74,9 +79,9 @@ ___
 - Apple
 - Banana
 - Orange
-    - Small
-    - Medium
-    - Large
+  - Small
+  - Medium
+  - Large
 
 ## Ordered
 
@@ -87,8 +92,8 @@ ___
 ## Mixed
 
 1. Item
-    - Child
-        - Child Child
+   - Child
+     - Child Child
 
 ---
 
@@ -178,21 +183,21 @@ height="600">
 
 # Tables
 
-| Name | Age | Country |
-|------|----:|---------|
-| John | 20 | USA |
-| Sarah | 25 | Canada |
-| Ali | 30 | Egypt |
+| Name  | Age | Country |
+| ----- | --: | ------- |
+| John  |  20 | USA     |
+| Sarah |  25 | Canada  |
+| Ali   |  30 | Egypt   |
 
 ---
 
 ## Complex Table
 
 | Left | Center | Right |
-|:-----|:------:|------:|
-| A | B | C |
-| D | E | F |
-| G | H | I |
+| :--- | :----: | ----: |
+| A    |   B    |     C |
+| D    |   E    |     F |
+| G    |   H    |     I |
 
 ---
 
@@ -229,8 +234,8 @@ def hello():
 
 ```javascript
 const app = () => {
-    console.log("Hello");
-}
+  console.log("Hello");
+};
 ```
 
 ---
@@ -249,8 +254,8 @@ git status
 
 ```json
 {
-    "name":"Markdown",
-    "version":1
+  "name": "Markdown",
+  "version": 1
 }
 ```
 
@@ -269,9 +274,7 @@ author: John
 ## HTML
 
 ```html
-<div class="card">
-    Hello
-</div>
+<div class="card">Hello</div>
 ```
 
 ---
@@ -279,8 +282,8 @@ author: John
 ## CSS
 
 ```css
-body{
-    background:#111;
+body {
+  background: #111;
 }
 ```
 
@@ -369,7 +372,7 @@ x<sup>2</sup>
 
 The HTML specification.
 
-*[HTML]: Hyper Text Markup Language
+\*[HTML]: Hyper Text Markup Language
 
 ---
 
@@ -427,18 +430,18 @@ B -->|No| D[Stop]
 
 > Level 1
 >
->> Level 2
->>
->>> Level 3
+> > Level 2
+> >
+> > > Level 3
 
 ---
 
 # Nested List
 
 - A
-    - B
-        - C
-            - D
+  - B
+    - C
+      - D
 
 ---
 
@@ -456,7 +459,7 @@ B -->|No| D[Stop]
 
 Repository:
 
-https://github.com/Mtgazer/GymFLow
+https://github.com
 
 Image:
 
@@ -466,11 +469,11 @@ Image:
 print("GymFlow")
 ```
 
-| Feature | Status |
-|---------|--------|
-| Members | ✅ |
-| Plans | ✅ |
-| Payments | 🚧 |
+| Feature  | Status |
+| -------- | ------ |
+| Members  | ✅     |
+| Plans    | ✅     |
+| Payments | 🚧     |
 
 ---
 
