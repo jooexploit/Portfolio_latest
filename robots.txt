@@ -1,8 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /optimize_images.py
-Disallow: /css/
-Disallow: /js/
 
 Host: jooexploit.dev
 Sitemap: https://jooexploit.dev/sitemap.xml
