@@ -300,36 +300,38 @@
       resetStates();
       currentStudentData = data;
 
-      let rawDegree = parseFloat(data.degree) || 0;
-      let degreeNum = rawDegree;
-      let percentage = 0;
+      // 100% Direct fields from Worker API response
+      const studentName = data.name || '-';
+      const seatNumber = data.seat || '-';
+      const statusText = String(data.status || data.student_case_desc || '-').trim();
+      const degreeNum = parseFloat(data.degree) || 0;
 
-      if (rawDegree <= 100) {
-        // rawDegree is given as a percentage out of 100 (e.g. 99.5)
-        percentage = rawDegree;
-        degreeNum = Math.round((rawDegree / 100) * MAX_DEGREE * 10) / 10;
+      // Calculate percentage (if degree <= 100 it represents percentage directly, otherwise degree / 320)
+      let percentage = 0;
+      let displayDegree = degreeNum;
+      if (degreeNum <= 100) {
+        percentage = degreeNum;
+        displayDegree = Math.round((degreeNum / 100) * MAX_DEGREE * 10) / 10;
       } else {
-        // rawDegree is given as a total score out of MAX_DEGREE (e.g. 290 out of 320)
-        degreeNum = rawDegree;
-        percentage = Math.round((rawDegree / MAX_DEGREE) * 100 * 10) / 10;
+        percentage = Math.round((degreeNum / MAX_DEGREE) * 100 * 10) / 10;
+        displayDegree = degreeNum;
       }
 
-      // Database Anomaly Correction: High scores (percentage >= 50% or degree >= 160) are ALWAYS Passed
-      const isPassing = percentage >= 50 || String(data.status).includes('ناجح');
-      const displayStatus = isPassing ? 'ناجح دور أول' : (data.status || 'راسب');
+      // Check if status returned from Worker API includes "ناجح"
+      const isPassing = statusText.includes('ناجح');
 
-      // Populate text fields
-      if (studentNameEl) studentNameEl.textContent = data.name || 'غير محدد';
-      if (seatNumberEl) seatNumberEl.textContent = data.seat || '-';
-      if (statusEl) statusEl.textContent = displayStatus;
+      // Populate text fields directly from API data
+      if (studentNameEl) studentNameEl.textContent = studentName;
+      if (seatNumberEl) seatNumberEl.textContent = seatNumber;
+      if (statusEl) statusEl.textContent = statusText;
 
       if (statusBadgeEl) {
-        statusBadgeEl.textContent = displayStatus;
+        statusBadgeEl.textContent = statusText;
         statusBadgeEl.className = `status-badge ${isPassing ? 'status-badge--success' : 'status-badge--danger'}`;
       }
 
       // Animate Degree & Percentage Counters
-      animateValue(totalDegreeEl, 0, degreeNum, 900, 1);
+      animateValue(totalDegreeEl, 0, displayDegree, 900, 1);
       animateValue(percentageEl, 0, percentage, 900, 1, '%');
 
       // Populate Dynamic Encouraging Human Message
@@ -344,11 +346,11 @@
       }
 
       // Populate Share Modal Preview Data
-      if (shareStudentName) shareStudentName.textContent = data.name;
+      if (shareStudentName) shareStudentName.textContent = studentName;
       if (sharePercentage) sharePercentage.textContent = `${percentage.toFixed(1)}%`;
-      if (shareTotalDegree) shareTotalDegree.textContent = `${degreeNum} / ${MAX_DEGREE} درجة`;
+      if (shareTotalDegree) shareTotalDegree.textContent = `${displayDegree} / ${MAX_DEGREE} درجة`;
       if (shareStatusBadge) {
-        shareStatusBadge.textContent = displayStatus;
+        shareStatusBadge.textContent = statusText;
         shareStatusBadge.className = `status-badge ${isPassing ? 'status-badge--success' : 'status-badge--danger'}`;
       }
 
@@ -364,7 +366,7 @@
         }
       }
 
-      // Trigger Confetti ONLY when student passed!
+      // Trigger Confetti ONLY when worker status contains "ناجح"
       if (isPassing && typeof confetti === 'function') {
         confetti({
           particleCount: 80,
