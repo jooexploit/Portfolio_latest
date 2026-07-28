@@ -202,7 +202,6 @@
       roughness: 0.15,
       metalness: 0.1,
       transmission: 0.65, // translucent glass effect
-      thickness: 0.6,
       transparent: true,
       opacity: 0.75,
     });
