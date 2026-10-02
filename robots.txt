@@ -1,7 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /blogs/*.md
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /feedback/
 
 Host: jooexploit.dev
 Sitemap: https://jooexploit.dev/sitemap.xml
-

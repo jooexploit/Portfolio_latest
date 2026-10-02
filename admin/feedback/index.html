@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback Admin — jooexploit</title>
+  <meta name="description" content="Restricted admin dashboard." />
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="theme-color" content="#09090B" />
+
+  <!-- Security Headers & Defense in Depth -->
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none';" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+  <!-- Shared portfolio CSS (design tokens + admin styles appended) -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Supabase config injected at build time (anon key only) -->
+  <script>
+    window.__SUPABASE_URL__ = "https://xlsbsgxzerktxvmmrahb.supabase.co";
+    window.__SUPABASE_ANON_KEY__ = "sb_publishable_syaVe-_72B5MvXiPOA8sWQ_SccyqWQk";
+  </script>
+
+  
+<!-- Pre-render synchronous security gate: instant redirect if no auth token is present -->
+<script>
+  (function() {
+    try {
+      var authenticated = false;
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key && (key.indexOf("auth-token") !== -1 || key.indexOf("supabase.auth.token") !== -1)) {
+          var val = localStorage.getItem(key);
+          if (val && val.indexOf("access_token") !== -1) {
+            authenticated = true;
+            break;
+          }
+        }
+      }
+      if (!authenticated) {
+        window.location.replace("/admin/login/");
+      }
+    } catch (e) {
+      window.location.replace("/admin/login/");
+    }
+  })();
+</script>
+
+</head>
+
+<body class="admin-page admin-protected">
+  <a class="skip-link" href="#admin-main">Skip to content</a>
+
+  
+<!-- Secure Dynamic Mount: Privileged admin UI is strictly injected client-side post-authorization -->
+<div id="admin-auth-loading" class="admin-auth-guard-screen" role="status" aria-live="polite">
+  <div class="admin-loading-spinner"></div>
+  <p class="mono text-2" style="font-size: 0.875rem; letter-spacing: 0.05em;">Verifying administrator credentials...</p>
+</div>
+
+<!-- Root mount point for authenticated admin interface -->
+<div id="admin-dashboard-mount"></div>
+
+
+  <!-- Supabase JS SDK v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" crossorigin="anonymous"></script>
+  <!-- Admin JS bundle -->
+  <script src="/js/admin.js"></script>
+</body>
+
+</html>
