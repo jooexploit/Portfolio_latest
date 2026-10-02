@@ -1,726 +1,886 @@
 <!doctype html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Feedback — Yousef Tamer (jooexploit)</title>
+    <meta
+      name="description"
+      content="Submit feedback for technical sessions, engineering workshops, and mentoring by Yousef Tamer."
+    />
+    <meta
+      name="keywords"
+      content="session feedback, workshop feedback, Yousef Tamer, jooexploit"
+    />
+    <meta name="theme-color" content="#09090B" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://jooexploit.dev/feedback/" />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Session Feedback — Yousef Tamer (jooexploit)</title>
-  <meta name="description" content="Submit feedback for technical sessions, engineering workshops, and mentoring by Yousef Tamer." />
-  <meta name="keywords" content="session feedback, workshop feedback, Yousef Tamer, jooexploit" />
-  <meta name="theme-color" content="#09090B" />
-  <meta name="robots" content="noindex, nofollow" />
-  <link rel="canonical" href="https://jooexploit.dev/feedback/" />
+    <!-- Security Headers -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;"
+    />
+    <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
 
-  
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jooexploit.dev/feedback/" />
+    <meta
+      property="og:title"
+      content="Session Feedback — Yousef Tamer (jooexploit)"
+    />
+    <meta
+      property="og:description"
+      content="Submit feedback for technical sessions, engineering workshops, and mentoring by Yousef Tamer."
+    />
+    <meta
+      property="og:image"
+      content="https://jooexploit.dev/images/og_preview.png"
+    />
 
-  <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
-  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jooexploit.dev/feedback/" />
+    <meta
+      name="twitter:title"
+      content="Session Feedback — Yousef Tamer (jooexploit)"
+    />
+    <meta
+      name="twitter:description"
+      content="Submit feedback for technical sessions, engineering workshops, and mentoring by Yousef Tamer."
+    />
+    <meta
+      name="twitter:image"
+      content="https://jooexploit.dev/images/og_preview.png"
+    />
+    <meta name="twitter:site" content="@jooexploit" />
+    <meta name="twitter:creator" content="@jooexploit" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://jooexploit.dev/feedback/" />
-  <meta property="og:title" content="Session Feedback — Yousef Tamer (jooexploit)" />
-  <meta property="og:description" content="Submit feedback for technical sessions, engineering workshops, and mentoring by Yousef Tamer." />
-  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
-  
+    <!-- Favicon Package & PWA Manifest -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://jooexploit.dev/feedback/" />
-  <meta name="twitter:title" content="Session Feedback — Yousef Tamer (jooexploit)" />
-  <meta name="twitter:description" content="Submit feedback for technical sessions, engineering workshops, and mentoring by Yousef Tamer." />
-  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
-  <meta name="twitter:site" content="@jooexploit" />
-  <meta name="twitter:creator" content="@jooexploit" />
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
 
-  <!-- Favicon Package & PWA Manifest -->
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/manifest.webmanifest" />
+    <!-- Structured Data (JSON-LD) -->
+  </head>
 
-  <!-- Fonts & Styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="/css/main.css" />
+  <body class="subpage feedback-page">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Structured Data (JSON-LD) -->
-  
-  
-  
-</head>
+    <!-- Scroll progress -->
+    <div class="progress" aria-hidden="true">
+      <span id="progressBar"></span>
+    </div>
 
-<body class="subpage feedback-page">
-
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  
-
-  <!-- Scroll progress -->
-  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
-
-  
-
-  <!-- Navigation -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a class="nav__logo" href="/" aria-label="Back to home">
-        <picture>
-          <source srcset="/images/logo.webp" type="image/webp" />
-          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
-        </picture>
-      </a>
-      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
-        
+    <!-- Navigation -->
+    <header class="nav" id="nav">
+      <div class="nav__inner">
+        <a class="nav__logo" href="/" aria-label="Back to home">
+          <picture>
+            <source srcset="/images/logo.webp" type="image/webp" />
+            <img
+              src="/images/logo.png"
+              alt="jooexploit logo"
+              class="nav__logo-img"
+              width="240"
+              height="160"
+            />
+          </picture>
+        </a>
+        <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
           <a href="/about/" data-spy>About</a>
-        
+
           <a href="/journey/" data-spy>Journey</a>
-        
+
           <a href="/certifications/" data-spy>Certifications</a>
-        
+
           <a href="/projects/" data-spy>Work</a>
-        
+
           <a href="/skills/" data-spy>Skills</a>
-        
+
           <a href="/library/" data-spy>Library</a>
-        
+
           <a href="/blog/" data-spy>Blog</a>
-        
-      </nav>
-      <div class="nav__actions">
-        <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
-        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
-          aria-label="Toggle navigation menu">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 6h16" />
-            <path d="M4 12h16" />
-            <path d="M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-    
-
-
-<script>
-  window.__SUPABASE_URL__ = "https://xlsbsgxzerktxvmmrahb.supabase.co";
-  window.__SUPABASE_ANON_KEY__ = "sb_publishable_syaVe-_72B5MvXiPOA8sWQ_SccyqWQk";
-</script>
-
-
-<section class="section feedback-section" id="feedback" aria-labelledby="feedback-title">
-  <div class="container feedback-container">
-
-    
-    <div class="feedback-header" data-reveal>
-      <div class="feedback-header__badge">
-        <svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-        </svg>
-        <span class="mono">Session Feedback</span>
-      </div>
-      <h1 class="feedback-header__title" id="feedback-title">
-        Share Your <span class="accent">Experience</span>
-      </h1>
-      <p class="feedback-header__sub">
-        Your feedback helps us improve future sessions. It only takes 2 minutes.
-      </p>
-    </div>
-
-    
-    
-<div id="feedback-error-banner" class="feedback-banner feedback-banner--error" role="alert" aria-live="assertive" hidden>
-  <div class="feedback-banner__icon" aria-hidden="true">
-    <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"></circle>
-      <line x1="12" y1="8" x2="12" y2="12"></line>
-      <line x1="12" y1="16" x2="12.01" y2="16"></line>
-    </svg>
-  </div>
-  <div class="feedback-banner__content">
-    <h4 class="feedback-banner__title">Submission Failed</h4>
-    <p class="feedback-banner__msg" id="feedback-error-msg">
-      Something went wrong while submitting your feedback. Please try again.
-    </p>
-  </div>
-  <button type="button" class="feedback-banner__close" id="feedback-error-dismiss" aria-label="Dismiss error notification">
-    <svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-  </button>
-</div>
-
-
-    
-    <div class="card feedback-card" id="feedback-form-card" data-reveal style="--d: 0.1s">
-
-      <form id="feedback-form" novalidate autocomplete="off" aria-label="Session feedback form">
-
-        
-        <div class="feedback-section-label">
-          <span class="mono text-2">01 — Session</span>
-        </div>
-
-        
-<div class="form-group" id="group-session">
-  <label for="session_name" class="form-label">
-    <span>Select Session</span>
-    <span class="form-label__required" aria-hidden="true">*</span>
-  </label>
-  <p class="form-hint" id="session-hint">Choose the technical session or workshop you attended.</p>
-  
-  <div class="select-wrapper">
-    <select id="session_name" name="session_name" class="form-select" required aria-describedby="session-hint session-error">
-      <option value="" disabled selected>— Choose a session track —</option>
-      
-        <option value="UI/UX">UI/UX (UI/UX Design)</option>
-      
-        <option value="AI">AI (Artificial Intelligence)</option>
-      
-        <option value="Cloud">Cloud (Cloud Architecture)</option>
-      
-        <option value="DevOps">DevOps (DevOps &amp; CI/CD)</option>
-      
-        <option value="Cybersecurity">Cybersecurity (Cybersecurity &amp; Systems Security)</option>
-      
-        <option value="Mobile Development">Mobile Development (Mobile Development)</option>
-      
-    </select>
-    <div class="select-chevron" aria-hidden="true">
-      <svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </div>
-  </div>
-  <p class="form-field-error" id="session-error" role="alert" aria-live="polite" hidden></p>
-</div>
-
-
-        
-        <hr class="feedback-divider" aria-hidden="true" />
-
-        
-        <div class="feedback-section-label">
-          <span class="mono text-2">02 — Ratings</span>
-        </div>
-
-        
-          
-            
-<fieldset class="form-group rating-fieldset" id="group-overall_rating" role="radiogroup" aria-required="true" aria-describedby="overall_rating-hint overall_rating-error">
-  <legend class="form-legend">
-    <span class="form-legend__title">Overall Experience</span>
-    <span class="form-label__required" aria-hidden="true">*</span>
-  </legend>
-  <p class="form-hint" id="overall_rating-hint">How would you rate this session?</p>
-
-  <div class="rating-tiles">
-    
-      <label class="rating-tile" for="overall_rating-1">
-        <input 
-          type="radio" 
-          id="overall_rating-1" 
-          name="overall_rating" 
-          value="1" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="1 - Very Poor"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">1</span>
-          <span class="rating-tile__label">Very Poor</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="overall_rating-2">
-        <input 
-          type="radio" 
-          id="overall_rating-2" 
-          name="overall_rating" 
-          value="2" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="2 - Poor"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">2</span>
-          <span class="rating-tile__label">Poor</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="overall_rating-3">
-        <input 
-          type="radio" 
-          id="overall_rating-3" 
-          name="overall_rating" 
-          value="3" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="3 - Average"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">3</span>
-          <span class="rating-tile__label">Average</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="overall_rating-4">
-        <input 
-          type="radio" 
-          id="overall_rating-4" 
-          name="overall_rating" 
-          value="4" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="4 - Good"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">4</span>
-          <span class="rating-tile__label">Good</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="overall_rating-5">
-        <input 
-          type="radio" 
-          id="overall_rating-5" 
-          name="overall_rating" 
-          value="5" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="5 - Excellent"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">5</span>
-          <span class="rating-tile__label">Excellent</span>
-        </span>
-      </label>
-    
-  </div>
-
-  <p class="form-field-error" id="overall_rating-error" role="alert" aria-live="polite" hidden></p>
-</fieldset>
-
-          
-        
-          
-            
-<fieldset class="form-group rating-fieldset" id="group-explanation_rating" role="radiogroup" aria-required="true" aria-describedby="explanation_rating-hint explanation_rating-error">
-  <legend class="form-legend">
-    <span class="form-legend__title">Explanation</span>
-    <span class="form-label__required" aria-hidden="true">*</span>
-  </legend>
-  <p class="form-hint" id="explanation_rating-hint">How clear was the explanation?</p>
-
-  <div class="rating-tiles">
-    
-      <label class="rating-tile" for="explanation_rating-1">
-        <input 
-          type="radio" 
-          id="explanation_rating-1" 
-          name="explanation_rating" 
-          value="1" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="1 - Very Poor"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">1</span>
-          <span class="rating-tile__label">Very Poor</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="explanation_rating-2">
-        <input 
-          type="radio" 
-          id="explanation_rating-2" 
-          name="explanation_rating" 
-          value="2" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="2 - Poor"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">2</span>
-          <span class="rating-tile__label">Poor</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="explanation_rating-3">
-        <input 
-          type="radio" 
-          id="explanation_rating-3" 
-          name="explanation_rating" 
-          value="3" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="3 - Average"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">3</span>
-          <span class="rating-tile__label">Average</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="explanation_rating-4">
-        <input 
-          type="radio" 
-          id="explanation_rating-4" 
-          name="explanation_rating" 
-          value="4" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="4 - Good"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">4</span>
-          <span class="rating-tile__label">Good</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="explanation_rating-5">
-        <input 
-          type="radio" 
-          id="explanation_rating-5" 
-          name="explanation_rating" 
-          value="5" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="5 - Excellent"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">5</span>
-          <span class="rating-tile__label">Excellent</span>
-        </span>
-      </label>
-    
-  </div>
-
-  <p class="form-field-error" id="explanation_rating-error" role="alert" aria-live="polite" hidden></p>
-</fieldset>
-
-          
-        
-          
-            
-<fieldset class="form-group rating-fieldset" id="group-content_rating" role="radiogroup" aria-required="true" aria-describedby="content_rating-hint content_rating-error">
-  <legend class="form-legend">
-    <span class="form-legend__title">Content</span>
-    <span class="form-label__required" aria-hidden="true">*</span>
-  </legend>
-  <p class="form-hint" id="content_rating-hint">How useful was the content?</p>
-
-  <div class="rating-tiles">
-    
-      <label class="rating-tile" for="content_rating-1">
-        <input 
-          type="radio" 
-          id="content_rating-1" 
-          name="content_rating" 
-          value="1" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="1 - Very Poor"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">1</span>
-          <span class="rating-tile__label">Very Poor</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="content_rating-2">
-        <input 
-          type="radio" 
-          id="content_rating-2" 
-          name="content_rating" 
-          value="2" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="2 - Poor"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">2</span>
-          <span class="rating-tile__label">Poor</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="content_rating-3">
-        <input 
-          type="radio" 
-          id="content_rating-3" 
-          name="content_rating" 
-          value="3" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="3 - Average"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">3</span>
-          <span class="rating-tile__label">Average</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="content_rating-4">
-        <input 
-          type="radio" 
-          id="content_rating-4" 
-          name="content_rating" 
-          value="4" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="4 - Good"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">4</span>
-          <span class="rating-tile__label">Good</span>
-        </span>
-      </label>
-    
-      <label class="rating-tile" for="content_rating-5">
-        <input 
-          type="radio" 
-          id="content_rating-5" 
-          name="content_rating" 
-          value="5" 
-          class="rating-tile__input sr-only"
-          required
-          aria-label="5 - Excellent"
-        />
-        <span class="rating-tile__box">
-          <span class="rating-tile__number mono">5</span>
-          <span class="rating-tile__label">Excellent</span>
-        </span>
-      </label>
-    
-  </div>
-
-  <p class="form-field-error" id="content_rating-error" role="alert" aria-live="polite" hidden></p>
-</fieldset>
-
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-
-        
-        <hr class="feedback-divider" aria-hidden="true" />
-
-        
-        <div class="feedback-section-label">
-          <span class="mono text-2">03 — Written Feedback</span>
-        </div>
-
-        
-          
-        
-          
-        
-          
-        
-          
-            
-<div class="form-group" id="group-liked">
-  <label for="liked" class="form-label">
-    <span>What did you like?</span>
-    
-      <span class="form-label__optional">(Optional)</span>
-    
-  </label>
-  <p class="form-hint" id="liked-hint">What did you like most about the session?</p>
-
-  <textarea 
-    id="liked" 
-    name="liked" 
-    class="form-textarea" 
-    rows="3" 
-    maxlength="2500"
-    placeholder="Share the topics, practical demos, or explanations you found most valuable..."
-    aria-describedby="liked-hint"
-  ></textarea>
-</div>
-
-          
-        
-          
-            
-<div class="form-group" id="group-improvements">
-  <label for="improvements" class="form-label">
-    <span>What could be improved?</span>
-    
-      <span class="form-label__optional">(Optional)</span>
-    
-  </label>
-  <p class="form-hint" id="improvements-hint">What could we improve in future sessions?</p>
-
-  <textarea 
-    id="improvements" 
-    name="improvements" 
-    class="form-textarea" 
-    rows="3" 
-    maxlength="2500"
-    placeholder="Let us know about pacing, depth, materials, or exercises..."
-    aria-describedby="improvements-hint"
-  ></textarea>
-</div>
-
-          
-        
-          
-            
-<div class="form-group" id="group-future_topics">
-  <label for="future_topics" class="form-label">
-    <span>Future Topics</span>
-    
-      <span class="form-label__optional">(Optional)</span>
-    
-  </label>
-  <p class="form-hint" id="future_topics-hint">What topics would you like us to cover in future sessions?</p>
-
-  <textarea 
-    id="future_topics" 
-    name="future_topics" 
-    class="form-textarea" 
-    rows="3" 
-    maxlength="2500"
-    placeholder="Specific technologies, architectures, or problems you&#39;d like to explore next..."
-    aria-describedby="future_topics-hint"
-  ></textarea>
-</div>
-
-          
-        
-          
-            
-<div class="form-group" id="group-additional_feedback">
-  <label for="additional_feedback" class="form-label">
-    <span>Additional Feedback</span>
-    
-      <span class="form-label__optional">(Optional)</span>
-    
-  </label>
-  <p class="form-hint" id="additional_feedback-hint">Anything else you&#39;d like to share?</p>
-
-  <textarea 
-    id="additional_feedback" 
-    name="additional_feedback" 
-    class="form-textarea" 
-    rows="3" 
-    maxlength="2500"
-    placeholder="Any other suggestions, questions, or general thoughts..."
-    aria-describedby="additional_feedback-hint"
-  ></textarea>
-</div>
-
-          
-        
-
-        
-        <p class="form-global-error" id="feedback-global-error" role="alert" aria-live="assertive" hidden>
-          Please fill in all required fields before submitting.
-        </p>
-
-        
-        <div class="feedback-submit-row">
-          <p class="feedback-submit-note">
-            <svg class="icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </nav>
+        <div class="nav__actions">
+          <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta"
+            >Get in touch</a
+          >
+          <button
+            class="nav__toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="navLinks"
+            aria-label="Toggle navigation menu"
+          >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16" />
+              <path d="M4 12h16" />
+              <path d="M4 18h16" />
             </svg>
-            <span>Responses are anonymous and securely stored.</span>
-          </p>
-          <button type="submit" class="btn btn--primary btn--lg feedback-submit-btn" id="feedback-submit-btn" aria-describedby="feedback-global-error">
-            <span class="btn-spinner" aria-hidden="true"></span>
-            <span class="btn-label">Submit Feedback</span>
           </button>
         </div>
-
-      </form>
-    </div>
-
-    
-    
-<div id="feedback-success-card" class="card feedback-card feedback-success-card" role="region" aria-live="polite" hidden>
-  <div class="feedback-success-card__icon" aria-hidden="true">
-    <svg class="icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-      <polyline points="22 4 12 14.01 9 11.01"></polyline>
-    </svg>
-  </div>
-  
-  <h2 class="feedback-success-card__title">Thank you for your feedback!</h2>
-  <p class="feedback-success-card__msg">Your response has been submitted successfully.</p>
-  
-  <p class="feedback-success-card__note">
-    Your insights directly help improve future session topics, architecture breakdowns, and live engineering demos.
-  </p>
-
-  <div class="feedback-success-card__actions">
-    <button type="button" id="feedback-reset-btn" class="btn btn--primary btn--md">
-      <svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-        <path d="M21 3v5h-5"></path>
-        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-        <path d="M8 16H3v5"></path>
-      </svg>
-      <span>Submit Another Response</span>
-    </button>
-  </div>
-</div>
-
-
-  </div>
-</section>
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" crossorigin="anonymous"></script>
-<script src="/js/feedback.js"></script>
-
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__logo-wrap">
-        <picture>
-          <source srcset="/images/logo.webp" type="image/webp" />
-          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
-        </picture>
-        <span class="mono">&copy; <span id="year"></span></span>
       </div>
-      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
-      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m18 15-6-6-6 6" />
-        </svg>
-      </a>
-    </div>
-  </footer>
+    </header>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
-    crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
-  
-  <script src="/js/main.js"></script>
+    <main id="main">
+      <script>
+        window.__SUPABASE_URL__ = "https://xlsbsgxzerktxvmmrahb.supabase.co";
+        window.__SUPABASE_ANON_KEY__ =
+          "sb_publishable_syaVe-_72B5MvXiPOA8sWQ_SccyqWQk";
+      </script>
 
-</body>
+      <section
+        class="section feedback-section"
+        id="feedback"
+        aria-labelledby="feedback-title"
+      >
+        <div class="container feedback-container">
+          <div class="feedback-header" data-reveal>
+            <div class="feedback-header__badge">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                ></path>
+              </svg>
+              <span class="mono">Session Feedback</span>
+            </div>
+            <h1 class="feedback-header__title" id="feedback-title">
+              Share Your <span class="accent">Experience</span>
+            </h1>
+            <p class="feedback-header__sub">
+              Your feedback helps us improve future sessions. It only takes 2
+              minutes.
+            </p>
+          </div>
 
+          <div
+            id="feedback-error-banner"
+            class="feedback-banner feedback-banner--error"
+            role="alert"
+            aria-live="assertive"
+            hidden
+          >
+            <div class="feedback-banner__icon" aria-hidden="true">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <div class="feedback-banner__content">
+              <h4 class="feedback-banner__title">Submission Failed</h4>
+              <p class="feedback-banner__msg" id="feedback-error-msg">
+                Something went wrong while submitting your feedback. Please try
+                again.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="feedback-banner__close"
+              id="feedback-error-dismiss"
+              aria-label="Dismiss error notification"
+            >
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div
+            class="card feedback-card"
+            id="feedback-form-card"
+            data-reveal
+            style="--d: 0.1s"
+          >
+            <form
+              id="feedback-form"
+              novalidate
+              autocomplete="off"
+              aria-label="Session feedback form"
+            >
+              <div class="feedback-section-label">
+                <span class="mono text-2">01 — Session</span>
+              </div>
+
+              <div class="form-group" id="group-session">
+                <label for="session_name" class="form-label">
+                  <span>Select Session</span>
+                  <span class="form-label__required" aria-hidden="true">*</span>
+                </label>
+                <p class="form-hint" id="session-hint">
+                  Choose the technical session or workshop you attended.
+                </p>
+
+                <div class="select-wrapper">
+                  <select
+                    id="session_name"
+                    name="session_name"
+                    class="form-select"
+                    required
+                    aria-describedby="session-hint session-error"
+                  >
+                    <option value="" disabled selected>
+                      — Choose a session track —
+                    </option>
+
+                    <option value="Intro">Programming Session Intro</option>
+                  </select>
+                  <div class="select-chevron" aria-hidden="true">
+                    <svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <p
+                  class="form-field-error"
+                  id="session-error"
+                  role="alert"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+
+              <hr class="feedback-divider" aria-hidden="true" />
+
+              <div class="feedback-section-label">
+                <span class="mono text-2">02 — Ratings</span>
+              </div>
+
+              <fieldset
+                class="form-group rating-fieldset"
+                id="group-overall_rating"
+                role="radiogroup"
+                aria-required="true"
+                aria-describedby="overall_rating-hint overall_rating-error"
+              >
+                <legend class="form-legend">
+                  <span class="form-legend__title">Overall Experience</span>
+                  <span class="form-label__required" aria-hidden="true">*</span>
+                </legend>
+                <p class="form-hint" id="overall_rating-hint">
+                  How would you rate this session?
+                </p>
+
+                <div class="rating-tiles">
+                  <label class="rating-tile" for="overall_rating-1">
+                    <input
+                      type="radio"
+                      id="overall_rating-1"
+                      name="overall_rating"
+                      value="1"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="1 - Very Poor"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">1</span>
+                      <span class="rating-tile__label">Very Poor</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="overall_rating-2">
+                    <input
+                      type="radio"
+                      id="overall_rating-2"
+                      name="overall_rating"
+                      value="2"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="2 - Poor"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">2</span>
+                      <span class="rating-tile__label">Poor</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="overall_rating-3">
+                    <input
+                      type="radio"
+                      id="overall_rating-3"
+                      name="overall_rating"
+                      value="3"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="3 - Average"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">3</span>
+                      <span class="rating-tile__label">Average</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="overall_rating-4">
+                    <input
+                      type="radio"
+                      id="overall_rating-4"
+                      name="overall_rating"
+                      value="4"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="4 - Good"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">4</span>
+                      <span class="rating-tile__label">Good</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="overall_rating-5">
+                    <input
+                      type="radio"
+                      id="overall_rating-5"
+                      name="overall_rating"
+                      value="5"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="5 - Excellent"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">5</span>
+                      <span class="rating-tile__label">Excellent</span>
+                    </span>
+                  </label>
+                </div>
+
+                <p
+                  class="form-field-error"
+                  id="overall_rating-error"
+                  role="alert"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </fieldset>
+
+              <fieldset
+                class="form-group rating-fieldset"
+                id="group-explanation_rating"
+                role="radiogroup"
+                aria-required="true"
+                aria-describedby="explanation_rating-hint explanation_rating-error"
+              >
+                <legend class="form-legend">
+                  <span class="form-legend__title">Explanation</span>
+                  <span class="form-label__required" aria-hidden="true">*</span>
+                </legend>
+                <p class="form-hint" id="explanation_rating-hint">
+                  How clear was the explanation?
+                </p>
+
+                <div class="rating-tiles">
+                  <label class="rating-tile" for="explanation_rating-1">
+                    <input
+                      type="radio"
+                      id="explanation_rating-1"
+                      name="explanation_rating"
+                      value="1"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="1 - Very Poor"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">1</span>
+                      <span class="rating-tile__label">Very Poor</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="explanation_rating-2">
+                    <input
+                      type="radio"
+                      id="explanation_rating-2"
+                      name="explanation_rating"
+                      value="2"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="2 - Poor"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">2</span>
+                      <span class="rating-tile__label">Poor</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="explanation_rating-3">
+                    <input
+                      type="radio"
+                      id="explanation_rating-3"
+                      name="explanation_rating"
+                      value="3"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="3 - Average"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">3</span>
+                      <span class="rating-tile__label">Average</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="explanation_rating-4">
+                    <input
+                      type="radio"
+                      id="explanation_rating-4"
+                      name="explanation_rating"
+                      value="4"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="4 - Good"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">4</span>
+                      <span class="rating-tile__label">Good</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="explanation_rating-5">
+                    <input
+                      type="radio"
+                      id="explanation_rating-5"
+                      name="explanation_rating"
+                      value="5"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="5 - Excellent"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">5</span>
+                      <span class="rating-tile__label">Excellent</span>
+                    </span>
+                  </label>
+                </div>
+
+                <p
+                  class="form-field-error"
+                  id="explanation_rating-error"
+                  role="alert"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </fieldset>
+
+              <fieldset
+                class="form-group rating-fieldset"
+                id="group-content_rating"
+                role="radiogroup"
+                aria-required="true"
+                aria-describedby="content_rating-hint content_rating-error"
+              >
+                <legend class="form-legend">
+                  <span class="form-legend__title">Content</span>
+                  <span class="form-label__required" aria-hidden="true">*</span>
+                </legend>
+                <p class="form-hint" id="content_rating-hint">
+                  How useful was the content?
+                </p>
+
+                <div class="rating-tiles">
+                  <label class="rating-tile" for="content_rating-1">
+                    <input
+                      type="radio"
+                      id="content_rating-1"
+                      name="content_rating"
+                      value="1"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="1 - Very Poor"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">1</span>
+                      <span class="rating-tile__label">Very Poor</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="content_rating-2">
+                    <input
+                      type="radio"
+                      id="content_rating-2"
+                      name="content_rating"
+                      value="2"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="2 - Poor"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">2</span>
+                      <span class="rating-tile__label">Poor</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="content_rating-3">
+                    <input
+                      type="radio"
+                      id="content_rating-3"
+                      name="content_rating"
+                      value="3"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="3 - Average"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">3</span>
+                      <span class="rating-tile__label">Average</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="content_rating-4">
+                    <input
+                      type="radio"
+                      id="content_rating-4"
+                      name="content_rating"
+                      value="4"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="4 - Good"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">4</span>
+                      <span class="rating-tile__label">Good</span>
+                    </span>
+                  </label>
+
+                  <label class="rating-tile" for="content_rating-5">
+                    <input
+                      type="radio"
+                      id="content_rating-5"
+                      name="content_rating"
+                      value="5"
+                      class="rating-tile__input sr-only"
+                      required
+                      aria-label="5 - Excellent"
+                    />
+                    <span class="rating-tile__box">
+                      <span class="rating-tile__number mono">5</span>
+                      <span class="rating-tile__label">Excellent</span>
+                    </span>
+                  </label>
+                </div>
+
+                <p
+                  class="form-field-error"
+                  id="content_rating-error"
+                  role="alert"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </fieldset>
+
+              <hr class="feedback-divider" aria-hidden="true" />
+
+              <div class="feedback-section-label">
+                <span class="mono text-2">03 — Written Feedback</span>
+              </div>
+
+              <div class="form-group" id="group-liked">
+                <label for="liked" class="form-label">
+                  <span>What did you like?</span>
+
+                  <span class="form-label__optional">(Optional)</span>
+                </label>
+                <p class="form-hint" id="liked-hint">
+                  What did you like most about the session?
+                </p>
+
+                <textarea
+                  id="liked"
+                  name="liked"
+                  class="form-textarea"
+                  rows="3"
+                  maxlength="2500"
+                  placeholder="Share the topics, practical demos, or explanations you found most valuable..."
+                  aria-describedby="liked-hint"
+                ></textarea>
+              </div>
+
+              <div class="form-group" id="group-improvements">
+                <label for="improvements" class="form-label">
+                  <span>What could be improved?</span>
+
+                  <span class="form-label__optional">(Optional)</span>
+                </label>
+                <p class="form-hint" id="improvements-hint">
+                  What could we improve in future sessions?
+                </p>
+
+                <textarea
+                  id="improvements"
+                  name="improvements"
+                  class="form-textarea"
+                  rows="3"
+                  maxlength="2500"
+                  placeholder="Let us know about pacing, depth, materials, or exercises..."
+                  aria-describedby="improvements-hint"
+                ></textarea>
+              </div>
+
+              <div class="form-group" id="group-future_topics">
+                <label for="future_topics" class="form-label">
+                  <span>Future Topics</span>
+
+                  <span class="form-label__optional">(Optional)</span>
+                </label>
+                <p class="form-hint" id="future_topics-hint">
+                  What topics would you like us to cover in future sessions?
+                </p>
+
+                <textarea
+                  id="future_topics"
+                  name="future_topics"
+                  class="form-textarea"
+                  rows="3"
+                  maxlength="2500"
+                  placeholder="Specific technologies, architectures, or problems you&#39;d like to explore next..."
+                  aria-describedby="future_topics-hint"
+                ></textarea>
+              </div>
+
+              <div class="form-group" id="group-additional_feedback">
+                <label for="additional_feedback" class="form-label">
+                  <span>Additional Feedback</span>
+
+                  <span class="form-label__optional">(Optional)</span>
+                </label>
+                <p class="form-hint" id="additional_feedback-hint">
+                  Anything else you&#39;d like to share?
+                </p>
+
+                <textarea
+                  id="additional_feedback"
+                  name="additional_feedback"
+                  class="form-textarea"
+                  rows="3"
+                  maxlength="2500"
+                  placeholder="Any other suggestions, questions, or general thoughts..."
+                  aria-describedby="additional_feedback-hint"
+                ></textarea>
+              </div>
+
+              <p
+                class="form-global-error"
+                id="feedback-global-error"
+                role="alert"
+                aria-live="assertive"
+                hidden
+              >
+                Please fill in all required fields before submitting.
+              </p>
+
+              <div class="feedback-submit-row">
+                <p class="feedback-submit-note">
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="3"
+                      y="11"
+                      width="18"
+                      height="11"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>Responses are anonymous and securely stored.</span>
+                </p>
+                <button
+                  type="submit"
+                  class="btn btn--primary btn--lg feedback-submit-btn"
+                  id="feedback-submit-btn"
+                  aria-describedby="feedback-global-error"
+                >
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                  <span class="btn-label">Submit Feedback</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div
+            id="feedback-success-card"
+            class="card feedback-card feedback-success-card"
+            role="region"
+            aria-live="polite"
+            hidden
+          >
+            <div class="feedback-success-card__icon" aria-hidden="true">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                width="48"
+                height="48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+
+            <h2 class="feedback-success-card__title">
+              Thank you for your feedback!
+            </h2>
+            <p class="feedback-success-card__msg">
+              Your response has been submitted successfully.
+            </p>
+
+            <p class="feedback-success-card__note">
+              Your insights directly help improve future session topics,
+              architecture breakdowns, and live engineering demos.
+            </p>
+
+            <div class="feedback-success-card__actions">
+              <button
+                type="button"
+                id="feedback-reset-btn"
+                class="btn btn--primary btn--md"
+              >
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"
+                  ></path>
+                  <path d="M21 3v5h-5"></path>
+                  <path
+                    d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"
+                  ></path>
+                  <path d="M8 16H3v5"></path>
+                </svg>
+                <span>Submit Another Response</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+        crossorigin="anonymous"
+      ></script>
+      <script src="/js/feedback.js"></script>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__logo-wrap">
+          <picture>
+            <source srcset="/images/logo.webp" type="image/webp" />
+            <img
+              src="/images/logo.png"
+              alt="jooexploit logo"
+              class="footer__logo-img"
+              width="240"
+              height="160"
+            />
+          </picture>
+          <span class="mono">&copy; <span id="year"></span></span>
+        </div>
+        <p class="footer__note">
+          CS · DevOps · Cloud · Linux · Automation · Education
+        </p>
+        <a
+          href="#top"
+          class="footer__top"
+          id="footer-top"
+          aria-label="Back to top"
+        >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/js/main.js"></script>
+  </body>
 </html>
