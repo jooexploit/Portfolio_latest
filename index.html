@@ -267,12 +267,18 @@
         
           <a href="/skills/" data-spy>Skills</a>
         
+          <a href="/cv/" data-spy>CV</a>
+        
           <a href="/library/" data-spy>Library</a>
         
           <a href="/blog/" data-spy>Blog</a>
         
       </nav>
       <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm nav__cv-btn" href="/cv/" id="nav-cv" title="View & Download CV">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+          <span>CV</span>
+        </a>
         <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
           aria-label="Toggle navigation menu">
@@ -318,6 +324,10 @@
           Explore the work
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg>
         </a>
+        <a class="btn btn--ghost" href="/cv/" id="hero-btn-cv" data-magnetic title="View & Download Latest CV">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+          <span>Download CV</span>
+        </a>
         <a class="btn btn--ghost" href="/about/" id="hero-btn-story">Read the story</a>
       </div>
 
@@ -330,7 +340,7 @@
         
         <div>
           <dt>Projects shipped</dt>
-          <dd><span data-count="6">0</span></dd>
+          <dd><span data-count="12">0</span></dd>
         </div>
         
         <div>
@@ -394,10 +404,10 @@
     <div class="about__grid">
       <div class="about__story">
         <p class="about__lead">
-          I'm <strong>jooexploit</strong> &mdash; a technologist who started with security and kept going deeper. From breaking things to building them, from frontend to backend to AI to DevOps &mdash; every chapter taught me something the previous one couldn't.
+          I'm <strong>Yousef Tamer (jooexploit)</strong> &mdash; a DevOps and Cloud Engineer building systems on a security-first foundation. From breaking systems in CTFs to provisioning and hardening them with Docker, Kubernetes, Linux, and AWS &mdash; every chapter taught me how systems scale reliably.
         </p>
         <p class="about__body">
-          I created jooexploit because technology education deserves better. Too many tutorials skip the "why." Too many courses sell certificates instead of understanding. My mission: explain the real thing, clearly and without compromise.
+          Named a Top Achiever in Cairo by DEPI (April 2026) and trained across AWS Academy and DevOps bootcamps, my mission is to demystify complex systems, automate workflows, and share real engineering knowledge clearly and without compromise.
         </p>
         <p class="about__body">
           Today I operate at the intersection of <strong>DevOps, Cloud, and Education</strong> &mdash; building systems, automating workflows, and documenting every lesson so others don't have to learn the hard way.
@@ -482,7 +492,7 @@
             <div class="arc__dot"></div>
             <div class="arc__content">
               <span class="arc__num mono accent">05</span>
-              <h3>DevOps <span class="arc__now accent">&larr; now</span></h3>
+              <h3>DevOps &amp; Cloud <span class="arc__now accent">&larr; now</span></h3>
               <p>Infrastructure as code. CI/CD. Cloud-native. The jooexploit era.</p>
             </div>
           </div>
@@ -491,8 +501,12 @@
         </div>
       </div>
     </div>
-    <div style="margin-top: 3rem; text-align: center;" data-reveal>
+    <div style="margin-top: 3rem; text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;" data-reveal>
       <a class="btn btn--primary" href="/about/">View Full Profile</a>
+      <a class="btn btn--ghost" href="/cv/">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+        View &amp; Download CV
+      </a>
     </div>
   </div>
 </section>
@@ -607,7 +621,7 @@
           <h3 style="font-size: 1.25rem; line-height: 1.3; margin-bottom: 0.5rem; color: var(--text);">AWS Academy Graduate - Cloud Foundations - Training Badge
           </h3>
           <p class="mono" style="font-size: 0.85rem; color: var(--text-3); margin-bottom: 1rem;">Issued by AWS Academy &middot; Aug 2026</p>
-          <p style="color: var(--text-2); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">Honored as a Top Achiever in Cairo by the Digital Egypt Pioneers Initiative (DEPI) for outstanding performance, technical leadership, and excellence in core technology paths.</p>
+          <p style="color: var(--text-2); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">Successfully completed AWS Academy Cloud Foundations training, demonstrating foundational knowledge of AWS Cloud concepts, core services (EC2, S3, IAM, VPC), security, architecture, pricing, and cloud best practices.</p>
         </div>
         <div>
           <a href="/certifications/" class="btn btn--ghost btn--sm"
@@ -628,7 +642,7 @@
           <h3 style="font-size: 1.25rem; line-height: 1.3; margin-bottom: 0.5rem; color: var(--text);">AWS Academy Graduate - Cloud Architecting - Training Badge
           </h3>
           <p class="mono" style="font-size: 0.85rem; color: var(--text-3); margin-bottom: 1rem;">Issued by AWS Academy &middot; Aug 2026</p>
-          <p style="color: var(--text-2); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">Successfully completed AWS Academy Cloud Foundations training, demonstrating foundational knowledge of AWS Cloud concepts, core services, security, architecture, pricing, and cloud best practices.</p>
+          <p style="color: var(--text-2); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">Successfully completed AWS Academy Cloud Architecting training, covering advanced architecture design on AWS, multi-tier architectures, high availability, resilience, automation, and cost-optimized solutions.</p>
         </div>
         <div>
           <a href="/certifications/" class="btn btn--ghost btn--sm"
@@ -878,31 +892,35 @@
     <div class="skills-grid">
       
       <div class="card skills-col" data-reveal>
-        <h3 class="mono">Languages &amp; Web</h3>
+        <h3 class="mono">Linux &amp; Systems Administration (Hands-on)</h3>
         <ul>
           
-          <li>Python (Programming Language)</li>
+          <li>Arch Linux (Daily Driver) &amp; Debian/Ubuntu/RHEL</li>
           
-          <li>JavaScript &amp; React.js</li>
+          <li>Command-Line Interface (CLI) &amp; Advanced Shell Workflows</li>
           
-          <li>PHP &amp; HTML / CSS</li>
+          <li>Users, Groups, Permissions &amp; Storage Management</li>
           
-          <li>SQL &amp; MySQL</li>
+          <li>systemd Service Units, journalctl &amp; Fault Diagnosis</li>
+          
+          <li>Secure Shell (SSH) &amp; Headless Server Administration</li>
           
         </ul>
       </div>
       
       <div class="card skills-col" data-reveal>
-        <h3 class="mono">DevOps &amp; Cloud</h3>
+        <h3 class="mono">Cloud, Containers &amp; Orchestration</h3>
         <ul>
           
-          <li>Docker &amp; Containerization</li>
+          <li>AWS (Amazon EC2 hands-on; IAM, VPC, S3, ECR, EKS, SSM)</li>
           
-          <li>Git &amp; GitHub Version Control</li>
+          <li>Docker, Dockerfiles, Multi-stage Builds &amp; Image Optimization</li>
           
-          <li>AWS (Amazon Web Services)</li>
+          <li>Docker Compose &amp; Container Registries</li>
           
-          <li>Cloud Computing &amp; Virtualization</li>
+          <li>Kubernetes (Pods, Deployments, Services, Ingress, PV/PVC)</li>
+          
+          <li>Helm Charts, Kustomize, ConfigMaps, Secrets &amp; Operators</li>
           
         </ul>
       </div>
@@ -1004,12 +1022,16 @@
       Let's build something<br>that <em class="accent-em">matters</em>.
     </h2>
     <p class="contact__sub" data-reveal>
-      Open to cloud engineering positions, infrastructure consulting, and collaborations on automation.
+      Open to DevOps and Cloud Engineering positions, infrastructure consulting, and collaborations on automation.
     </p>
     <div class="contact__actions" data-reveal>
       <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
         youseftamereg@gmail.com
+      </a>
+      <a class="btn btn--ghost btn--lg" href="/cv/" id="contact-cv">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+        Download CV
       </a>
       <div class="contact__social">
         

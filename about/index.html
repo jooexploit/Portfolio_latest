@@ -171,12 +171,18 @@
         
           <a href="/skills/" data-spy>Skills</a>
         
+          <a href="/cv/" data-spy>CV</a>
+        
           <a href="/library/" data-spy>Library</a>
         
           <a href="/blog/" data-spy>Blog</a>
         
       </nav>
       <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm nav__cv-btn" href="/cv/" id="nav-cv" title="View & Download CV">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+          <span>CV</span>
+        </a>
         <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
           aria-label="Toggle navigation menu">
@@ -196,20 +202,34 @@
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="container">
         <p class="section__index">01 &mdash; About</p>
-        <h1 class="section__title" id="about-title">About Yousef Tamer<br><span class="accent">CS &amp; DevOps
-            Engineer</span></h1>
+        <h1 class="section__title" id="about-title">About Yousef Tamer<br><span class="accent">DevOps &amp; Cloud Engineer</span></h1>
 
         <div class="about__grid">
           <div class="about__story">
             <p class="about__lead">
-              I'm <strong>Yousef Tamer (jooexploit)</strong> &mdash; a CS &amp; DevOps engineer who started with systems security and kept going deeper. From breaking infrastructures to hardening and automating them, from frontend code to scalable backend clustering &mdash; every chapter taught me how systems interact.
+              I'm <strong>Yousef Tamer (jooexploit)</strong> &mdash; a Computer Science undergraduate at Higher Technological Institute (HTI, expected 2027) building a DevOps and Cloud Engineering profile on a security-first foundation in ethical hacking, CTFs, and OWASP. From daily Linux systems administration (Arch Linux) and Docker containerization to AWS cloud deployments, CI/CD pipelines, and Kubernetes &mdash; every layer taught me how systems interact, scale, and stay resilient.
             </p>
             <p class="about__body">
-              I established the jooexploit brand because modern technology education deserves better. Too many tutorials teach scripts without explaining the "why." My mission is to explain complex architectures and low-level Linux details clearly, honestly, and without compromise.
+              Named a Top Achiever in Cairo by the Digital Egypt Pioneers Initiative (DEPI) in April 2026, and having completed structured curricula across DevOps and DevSecOps bootcamps alongside AWS Academy Cloud Foundations and Cloud Architecting (Aug 2026), I bridge deep systems fundamentals with modern cloud automation.
             </p>
             <p class="about__body">
-              Today I operate at the intersection of <strong>DevOps, Cloud Automation, and Infrastructure Engineering</strong> &mdash; building reproducible systems, automating delivery pipelines, and documenting every lesson so teams and students can scale without friction.
+              With 12 shipped systems spanning real-time WebSocket battle engines, WhatsApp automation bots, LMS architectures, and bare-metal Linux home labs, I build reproducible infrastructure and automate delivery pipelines under the jooexploit brand &mdash; documenting every lesson so teams can scale without friction.
             </p>
+
+            <!-- CV Quick Action Toolbar -->
+            <div class="about__actions" style="margin: 2.25rem 0; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+              <a class="btn btn--primary" href="/cv/" id="about-btn-cv">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                View &amp; Download CV
+              </a>
+              <a class="btn btn--ghost btn--sm" href="/cv.pdf" download="Yousef_Tamer_CV_26.pdf" id="about-btn-pdf" title="Download latest PDF version">
+                PDF Version
+              </a>
+              <a class="btn btn--ghost btn--sm" href="/cv.docx" download="Yousef_Tamer_CV_26.docx" id="about-btn-docx" title="Download latest Word version">
+                DOCX Version
+              </a>
+            </div>
+
             <div class="about__pillars">
               
               <div class="pillar">
@@ -243,7 +263,7 @@
                 <div class="arc__content">
                   <span class="arc__num mono">01</span>
                   <h3>Cybersecurity</h3>
-                  <p>Where it began. Penetration testing and CTFs built a deep understanding of system vulnerabilities and defensive hardening.</p>
+                  <p>Where it began. Penetration testing, CTFs, and OWASP Top 10 built a deep understanding of system vulnerabilities and defensive hardening.</p>
                 </div>
               </div>
               
@@ -255,7 +275,7 @@
                 <div class="arc__content">
                   <span class="arc__num mono">02</span>
                   <h3>Networking</h3>
-                  <p>Protocols, packet analysis, and secure routing. Understood how data flows across physical and virtual private clouds (VPCs).</p>
+                  <p>Protocols, packet analysis, subnetting, and nftables routing. Understanding how data flows across physical switches and virtual private clouds (VPCs).</p>
                 </div>
               </div>
               
@@ -267,7 +287,7 @@
                 <div class="arc__content">
                   <span class="arc__num mono">03</span>
                   <h3>Frontend &rarr; Backend</h3>
-                  <p>React interfaces, Node.js REST APIs, and relational databases. Building production applications for end users.</p>
+                  <p>React interfaces, Node.js REST APIs, and relational databases. Building production applications for real end users.</p>
                 </div>
               </div>
               
@@ -279,7 +299,7 @@
                 <div class="arc__content">
                   <span class="arc__num mono">04</span>
                   <h3>AI &amp; Automation</h3>
-                  <p>Python engines, Bash scripting, and intelligent workflow automations integrated directly into core systems.</p>
+                  <p>Python engines, Bash scripting, local vision models (Qwen2.5-VL), and intelligent workflow automations integrated directly into core systems.</p>
                 </div>
               </div>
               
@@ -290,8 +310,8 @@
                 <div class="arc__dot"></div>
                 <div class="arc__content">
                   <span class="arc__num mono accent">05</span>
-                  <h3>DevOps <span class="arc__now accent">&larr; now</span></h3>
-                  <p>Infrastructure as Code (IaC), GitOps pipelines, Kubernetes clusters, and cloud-native systems administration.</p>
+                  <h3>DevOps &amp; Cloud <span class="arc__now accent">&larr; now</span></h3>
+                  <p>Infrastructure as Code (Terraform), Docker &amp; Kubernetes clusters, CI/CD pipelines, and cloud-native systems on AWS.</p>
                 </div>
               </div>
               
@@ -302,20 +322,95 @@
       </div>
     </section>
 
+    <!-- Education & Academics Section -->
+    <section class="section section--surface" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <p class="section__index">02 &mdash; Education &amp; Bootcamps</p>
+        <h2 class="section__title" id="education-title">Academic &amp; Systems<br><span class="accent">Education</span></h2>
+
+        <div class="education-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;">
+          
+          <article class="card" style="padding: 2rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.01);" data-reveal>
+            <span class="mono accent" style="font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Expected Graduation: 2027</span>
+            <h3 style="font-size: 1.25rem; color: var(--text); margin-bottom: 0.25rem;">Bachelor of Computer Science</h3>
+            <p class="mono" style="font-size: 0.9rem; color: var(--text-2); margin-bottom: 1rem;">Higher Technological Institute (HTI), Egypt</p>
+            <p style="color: var(--text-3); font-size: 0.95rem; line-height: 1.6; margin: 0;">Specializing in Computer Science with a strong focus on systems engineering, operating systems, network protocols, and cloud computing. Building a DevOps and DevSecOps engineering profile on a security-first foundation.</p>
+          </article>
+          
+          <article class="card" style="padding: 2rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.01);" data-reveal>
+            <span class="mono accent" style="font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Completed Curricula</span>
+            <h3 style="font-size: 1.25rem; color: var(--text); margin-bottom: 0.25rem;">DevOps &amp; DevSecOps Bootcamp Curricula</h3>
+            <p class="mono" style="font-size: 0.9rem; color: var(--text-2); margin-bottom: 1rem;">TechWorld with Nana</p>
+            <p style="color: var(--text-3); font-size: 0.95rem; line-height: 1.6; margin: 0;">Completed structured self-study across Kubernetes, Terraform, Ansible, CI/CD release engineering, Prometheus &amp; Grafana observability, container image security, and cloud DevSecOps.</p>
+          </article>
+          
+          <article class="card" style="padding: 2rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.01);" data-reveal>
+            <span class="mono accent" style="font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Aug 2026</span>
+            <h3 style="font-size: 1.25rem; color: var(--text); margin-bottom: 0.25rem;">Cloud Foundations &amp; Cloud Architecting</h3>
+            <p class="mono" style="font-size: 0.9rem; color: var(--text-2); margin-bottom: 1rem;">AWS Academy</p>
+            <p style="color: var(--text-3); font-size: 0.95rem; line-height: 1.6; margin: 0;">Comprehensive training and official badges in AWS Cloud Foundations and Cloud Architecting, focusing on high availability, VPC networking, EC2, IAM, S3, and well-architected cloud designs.</p>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Honors & Awards Section -->
+    <section class="section" id="achievements" aria-labelledby="achievements-title">
+      <div class="container">
+        <p class="section__index">03 &mdash; Honors &amp; Awards</p>
+        <h2 class="section__title" id="achievements-title">Recognition &amp;<br><span class="accent">Security Research</span></h2>
+
+        <div class="achievements-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;">
+          
+          <article class="card" style="padding: 2rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.01);" data-reveal>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="badge badge--featured mono">Top Achiever</span>
+              <span class="mono" style="font-size: 0.85rem; color: var(--text-3);">Apr 2026</span>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--text); margin-bottom: 0.25rem;">Top Achiever in Cairo</h3>
+            <p class="mono" style="font-size: 0.9rem; color: var(--primary); margin-bottom: 1rem;">Digital Egypt Pioneers Initiative (DEPI)</p>
+            <p style="color: var(--text-2); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">Named a Top Achiever in Cairo by the Digital Egypt Pioneers Initiative (DEPI), recognized for outstanding performance, technical leadership, and excellence in core technology paths.</p>
+            
+            <a href="/certifications/top-achiever-cairo.jpg" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg> View Award
+            </a>
+            
+          </article>
+          
+          <article class="card" style="padding: 2rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.01);" data-reveal>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="badge badge--featured mono">Security Research</span>
+              <span class="mono" style="font-size: 0.85rem; color: var(--text-3);">Sep 2024</span>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--text); margin-bottom: 0.25rem;">HackerOne Bug Bounty Vulnerability Report</h3>
+            <p class="mono" style="font-size: 0.9rem; color: var(--primary); margin-bottom: 1rem;">HackerOne</p>
+            <p style="color: var(--text-2); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">Discovered and responsibly reported a valid HTML injection security vulnerability through HackerOne, demonstrating practical web application security assessment skills.</p>
+            
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="container contact__inner">
-        <p class="section__index">02 &mdash; Contact</p>
+        <p class="section__index">04 &mdash; Contact</p>
         <h2 class="contact__title" id="contact-title">
           Let's build something<br>that <em class="accent-em">matters</em>.
         </h2>
         <p class="contact__sub">
-          Open to cloud engineering positions, infrastructure consulting, and collaborations on automation.
+          Open to DevOps and Cloud Engineering positions, infrastructure consulting, and collaborations on automation.
         </p>
         <div class="contact__actions">
           <a class="btn btn--primary btn--lg" href="mailto:youseftamereg@gmail.com" id="contact-email" data-magnetic>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
             youseftamereg@gmail.com
+          </a>
+          <a class="btn btn--ghost btn--lg" href="/cv/" id="contact-cv">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+            Download CV
           </a>
           <div class="contact__social">
             
@@ -397,7 +492,7 @@
             <span>Divize</span>
             </a>
             
-            </div>
+          </div>
         </div>
       </div>
     </section>

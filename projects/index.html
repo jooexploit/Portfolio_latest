@@ -174,12 +174,18 @@
         
           <a href="/skills/" data-spy>Skills</a>
         
+          <a href="/cv/" data-spy>CV</a>
+        
           <a href="/library/" data-spy>Library</a>
         
           <a href="/blog/" data-spy>Blog</a>
         
       </nav>
       <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm nav__cv-btn" href="/cv/" id="nav-cv" title="View & Download CV">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+          <span>CV</span>
+        </a>
         <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
           aria-label="Toggle navigation menu">
@@ -390,6 +396,10 @@
                 </div>
               </div>
             </article>
+          
+        
+          
+        
           
         
           
@@ -789,7 +799,7 @@
                   <div class="browser-body">
                     <picture>
                       <source srcset="/images/blog_app_preview.webp" type="image/webp" />
-                      <img src="/images/blog_app_preview.png" alt="Blog Application Screenshot"
+                      <img src="/images/blog_app_preview.png" alt="Blog Application on AWS EC2 Screenshot"
                         loading="lazy" width="800" height="800" />
                     </picture>
                   </div>
@@ -798,13 +808,13 @@
               <div class="project-card__content">
                 <div class="project-tag-wrap">
                   <span class="tag mono">
-                    PHP &middot; MySQL &middot; AWS EC2
+                    PHP &middot; MySQL &middot; AWS EC2 &middot; Linux
                   </span>
                 </div>
                 <h3>
-                  Blog Application
+                  Blog Application on AWS EC2
                 </h3>
-                <p class="project-card__brief">A server-side rendered full-stack blog built with vanilla PHP.</p>
+                <p class="project-card__brief">A server-side rendered full-stack blog deployed on an Amazon EC2 Linux instance with MySQL.</p>
 
                 <div class="project-metadata mono">
                   <div class="meta-item"><span>Year</span><span>2024</span></div>
@@ -817,11 +827,131 @@
                   
                   <li><span class="chip-dot" style="background: #4479A1;"></span>MySQL</li>
                   
+                  <li><span class="chip-dot" style="background: #FF9900;"></span>AWS EC2</li>
+                  
+                  <li><span class="chip-dot" style="background: #FCC624;"></span>Linux</li>
+                  
                   <li><span class="chip-dot" style="background: #1572B6;"></span>CSS</li>
                   
                 </ul>
 
                 <a href="/projects/blog-app/" class="btn-text"
+                  style="display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none; margin-top:1rem;">
+                  View Case Study
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </a>
+              </div>
+            </article>
+            
+          
+            
+            <article class="project-card project-card--sm" data-reveal id="proj-linux-home-lab">
+              <div class="project-card__visual">
+                <div class="browser-frame browser-frame--sm">
+                  <div class="browser-header">
+                    <div class="browser-dots"><span></span><span></span><span></span></div>
+                    <div class="browser-address">
+                      lab.jooexploit.internal
+                    </div>
+                  </div>
+                  <div class="browser-body">
+                    <picture>
+                      <source srcset="/images/linux_home_lab_preview.webp" type="image/webp" />
+                      <img src="/images/linux_home_lab_preview.png" alt="Linux &amp; Infrastructure Home Lab Screenshot"
+                        loading="lazy" width="800" height="800" />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <div class="project-tag-wrap">
+                  <span class="tag mono">
+                    Linux &middot; Docker &middot; nftables &middot; Bash
+                  </span>
+                </div>
+                <h3>
+                  Linux &amp; Infrastructure Home Lab
+                </h3>
+                <p class="project-card__brief">Daily Arch Linux administration, Docker container orchestration, Nginx hosting, and single-interface dual-subnet routing with nftables.</p>
+
+                <div class="project-metadata mono">
+                  <div class="meta-item"><span>Year</span><span>Ongoing</span></div>
+                  <div class="meta-item"><span>Status</span><span>Active</span></div>
+                </div>
+
+                <ul class="chips chips--glass">
+                  
+                  <li><span class="chip-dot" style="background: #1793D1;"></span>Arch Linux</li>
+                  
+                  <li><span class="chip-dot" style="background: #2496ED;"></span>Docker</li>
+                  
+                  <li><span class="chip-dot" style="background: #009639;"></span>Nginx</li>
+                  
+                  <li><span class="chip-dot" style="background: #4EAA25;"></span>Bash</li>
+                  
+                  <li><span class="chip-dot" style="background: #E95420;"></span>nftables</li>
+                  
+                </ul>
+
+                <a href="/projects/linux-infrastructure-home-lab/" class="btn-text"
+                  style="display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none; margin-top:1rem;">
+                  View Case Study
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </a>
+              </div>
+            </article>
+            
+          
+            
+            <article class="project-card project-card--sm" data-reveal id="proj-echo-vision">
+              <div class="project-card__visual">
+                <div class="browser-frame browser-frame--sm">
+                  <div class="browser-header">
+                    <div class="browser-dots"><span></span><span></span><span></span></div>
+                    <div class="browser-address">
+                      github.com/jooexploit/echo-vision
+                    </div>
+                  </div>
+                  <div class="browser-body">
+                    <picture>
+                      <source srcset="/images/echo_vision_preview.webp" type="image/webp" />
+                      <img src="/images/echo_vision_preview.png" alt="Echo Vision Screenshot"
+                        loading="lazy" width="800" height="800" />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <div class="project-tag-wrap">
+                  <span class="tag mono">
+                    Qwen2.5-VL &middot; Python &middot; TTS &middot; Edge AI
+                  </span>
+                </div>
+                <h3>
+                  Echo Vision
+                </h3>
+                <p class="project-card__brief">AI-powered assistive tool transforming camera feeds into spoken audio for blind students using local vision models.</p>
+
+                <div class="project-metadata mono">
+                  <div class="meta-item"><span>Year</span><span>2026</span></div>
+                  <div class="meta-item"><span>Status</span><span>Active</span></div>
+                </div>
+
+                <ul class="chips chips--glass">
+                  
+                  <li><span class="chip-dot" style="background: #3776AB;"></span>Python</li>
+                  
+                  <li><span class="chip-dot" style="background: #7C3AED;"></span>Qwen2.5-VL</li>
+                  
+                  <li><span class="chip-dot" style="background: #EF4444;"></span>Computer Vision</li>
+                  
+                  <li><span class="chip-dot" style="background: #10B981;"></span>Edge AI</li>
+                  
+                  <li><span class="chip-dot" style="background: #F59E0B;"></span>Text-to-Speech</li>
+                  
+                </ul>
+
+                <a href="/projects/echo-vision-ai-assistive-tool/" class="btn-text"
                   style="display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none; margin-top:1rem;">
                   View Case Study
                   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
@@ -845,9 +975,9 @@
           Open to cloud engineering positions, infrastructure consulting, and collaborations on automation.
         </p>
         <div class="contact__actions">
-          <a class="btn btn--primary btn--lg" href="mailto:spport@jooexploit.dev" id="contact-email" data-magnetic>
+          <a class="btn btn--primary btn--lg" href="mailto:support@jooexploit.dev" id="contact-email" data-magnetic>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
-            spport@jooexploit.dev
+            support@jooexploit.dev
           </a>
           <div class="contact__social">
             

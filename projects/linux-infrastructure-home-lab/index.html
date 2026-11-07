@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linux & Infrastructure Home Lab Case Study — Yousef Tamer (jooexploit)</title>
+  <meta name="description" content="A bare-metal and containerized home lab environment for daily Linux administration, service automation, Docker container management, and advanced network segmentation on physical hardware." />
+  
+  <meta name="theme-color" content="#09090B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jooexploit.dev/projects/linux-infrastructure-home-lab/" />
+
+  
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jooexploit.dev/projects/linux-infrastructure-home-lab/" />
+  <meta property="og:title" content="Linux & Infrastructure Home Lab Case Study — Yousef Tamer (jooexploit)" />
+  <meta property="og:description" content="A bare-metal and containerized home lab environment for daily Linux administration, service automation, Docker container management, and advanced network segmentation on physical hardware." />
+  <meta property="og:image" content="https://jooexploit.dev/images/og_preview.png" />
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jooexploit.dev/projects/linux-infrastructure-home-lab/" />
+  <meta name="twitter:title" content="Linux & Infrastructure Home Lab Case Study — Yousef Tamer (jooexploit)" />
+  <meta name="twitter:description" content="A bare-metal and containerized home lab environment for daily Linux administration, service automation, Docker container management, and advanced network segmentation on physical hardware." />
+  <meta name="twitter:image" content="https://jooexploit.dev/images/og_preview.png" />
+  <meta name="twitter:site" content="@jooexploit" />
+  <meta name="twitter:creator" content="@jooexploit" />
+
+  <!-- Favicon Package & PWA Manifest -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jooexploit.dev/#person",
+      "name": "Yousef Tamer",
+      "alternateName": "jooexploit",
+      "jobTitle": "Senior DevOps & Cloud Engineer",
+      "url": "https://jooexploit.dev/",
+      "image": "https://jooexploit.dev/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Egypt"
+      },
+      "sameAs": [
+        "https://github.com/jooexploit/",
+        "https://gitlab.com/jooexploit/",
+        "https://x.com/jooexploit",
+        "https://linkedin.com/in/jooexploit",
+        "https://www.facebook.com/jooexploit",
+        "https://www.instagram.com/jooexploit",
+        "https://api.whatsapp.com/send?phone=201090952790",
+        "https://tryhackme.com/p/jooexploit",
+        "https://marketplace.visualstudio.com/publishers/jooexploit",
+        "https://medium.com/@jooexploit",
+        "https://divize.io/profile/jooexploit",
+        "https://huggingface.co/jooexploit",
+        "https://mostaql.com/u/Jooexploit"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "DevOps",
+        "Cloud Computing",
+        "Linux Systems",
+        "Infrastructure as Code",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Python",
+        "Bash Scripting",
+        "Systems Security",
+        "Technology Education"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://jooexploit.dev/projects/linux-infrastructure-home-lab/#webpage",
+      "url": "https://jooexploit.dev/projects/linux-infrastructure-home-lab/",
+      "name": "Linux & Infrastructure Home Lab Case Study — Yousef Tamer (jooexploit)",
+      "description": "A bare-metal and containerized home lab environment for daily Linux administration, service automation, Docker container management, and advanced network segmentation on physical hardware.",
+      "isPartOf": {
+        "@id": "https://jooexploit.dev/#website"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://jooexploit.dev/projects/linux-infrastructure-home-lab/#sourcecode",
+      "name": "Linux & Infrastructure Home Lab",
+      "codeRepository": "https://github.com/jooexploit",
+      "programmingLanguage": [
+        "Arch Linux",
+        "Docker",
+        "Nginx",
+        "Bash",
+        "nftables"
+      ],
+      "runtimePlatform": "Linux",
+      "author": {
+        "@id": "https://jooexploit.dev/#person"
+      },
+      "description": "Daily Arch Linux administration, Docker container orchestration, Nginx hosting, and single-interface dual-subnet routing with nftables.",
+      "mainEntityOfPage": {
+        "@id": "https://jooexploit.dev/projects/linux-infrastructure-home-lab/#webpage"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jooexploit.dev/projects/linux-infrastructure-home-lab/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jooexploit.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://jooexploit.dev/projects/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Linux & Infrastructure Home Lab",
+          "item": "https://jooexploit.dev/projects/linux-infrastructure-home-lab/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  
+  
+</head>
+
+<body class="subpage">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Back to home">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="nav__logo-img" width="240" height="160" />
+        </picture>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        
+          <a href="/about/" data-spy>About</a>
+        
+          <a href="/journey/" data-spy>Journey</a>
+        
+          <a href="/certifications/" data-spy>Certifications</a>
+        
+          <a href="/projects/" data-spy>Work</a>
+        
+          <a href="/skills/" data-spy>Skills</a>
+        
+          <a href="/cv/" data-spy>CV</a>
+        
+          <a href="/library/" data-spy>Library</a>
+        
+          <a href="/blog/" data-spy>Blog</a>
+        
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm nav__cv-btn" href="/cv/" id="nav-cv" title="View & Download CV">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+          <span>CV</span>
+        </a>
+        <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <section class="section" aria-labelledby="project-title">
+      <div class="container">
+
+        <!-- Project Hero Header -->
+        <div class="project-header-detail" style="margin-bottom: 3rem;">
+          <div class="project-tag-wrap" style="margin-bottom: 1rem;">
+            <span class="badge badge--featured mono">Infrastructure</span>
+            <span class="tag mono">Linux &middot; Docker &middot; nftables &middot; Bash</span>
+          </div>
+          <h1 id="project-title" class="section__title" style="margin-bottom: 1.5rem;">Linux &amp; Infrastructure Home Lab</h1>
+          <p class="about__lead" style="max-width: 800px; margin-bottom: 2rem;">
+            A bare-metal and containerized home lab environment for daily Linux administration, service automation, Docker container management, and advanced network segmentation on physical hardware.
+          </p>
+
+          <div class="project-metadata mono" style="margin-bottom: 2rem;">
+            <div class="meta-item"><span>Year</span><span>Ongoing</span></div>
+            <div class="meta-item"><span>Role</span><span>Systems Administrator</span></div>
+            <div class="meta-item"><span>Status</span><span>Active</span></div>
+            <div class="meta-item"><span>Duration</span><span>Continuous</span></div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a class="btn btn--primary" href="https://github.com/jooexploit" target="_blank"
+              rel="noopener noreferrer">
+              GitHub Repository
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg>
+            </a>
+            <a class="btn btn--ghost" href="/projects/" style="border: 1px solid var(--border);">Back to Projects</a>
+          </div>
+        </div>
+
+        <!-- Project Screenshot Visual -->
+        <div class="project-detail__visual" style="margin-bottom: 4rem;">
+          
+          <div class="terminal-frame">
+            <div class="terminal-header">
+              <div class="terminal-dots"><span></span><span></span><span></span></div>
+              <div class="terminal-title">bash - linux-infrastructure-home-lab</div>
+            </div>
+            <div class="terminal-body">
+              <picture>
+                <source srcset="/images/linux_home_lab_preview.webp" type="image/webp" />
+                <img src="/images/linux_home_lab_preview.png" alt="Linux &amp; Infrastructure Home Lab Terminal" width="1280"
+                  height="720" style="width: 100%; height: auto;" />
+              </picture>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Project Details Grid -->
+        <div class="about__grid">
+
+          <div class="about__story">
+
+            <h2 class="mono" style="color: var(--text); margin-bottom: 1rem;">1. Recruiter-Friendly Summary</h2>
+            <div class="about__body" style="margin-bottom: 2rem;">
+              Real-world systems engineering requires deep familiarity with low-level Linux primitives, networking stacks, and fault recovery that cannot be simulated purely in managed cloud dashboards.
+            </div>
+
+            <h2 class="mono" style="color: var(--text); margin-bottom: 1rem;">
+              2. Home Lab Architecture &amp; Network Topology
+            </h2>
+            <div class="about__body" style="margin-bottom: 2.5rem;">
+              Constructed a persistent home lab running Arch Linux. Implemented multi-subnet network routing over a single wired NIC via IP aliasing, custom dnsmasq configurations, and nftables firewall rules. Automated Docker container provisioning and health monitoring with custom Bash utilities.
+            </div>
+
+            <h2 class="mono" style="color: var(--text); margin-bottom: 1rem;">3. Engineering Challenges</h2>
+            <div class="about__body" style="margin-bottom: 2.5rem;">
+              Arch Linux daily driver with systemd service managers, journalctl logging, Docker engines, Nginx reverse proxying, nftables packet filtering, and Bash automation scripts.
+            </div>
+
+            <h2 class="mono" style="color: var(--text); margin-bottom: 1rem;">4. Implemented Solutions</h2>
+            <div class="about__body" style="margin-bottom: 2rem;">
+              Provides hands-on mastery of Linux internals, permission models, process signals, and network debugging that directly informs production DevOps delivery.
+            </div>
+
+          </div>
+
+          <!-- Sidebar details -->
+          <div>
+            <div class="card"
+              style="padding: 2rem; border: 1px solid var(--border); margin-bottom: 2rem; position: sticky; top: 100px;">
+              <h3 class="mono" style="margin-bottom: 1.5rem; color: var(--primary);">Case Profile</h3>
+
+              <div style="margin-bottom: 1.5rem;">
+                <h4 class="mono" style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 0.5rem;">Primary
+                  Technologies</h4>
+                <ul class="chips" style="padding: 0;">
+                  
+                  <li>Arch Linux</li>
+                  
+                  <li>Docker</li>
+                  
+                  <li>Nginx</li>
+                  
+                  <li>Bash</li>
+                  
+                  <li>nftables</li>
+                  
+                </ul>
+              </div>
+
+              <div style="margin-bottom: 1.5rem;">
+                <h4 class="mono" style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 0.5rem;">Operational
+                  Impact</h4>
+                <ul class="chips" style="padding: 0;">
+                  
+                  <li>Administer Linux daily with systemd, SSH, and journalctl troubleshooting</li>
+                  
+                  <li>Single-port dual subnet routing using IP aliasing, dnsmasq, and nftables</li>
+                  
+                  <li>Automated deployment scripts and containerized service workflows</li>
+                  
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="mono" style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 0.5rem;">Key Takeaway
+                </h4>
+                <p style="font-size: 0.9rem; color: var(--text-2);">
+                  Mastering Linux on bare metal and local networks builds the diagnostic intuition needed to troubleshoot distributed production infrastructure quickly and accurately.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <p class="section__index">05 &mdash; Contact</p>
+        <h2 class="contact__title" id="contact-title">
+          Let's build something<br>that <em class="accent-em">matters</em>.
+        </h2>
+        <p class="contact__sub">
+          Open to cloud engineering positions, infrastructure consulting, and collaborations on automation.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:support@jooexploit.dev" id="contact-email" data-magnetic>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+            support@jooexploit.dev
+          </a>
+          <div class="contact__social">
+            
+            <a class="btn btn--ghost" href="https://github.com/jooexploit/" id="contact-github" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitHub Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+            <span>GitHub</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://gitlab.com/jooexploit/" id="contact-gitlab" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's GitLab Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 13.29-3.33-10a.42.42 0 0 0-.14-.18.38.38 0 0 0-.22-.1.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18l-2.26 6.67H8.32L6.06 3.29a.42.42 0 0 0-.14-.18.38.38 0 0 0-.22-.1.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18l-3.33 10a.89.89 0 0 0 .33 1l9.46 6.89a.72.72 0 0 0 .86 0l9.46-6.89a.89.89 0 0 0 .33-1" /></svg>
+            <span>GitLab</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://linkedin.com/in/jooexploit" id="contact-linkedin" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's LinkedIn Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
+            <span>LinkedIn</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://x.com/jooexploit" id="contact-x" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's X Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22L14 12L4 2h4.5l7.75 8.25L20 2h2L12 12l10 10h-4.5l-7.75-8.25L6 22H4z" /></svg>
+            <span>X</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://www.facebook.com/jooexploit" id="contact-facebook" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's Facebook Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+            <span>Facebook</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://www.instagram.com/jooexploit" id="contact-instagram" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's Instagram Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+            <span>Instagram</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://api.whatsapp.com/send?phone=201090952790" id="contact-whatsapp" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's WhatsApp Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+            <span>WhatsApp</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://medium.com/@jooexploit" id="contact-medium" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's Medium Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h4v-8l4 6 4-6v8h4V4h-4l-4 6-4-10H4z" /></svg>
+            <span>Medium</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://tryhackme.com/p/jooexploit" id="contact-tryhackme" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's TryHackMe Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+            <span>TryHackMe</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://huggingface.co/jooexploit" id="contact-huggingface" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's HuggingFace Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" y1="9" x2="9.01" y2="9" /><line x1="15" y1="9" x2="15.01" y2="9" /></svg>
+            <span>HuggingFace</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://mostaql.com/u/Jooexploit" id="contact-mostaql" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's Mostaql Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>
+            <span>Mostaql</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://marketplace.visualstudio.com/publishers/jooexploit" id="contact-marketplace" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's Marketplace Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" /></svg>
+            <span>Marketplace</span>
+            </a>
+            
+            <a class="btn btn--ghost" href="https://divize.io/profile/jooexploit" id="contact-divize" target="_blank"
+            rel="me noopener noreferrer" aria-label="Visit Yousef Tamer's Divize Profile">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" /><rect x="14" y="3" width="7" height="5" /><rect x="14" y="12" width="7" height="9" /><rect x="3" y="16" width="7" height="5" /></svg>
+            <span>Divize</span>
+            </a>
+            
+            </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo-wrap">
+        <picture>
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img src="/images/logo.png" alt="jooexploit logo" class="footer__logo-img" width="240" height="160" />
+        </picture>
+        <span class="mono">&copy; <span id="year"></span></span>
+      </div>
+      <p class="footer__note">CS · DevOps · Cloud · Linux · Automation · Education</p>
+      <a href="#top" class="footer__top" id="footer-top" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
+  
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

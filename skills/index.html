@@ -171,12 +171,18 @@
         
           <a href="/skills/" class="is-active" data-spy>Skills</a>
         
+          <a href="/cv/" data-spy>CV</a>
+        
           <a href="/library/" data-spy>Library</a>
         
           <a href="/blog/" data-spy>Blog</a>
         
       </nav>
       <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm nav__cv-btn" href="/cv/" id="nav-cv" title="View & Download CV">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+          <span>CV</span>
+        </a>
         <a class="btn btn--primary btn--sm" href="/contact/" id="nav-cta">Get in touch</a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
           aria-label="Toggle navigation menu">
@@ -245,76 +251,107 @@
         <div class="skills-grid">
           
           <div class="card skills-col">
-            <h3 class="mono">Languages &amp; Web</h3>
+            <h3 class="mono">Linux &amp; Systems Administration (Hands-on)</h3>
             <ul>
               
-              <li>Python (Programming Language)</li>
+              <li>Arch Linux (Daily Driver) &amp; Debian/Ubuntu/RHEL</li>
               
-              <li>JavaScript &amp; React.js</li>
+              <li>Command-Line Interface (CLI) &amp; Advanced Shell Workflows</li>
               
-              <li>PHP &amp; HTML / CSS</li>
+              <li>Users, Groups, Permissions &amp; Storage Management</li>
               
-              <li>SQL &amp; MySQL</li>
+              <li>systemd Service Units, journalctl &amp; Fault Diagnosis</li>
+              
+              <li>Secure Shell (SSH) &amp; Headless Server Administration</li>
               
             </ul>
           </div>
           
           <div class="card skills-col">
-            <h3 class="mono">DevOps &amp; Cloud</h3>
+            <h3 class="mono">Cloud, Containers &amp; Orchestration</h3>
             <ul>
               
-              <li>Docker &amp; Containerization</li>
+              <li>AWS (Amazon EC2 hands-on; IAM, VPC, S3, ECR, EKS, SSM)</li>
               
-              <li>Git &amp; GitHub Version Control</li>
+              <li>Docker, Dockerfiles, Multi-stage Builds &amp; Image Optimization</li>
               
-              <li>AWS (Amazon Web Services)</li>
+              <li>Docker Compose &amp; Container Registries</li>
               
-              <li>Cloud Computing &amp; Virtualization</li>
+              <li>Kubernetes (Pods, Deployments, Services, Ingress, PV/PVC)</li>
+              
+              <li>Helm Charts, Kustomize, ConfigMaps, Secrets &amp; Operators</li>
               
             </ul>
           </div>
           
           <div class="card skills-col">
-            <h3 class="mono">Systems &amp; Networks</h3>
+            <h3 class="mono">CI/CD, IaC &amp; Automation</h3>
             <ul>
               
-              <li>Linux (RHEL / Red Hat Linux)</li>
+              <li>Git, GitHub &amp; GitLab Version Control Systems</li>
               
-              <li>TCP/IP &amp; Network Subnetting</li>
+              <li>GitLab CI/CD, GitLab Runners &amp; Automated Pipelines</li>
               
-              <li>Apache &amp; WAMP Servers</li>
+              <li>Jenkins Pipelines &amp; Jenkins Shared Libraries</li>
               
-              <li>Computer Network Fundamentals</li>
+              <li>Terraform (State Management, Remote Backends &amp; Modules)</li>
+              
+              <li>Ansible (Inventories, Playbooks &amp; Config Management)</li>
+              
+              <li>Bash / Shell Automation &amp; Python Scripting</li>
               
             </ul>
           </div>
           
           <div class="card skills-col">
-            <h3 class="mono">Security &amp; Assessment</h3>
+            <h3 class="mono">DevSecOps, Observability &amp; Security</h3>
             <ul>
               
-              <li>Penetration Testing / Ethical Hacking</li>
+              <li>DevSecOps, Secure SDLC &amp; OWASP Top 10 Vulnerabilities</li>
               
-              <li>IDS / IPS &amp; Firewalls Setup</li>
+              <li>SAST, DAST &amp; SCA Scanning (Semgrep, GitLeaks, OWASP ZAP)</li>
               
-              <li>Wireshark &amp; Kali Linux Security Tools</li>
+              <li>Kubernetes Security (RBAC, OPA Gatekeeper, Network Policies)</li>
               
-              <li>Web Application Security Assessment</li>
+              <li>Cloud Security (IAM Least Privilege, Vault, AWS Secrets Manager)</li>
+              
+              <li>Prometheus, Alertmanager, Grafana Dashboards &amp; Alerting</li>
+              
+              <li>AWS CloudWatch &amp; CloudTrail Logging &amp; Auditing</li>
               
             </ul>
           </div>
           
           <div class="card skills-col">
-            <h3 class="mono">Leadership &amp; Strategy</h3>
+            <h3 class="mono">Networking &amp; Security Fundamentals</h3>
             <ul>
               
-              <li>Team Leadership &amp; Management</li>
+              <li>TCP/IP, Subnetting, Routing, NAT &amp; Gateway Architecture</li>
               
-              <li>Project Coordination &amp; Events</li>
+              <li>DNS (dnsmasq) &amp; DHCP Protocols and Resolutions</li>
               
-              <li>Analytical &amp; Research Skills</li>
+              <li>Packet Filtering, Firewalls &amp; nftables Routing Rules</li>
               
-              <li>Bilingual (Arabic / English)</li>
+              <li>Single-Port Dual-Subnet Routing via IP Aliasing</li>
+              
+              <li>Wireshark Packet Inspection &amp; Kali Linux Assessment Tools</li>
+              
+            </ul>
+          </div>
+          
+          <div class="card skills-col">
+            <h3 class="mono">Programming, Web &amp; Databases</h3>
+            <ul>
+              
+              <li>Python, Bash, JavaScript &amp; TypeScript</li>
+              
+              <li>Node.js, Express.js &amp; REST API Architecture</li>
+              
+              <li>React.js, Vite &amp; Tailwind CSS Interface Design</li>
+              
+              <li>PostgreSQL, MySQL &amp; Relational Database Schemas</li>
+              
+              <li>WebSockets (Socket.IO) &amp; Webhook Pipelines</li>
               
             </ul>
           </div>
@@ -334,9 +371,9 @@
           Open to cloud engineering positions, infrastructure consulting, and collaborations on automation.
         </p>
         <div class="contact__actions">
-          <a class="btn btn--primary btn--lg" href="mailto:spport@jooexploit.dev" id="contact-email" data-magnetic>
+          <a class="btn btn--primary btn--lg" href="mailto:support@jooexploit.dev" id="contact-email" data-magnetic>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
-            spport@jooexploit.dev
+            support@jooexploit.dev
           </a>
           <div class="contact__social">
             
